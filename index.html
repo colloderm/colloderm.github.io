@@ -8,25 +8,103 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
 <link rel="stylesheet" href="css/style.css">
+
+
+
 </head>
 <body>
-<div class="page">
+<section class="bp" aria-label="블루프린트 형식 자기소개">
+  <div class="bp-frame">
+    <div class="bp-tab"><b>BP_Portfolio</b><span class="sep">›</span><span>Event Graph</span></div>
+    <div class="bp-graph" id="graph">
+      <svg class="bp-wires" id="wires" aria-hidden="true"></svg>
 
-  <header class="hero">
-    <div class="eyebrow">Client Programmer · Unreal Engine 5</div>
-    <h1>김진호<span>KIM JINHO</span></h1>
-    <p class="lede">언리얼 엔진 5로 액션 RPG와 1인칭 방탈출 게임을 만든 클라이언트 프로그래머입니다. 전투 시스템, 적 AI, 카메라 연출, 인벤토리·인터랙션 시스템을 직접 구현했습니다.</p>
-  </header>
+      <div class="node ev">
+        <div class="nh"><span class="t"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 0l6 6-6 6-6-6z" fill="#fff"/></svg>Event BeginPlay</span></div>
+        <div class="nb"><div class="row r"><i class="pin exec" id="ev-o"></i></div></div>
+      </div>
+
+      <div class="node dev">
+        <div class="nh"><span class="t"><b aria-hidden="true">ƒ</b>Spawn Developer</span><small>Target is Game Industry</small></div>
+        <div class="nb">
+          <div class="row split"><i class="pin exec" id="dev-i"></i><i class="pin exec" id="dev-o"></i></div>
+          <div class="row"><i class="pin data p-str"></i><span class="k">Name</span></div>
+          <div class="row"><h1 class="name">김진호<span>KIM JINHO</span></h1></div>
+          <div class="row"><i class="pin data p-str"></i><span class="k">Role</span><span class="val">Client Programmer</span></div>
+          <div class="row"><i class="pin data p-obj"></i><span class="k">Engine</span><span class="val">Unreal Engine 5</span></div>
+          <div class="row"><i class="pin data p-text"></i><span class="k">Language</span><span class="val">C++ · Blueprint</span></div>
+        </div>
+      </div>
+
+      <div class="node seq">
+        <div class="nh"><span class="t"><svg width="13" height="12" viewBox="0 0 13 12" aria-hidden="true"><path d="M0 1h13M0 6h13M0 11h13" stroke="#fff" stroke-width="2"/></svg>Sequence</span></div>
+        <div class="nb">
+          <div class="row"><i class="pin exec" id="seq-i"></i></div>
+          <div class="row r"><span class="k">Then 0</span><i class="pin exec" id="s0"></i></div>
+          <div class="row r"><span class="k">Then 1</span><i class="pin exec" id="s1"></i></div>
+          <div class="row r"><span class="k">Then 2</span><i class="pin exec" id="s2"></i></div>
+          <div class="row r"><span class="k">Then 3</span><i class="pin exec" id="s3"></i></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="comment-h">Core Systems<small>직접 구현한 핵심 시스템</small></div>
+        <div class="comment-b">
+          <div class="node fn p-fa">
+            <div class="nh"><span class="t"><b aria-hidden="true">ƒ</b>Activate Ability</span><small>Combat · <b>Fantasy Action</b></small></div>
+            <div class="nb">
+              <div class="row"><i class="pin exec" id="n0"></i></div>
+              <div class="row"><i class="pin data p-obj"></i><span class="k">Systems</span><span class="val">Gameplay Ability System · Motion Warping</span></div>
+            </div>
+          </div>
+          <div class="node fn p-fa">
+            <div class="nh"><span class="t"><b aria-hidden="true">ƒ</b>Run Behavior Tree</span><small>Enemy AI · <b>Fantasy Action</b></small></div>
+            <div class="nb">
+              <div class="row"><i class="pin exec" id="n1"></i></div>
+              <div class="row"><i class="pin data p-obj"></i><span class="k">Systems</span><span class="val">Behavior Tree · EQS · AI Perception</span></div>
+            </div>
+          </div>
+          <div class="node fn p-fa">
+            <div class="nh"><span class="t"><b aria-hidden="true">ƒ</b>Play Level Sequence</span><small>Cinematic · <b>Fantasy Action</b></small></div>
+            <div class="nb">
+              <div class="row"><i class="pin exec" id="n2"></i></div>
+              <div class="row"><i class="pin data p-obj"></i><span class="k">Systems</span><span class="val">Sequencer · CineCamera · CameraShake</span></div>
+            </div>
+          </div>
+          <div class="node fn p-ms">
+            <div class="nh"><span class="t"><b aria-hidden="true">ƒ</b>Grab Component</span><small>Interaction · <b>Magic School</b></small></div>
+            <div class="nb">
+              <div class="row"><i class="pin exec" id="n3"></i></div>
+              <div class="row"><i class="pin data p-obj"></i><span class="k">Systems</span><span class="val">PhysicsHandle · Inventory · Niagara</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page" style="padding-top:16px">
+
+  <section class="r-sec about">
+    <h2 class="r-label">소개</h2>
+    <p>언리얼 엔진 5로 <strong>액션 RPG</strong>와 <strong>1인칭 방탈출 게임</strong>을 만든 클라이언트 프로그래머입니다.<br class="br-wide"> <strong>전투 시스템, 적 AI, 카메라 연출, 인벤토리·인터랙션 시스템</strong>을 직접 구현했습니다.</p>
+  </section>
 
   <section class="r-sec">
     <h2 class="r-label">기술 스택</h2>
-    <dl class="skills">
-      <div><dt>Language</dt><dd>C++, Blueprint</dd></div>
-      <div><dt>Engine</dt><dd>Unreal Engine 5</dd></div>
-      <div><dt>Gameplay</dt><dd>Gameplay Ability System, Motion Warping, Linked Anim Layer</dd></div>
-      <div><dt>AI</dt><dd>Behavior Tree, EQS, AI Perception</dd></div>
-      <div><dt>연출 · UI</dt><dd>Sequencer, Niagara, UMG</dd></div>
-    </dl>
+    <div class="tagset">
+      <div class="tag-group" style="--c:var(--pin-string)"><span class="tg-label">Language</span>
+        <ul class="hashtags"><li><b>#</b>C++</li><li><b>#</b>Blueprint</li></ul></div>
+      <div class="tag-group" style="--c:var(--pin-object)"><span class="tg-label">Engine</span>
+        <ul class="hashtags"><li><b>#</b>UnrealEngine5</li></ul></div>
+      <div class="tag-group" style="--c:var(--pin-float)"><span class="tg-label">Gameplay</span>
+        <ul class="hashtags"><li><b>#</b>GameplayAbilitySystem</li><li><b>#</b>MotionWarping</li><li><b>#</b>LinkedAnimLayer</li></ul></div>
+      <div class="tag-group" style="--c:var(--pin-vector)"><span class="tg-label">AI</span>
+        <ul class="hashtags"><li><b>#</b>BehaviorTree</li><li><b>#</b>EQS</li><li><b>#</b>AIPerception</li></ul></div>
+      <div class="tag-group" style="--c:var(--pin-rotator)"><span class="tg-label">연출 · UI</span>
+        <ul class="hashtags"><li><b>#</b>Sequencer</li><li><b>#</b>Niagara</li><li><b>#</b>UMG</li></ul></div>
+    </div>
   </section>
 
   <section class="r-sec">
@@ -78,5 +156,6 @@
 
   <footer><span>김진호 · Client Programmer</span><span>Unreal Engine 5 Portfolio</span></footer>
 </div>
+<script src="js/blueprint.js"></script>
 </body>
 </html>

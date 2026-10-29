@@ -176,3 +176,87 @@ dialog form button{font:inherit;background:var(--panel-2);color:var(--fg);border
 .video-lg .play{font-size:1rem;gap:14px}
 .video-lg .play i{width:92px;height:92px;box-shadow:0 0 0 10px color-mix(in srgb,var(--accent) 25%,transparent)}
 @media (max-width:640px){.video-lg .play{font-size:.85rem}.video-lg .play i{width:68px;height:68px}}
+
+/* ---------- 메인: 블루프린트 노드 그래프 / 소개 / 해시태그 ---------- */
+/* Blueprint hero: the intro is an EventGraph. Event → Spawn Developer → Sequence → four system nodes in a comment box. Wires are drawn by script from the pin positions. */
+:root{
+  --bp-ground:#15171d; --bp-grid:rgba(255,255,255,.035); --bp-grid-major:rgba(255,255,255,.075);
+  --bp-node:#0f1116; --bp-node-line:#050608; --bp-wire:#f4f5f7;
+  --bp-event:#a32626; --bp-func:#2f63a3; --bp-macro:#596070;
+  --pin-string:#f062c8; --pin-object:#2fa9ef; --pin-struct:#2f6bd8; --pin-text:#e07fa0;
+  --pin-float:#9fe04a; --pin-vector:#f2c14e; --pin-rotator:#a99cf2;
+}
+
+.bp{max-width:1200px;margin:0 auto;padding-block:40px 0}
+.bp-frame{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bp-ground)}
+.bp-tab{display:flex;align-items:center;gap:8px;padding:8px 14px;background:var(--panel);border-bottom:1px solid var(--line);font-size:.8rem;color:var(--muted);font-family:var(--f-mono)}
+.bp-tab b{color:var(--fg);font-weight:600}
+.bp-tab .sep{color:var(--dim)}
+.bp-graph{position:relative;display:grid;grid-template-columns:150px 300px 130px minmax(0,1fr);grid-template-areas:"ev dev seq sys";column-gap:56px;align-items:center;padding:36px 32px 76px;
+  background-color:var(--bp-ground);
+  background-image:linear-gradient(var(--bp-grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--bp-grid-major) 1px,transparent 1px),linear-gradient(var(--bp-grid) 1px,transparent 1px),linear-gradient(90deg,var(--bp-grid) 1px,transparent 1px);
+  background-size:128px 128px,128px 128px,16px 16px,16px 16px}
+.bp-graph::after{content:"BLUEPRINT";position:absolute;right:20px;bottom:10px;font-family:var(--f-display);font-weight:700;font-size:2.4rem;letter-spacing:.08em;color:rgba(255,255,255,.06);pointer-events:none}
+.bp-wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible}
+.bp-wires path{fill:none;stroke:var(--bp-wire);stroke-width:2.2}
+.bp-wires path.pulse{stroke:var(--fa);stroke-width:3;stroke-dasharray:14 400;stroke-linecap:round;animation:exec 1.6s linear 3;opacity:.9}
+@keyframes exec{from{stroke-dashoffset:414}to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.bp-wires path.pulse{display:none}}
+
+.node{position:relative;z-index:1;background:var(--bp-node);border:1px solid var(--bp-node-line);border-radius:8px;box-shadow:0 8px 22px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.04);min-width:0}
+.nh{padding:7px 12px 8px;border-radius:7px 7px 0 0;color:#fff;font-weight:700;font-size:.86rem;line-height:1.3;display:grid;gap:1px;background:linear-gradient(90deg,var(--h) 0%,color-mix(in srgb,var(--h) 35%,transparent) 85%)}
+.nh small{font-weight:400;font-size:.72rem;color:rgba(255,255,255,.65)}
+.nh .t{display:flex;align-items:center;gap:7px}
+.nh .t svg{flex:none}
+.ev{--h:var(--bp-event);grid-area:ev}
+.dev{--h:var(--bp-func);grid-area:dev}
+.seq{--h:var(--bp-macro);grid-area:seq}
+.fn{--h:var(--bp-func)}
+.nb{padding:8px 0 10px;display:grid;gap:6px}
+.row{display:flex;align-items:center;gap:8px;padding:0 10px;font-size:.8rem;color:#d9dce3;min-height:20px}
+.row.r{justify-content:flex-end}
+.row.split{justify-content:space-between}
+.row .k{color:#c4c8d2;white-space:nowrap}
+.pin{flex:none;display:inline-block;width:11px;height:11px}
+.pin.exec{width:12px;height:13px;background:var(--bp-wire);clip-path:polygon(0 0,55% 0,100% 50%,55% 100%,0 100%)}
+.pin.data{border-radius:50%;border:2px solid var(--c);background:transparent}
+.pin.data.on{background:var(--c)}
+.p-str{--c:var(--pin-string)} .p-obj{--c:var(--pin-object)} .p-struct{--c:var(--pin-struct)} .p-text{--c:var(--pin-text)}
+.val{background:#22252d;border:1px solid #33373f;border-radius:3px;padding:1px 7px;color:var(--fg);font-size:.8rem;min-width:0;overflow-wrap:anywhere}
+.dev .name{margin:0;font-family:var(--f-body);font-weight:900;font-size:2.1rem;letter-spacing:-.01em;line-height:1.25;padding:2px 10px;background:#22252d;border:1px solid #33373f;border-radius:4px}
+.dev .name span{font-family:var(--f-display);font-weight:600;font-size:.42em;color:var(--muted);letter-spacing:.06em;margin-left:.4em;vertical-align:middle}
+
+.comment{grid-area:sys;position:relative;z-index:1;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.035);border-radius:6px;min-width:0}
+.comment-h{padding:6px 12px;background:rgba(255,255,255,.1);font-size:.85rem;font-weight:700;color:#fff;border-radius:5px 5px 0 0}
+.comment-h small{font-weight:400;color:var(--muted);margin-left:8px}
+.comment-b{padding:14px;display:grid;gap:14px}
+.fn .row a{color:var(--fg);text-decoration:none;border-bottom:1px dashed var(--dim)}
+.fn .row a:hover{color:var(--accent);border-color:var(--accent)}
+.fn.p-fa .nh small b,.fn.p-ms .nh small b{color:var(--accent);font-weight:600}
+
+/* 소개 영역 */
+.about p{max-width:none;font-size:1.125rem;line-height:1.85;color:var(--muted);word-break:keep-all}
+.about strong{color:var(--fg);font-weight:500}
+@media (max-width:860px){.about .br-wide{display:none}}  /* 좁은 화면에서는 자연스럽게 이어서 줄바꿈 */
+
+/* 기술 스택: 분야별 해시태그, 색은 블루프린트 핀 색에서 가져옴 */
+.tagset{display:grid;gap:14px}
+.tag-group{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;align-items:center}
+.tg-label{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.9rem}
+.tg-label::before{content:"";width:9px;height:9px;border-radius:50%;border:2px solid var(--c);flex:none}
+.hashtags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.hashtags li{margin:0;font-family:var(--f-mono);font-size:.86rem;line-height:1.4;padding:5px 13px;border-radius:999px;color:var(--fg);
+  background:color-mix(in srgb,var(--c) 12%,transparent);border:1px solid color-mix(in srgb,var(--c) 42%,transparent);transition:background .15s}
+.hashtags li:hover{background:color-mix(in srgb,var(--c) 22%,transparent)}
+.hashtags li b{color:var(--c);font-weight:600;margin-right:1px}
+@media (max-width:520px){.tag-group{grid-template-columns:minmax(0,1fr);gap:8px}}
+
+/* Narrow screens: the graph becomes a vertical execution chain */
+@media (max-width:1000px){
+  .bp-graph{grid-template-columns:minmax(0,1fr);grid-template-areas:"ev" "dev" "seq" "sys";row-gap:26px;padding:24px 16px 56px}
+  .bp-wires{display:none}
+  .ev,.seq{max-width:240px}
+  .dev,.seq,.comment,.comment-b .node+.node{position:relative}
+  .dev::before,.seq::before,.comment::before,.comment-b .node+.node::before{content:"";position:absolute;left:24px;top:-27px;width:2px;height:26px;background:var(--bp-wire)}
+  .comment-b .node+.node::before{top:-15px;height:14px}
+}
