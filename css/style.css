@@ -260,3 +260,22 @@ dialog form button{font:inherit;background:var(--panel-2);color:var(--fg);border
   .dev::before,.seq::before,.comment::before,.comment-b .node+.node::before{content:"";position:absolute;left:24px;top:-27px;width:2px;height:26px;background:var(--bp-wire)}
   .comment-b .node+.node::before{top:-15px;height:14px}
 }
+
+/* ---------- 상세 페이지: 섹션 구분 (구분선 + 번호 + 목차 연동) ---------- */
+.project{counter-reset:sec}
+.project .sec{counter-increment:sec;padding-top:36px;margin-top:64px;border-top:1px solid var(--line)}
+.phead + .sec{margin-top:40px;border-top:0;padding-top:0}
+.sec>h3{flex-wrap:wrap;row-gap:4px}
+.sec>h3::before{content:counter(sec,decimal-leading-zero);flex-basis:100%;font-family:var(--f-display);font-size:.8rem;font-weight:600;letter-spacing:.16em;color:var(--accent)}
+/* 섹션 안 소항목은 점선으로 한 단계 약하게 */
+.sec>.sub{border-top:1px dashed var(--line);padding-top:24px;margin-top:4px}
+.sec>h3+.sub{border-top:0;padding-top:0;margin-top:0}
+.sub h4{display:flex;align-items:center;flex-wrap:wrap;gap:4px 10px}
+.sub h4::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--accent);flex:none}
+.sub h4 code{margin-left:0}
+/* 목차: 섹션과 같은 번호, 지금 보는 섹션 강조 */
+.outliner{counter-reset:toc}
+.outliner a:not(.top){counter-increment:toc;display:flex;gap:10px;padding-left:16px}
+.outliner a:not(.top)::before{content:counter(toc,decimal-leading-zero);font-family:var(--f-mono);font-size:.72rem;color:var(--dim);min-width:1.6em;padding-top:.2em}
+.outliner a.is-active{color:var(--fg);background:var(--panel-2);border-left-color:var(--accent)}
+.outliner a.is-active::before{color:var(--accent)}
