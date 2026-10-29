@@ -70,7 +70,7 @@ li::marker{color:var(--accent)}
 .sub{display:grid;gap:14px;padding-top:12px}
 .sub h4{font-size:var(--s1);font-weight:700}
 .sub h4 code{font-size:.8em;margin-left:6px;vertical-align:middle;color:var(--accent);border-color:color-mix(in srgb,var(--accent) 35%,var(--line))}
-.prose{max-width:68ch;color:#cfd3dc}
+.prose{color:#cfd3dc}
 .muted{color:var(--muted)}
 
 .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
@@ -336,3 +336,5 @@ dialog form button{font:inherit;background:var(--panel-2);color:var(--fg);border
 .r-sub::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--dim);flex:none}
 .r-sub.live{color:var(--fg)}
 .r-sub.live::before{background:var(--fe);box-shadow:0 0 0 4px color-mix(in srgb,var(--fe) 22%,transparent)}
+/* 상세 페이지 본문: 줄 끝까지 쓰고, 한국어는 단어(어절) 단위로 줄바꿈. 긴 영문 식별자만 넘칠 때 끊음 */
+.project{word-break:keep-all;overflow-wrap:break-word}
