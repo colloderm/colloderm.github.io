@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Magic School | 김진호 포트폴리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="shell">
+<nav class="outliner" aria-label="목차">
+  <div class="hd">Magic School</div>
+  <a class="top ms" href="#ms">프로젝트 상단</a>
+  <a href="#ms-overview">프로젝트 개요</a>
+  <a href="#ms-class">캐릭터 구조</a>
+  <a href="#ms-interact">인터랙션</a>
+  <a href="#ms-inventory">인벤토리</a>
+  <a href="#ms-gimmick">퍼즐 &amp; 기믹</a>
+  <a href="#ms-ui">UI / UX</a>
+</nav>
+<main>
+<nav class="pagenav" aria-label="페이지 이동">
+  <a href="index.html">← 메인으로</a>
+  <a href="fantasy-action.html">← 이전 프로젝트: Fantasy Action</a>
+</nav>
+
+<article class="project p-ms" id="ms">
+  <div class="phead">
+    <span class="no">PROJECT 02</span>
+    <h2>Magic School</h2>
+    <div class="meta"><span><b>장르</b>1인칭 방탈출 퍼즐</span><span><b>팀</b>YUJINS STUDIO · 김진호(팀장), 이유정</span><span><b>엔진</b>Unreal Engine 5 · Blueprint</span></div>
+  </div>
+
+  <section class="sec" id="ms-overview">
+    <h3>프로젝트 개요 <span class="en">Overview</span></h3>
+    <div class="kw">
+      <div><b>Room Escape</b><span>실세계와 판타지 요소가 결합된 방탈출</span></div>
+      <div><b>1인칭 시점</b><span>1인칭 캐릭터로 현실적인 몰입감 제공</span></div>
+      <div><b>퍼즐</b><span>단서를 이용해 다양한 문제 해결</span></div>
+    </div>
+    <div class="two">
+      <div class="role me">
+        <h5>김진호 <small>ME · 팀장</small></h5>
+        <dl>
+          <div><dt>콘텐츠 기획</dt><dd>기믹, 스토리, 단서 기획 및 제작</dd></div>
+          <div><dt>캐릭터 컴포넌트</dt><dd>Grab / Release / Rotate 시스템, Interaction 시스템 구현</dd></div>
+          <div><dt>인벤토리 시스템</dt><dd>아이템 추가 / 빼기 / 이동 시스템</dd></div>
+          <div><dt>UX / UI</dt><dd>나이아가라 기반 이펙트, 타이머 구현</dd></div>
+        </dl>
+      </div>
+      <div class="role">
+        <h5>이유정 <small>팀원</small></h5>
+        <dl>
+          <div><dt>콘텐츠 기획</dt><dd>기믹, 스토리, 단서 기획 및 제작</dd></div>
+          <div><dt>에셋 모델링 및 편집</dt><dd>에셋 분해, 병합, 피벗 수정</dd></div>
+          <div><dt>상호작용 기능</dt><dd>캐릭터의 Interaction 시스템 구현</dd></div>
+          <div><dt>UX / UI</dt><dd>나이아가라 기반 이펙트, 게임 내 맵 구현</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="split">
+      <a class="video" href="https://www.youtube.com/watch?v=fnKinP_DIwg" target="_blank" rel="noopener">
+        <img src="img/ms-intro.jpg" alt="Magic School 인트로 화면">
+        <span class="play"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="#111319"/></svg></i>시연 영상 보기 ↗</span>
+      </a>
+      <figure><button type="button"><img src="img/ms-cycle.jpg" alt="Magic School 아웃게임과 인게임 순서도" loading="lazy"></button><figcaption>메인 메뉴 → L_GameMap → 첫 번째 방 → 두 번째 방 → 포탈 → 세 번째 방 → Clear</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="sec" id="ms-class">
+    <h3>캐릭터 구조 <span class="en">Character</span></h3>
+    <div class="chain"><span class="base">ACharacter</span><i>→</i><span>MagicSchoolCharacter</span><i>◇</i><span class="base">CharacterMovement</span><span class="base">PhysicsHandle</span><span>BPC_Interaction</span><span>BPC_Inventory</span></div>
+    <p class="prose">이동은 <code>CharacterMovement</code>, 물체 잡기는 <code>PhysicsHandle</code>에 맡기고, 상호작용과 인벤토리는 직접 만든 액터 컴포넌트 <code>BPC_Interaction</code>, <code>BPC_Inventory</code>로 분리했습니다.</p>
+    <div class="two">
+      <figure><button type="button"><img src="img/ms-class.jpg" alt="MagicSchoolCharacter 클래스 다이어그램" loading="lazy"></button><figcaption>캐릭터 클래스 구조</figcaption></figure>
+      <figure><button type="button"><img src="img/ms-comp.jpg" alt="BP_FirstPersonCharacter 컴포넌트 목록" loading="lazy"></button><figcaption>BP_FirstPersonCharacter 컴포넌트 구성</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="sec" id="ms-interact">
+    <h3>인터랙션 <span class="en">BPC_Interaction</span></h3>
+    <div class="sub">
+      <h4>Grabbing System <code>잡기 / 놓기</code></h4>
+      <ul class="prose">
+        <li>인터페이스로 오브젝트와의 상호작용을 구현했습니다. <code>ThrowObject</code>(BP_Interface)를 가진 오브젝트만 상호작용할 수 있습니다.</li>
+        <li>우클릭으로 잡으면 오브젝트가 플레이어 앞 5m에 위치합니다.</li>
+        <li>우클릭을 누르는 동안에만 유지되고, 떼면 오브젝트가 중력을 받아 떨어집니다.</li>
+      </ul>
+      <figure><button type="button"><img src="img/ms-grab.jpg" alt="Grabbing System 블루프린트" loading="lazy"></button><figcaption>IA_GrabItem 입력 → Grab Object / Release Object, ThrowObject 이벤트</figcaption></figure>
+    </div>
+    <div class="sub">
+      <h4>Object Rotate <code>오브젝트 회전</code></h4>
+      <ul class="prose">
+        <li>Grab 중에만 쓸 수 있는 추가 기능입니다.</li>
+        <li>특정 키를 누르면 <code>Player.RotatingObject</code> 게임플레이 태그를 붙여 회전 상태임을 표시합니다.</li>
+        <li>우클릭을 누른 채 특정 키를 누르고 마우스를 움직이면 오브젝트가 축을 따라 회전합니다.</li>
+      </ul>
+      <figure><button type="button"><img src="img/ms-rotate.jpg" alt="Object Rotate System 블루프린트" loading="lazy"></button><figcaption>PhysicsHandle의 Target Rotation에 입력값을 더해 Set Target Rotation</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="sec" id="ms-inventory">
+    <h3>인벤토리 <span class="en">BPC_Inventory</span></h3>
+    <div class="sub">
+      <h4>AddItem</h4>
+      <div class="split">
+        <figure><button type="button"><img src="img/ms-add.jpg" alt="AddItem 블루프린트" loading="lazy"></button><figcaption>빈 슬롯 찾기 → DB 조회 → 같은 슬롯에 스택 추가</figcaption></figure>
+        <ul class="prose">
+          <li>현재 인벤토리의 빈 슬롯을 확인합니다.</li>
+          <li>DB에 등록된 아이템인지 확인합니다.</li>
+          <li>슬롯에 아이템을 넣고, 같은 아이템이면 스택을 +1 합니다.</li>
+          <li>해당 칸이 차 있으면 다음 칸에 아이템을 넣습니다.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sub">
+      <h4>DropItem</h4>
+      <div class="split">
+        <figure><button type="button"><img src="img/ms-drop.jpg" alt="DropItem 블루프린트" loading="lazy"></button><figcaption>스택 감소 후 Drop Position에 액터 스폰, Simulate Physics 적용</figcaption></figure>
+        <ul class="prose">
+          <li>인벤토리 슬롯의 아이템 데이터를 확인합니다.</li>
+          <li>캐릭터에 지정한 Drop Position에 아이템을 스폰하고 물리를 적용합니다.</li>
+          <li>슬롯 스택을 -1 하고, 0이 되면 빈 슬롯으로 바꿉니다.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sub">
+      <h4>MoveItem</h4>
+      <div class="split">
+        <figure><button type="button"><img src="img/ms-move.jpg" alt="MoveItem 블루프린트" loading="lazy"></button><figcaption>Source / Target 슬롯 비교 후 Increase Stack 또는 교체</figcaption></figure>
+        <ul class="prose">
+          <li>옮길 슬롯과 대상 슬롯의 아이템 데이터를 확인합니다.</li>
+          <li>같은 아이템이면 대상 슬롯 스택을 늘리고 원래 자리를 비웁니다.</li>
+          <li>다른 아이템이면 대상 슬롯에 아이템과 수량을 옮기고 원래 자리를 비웁니다.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ms-gimmick">
+    <h3>퍼즐 &amp; 기믹 <span class="en">Puzzle</span></h3>
+    <div class="two">
+      <div class="box"><h5>게임 기믹</h5><ul><li>액터별 상호작용이나 주변 사물로 다양한 힌트를 제공합니다.</li><li>모은 힌트로 퍼즐을 풀어 탈출하도록 설계했습니다.</li></ul></div>
+      <div class="box"><h5>자물쇠 기믹</h5><ul><li>실제 방탈출 같은 자물쇠를 위해 에셋을 구매했습니다.</li><li>플레이어와 상호작용하도록 로직을 수정해 적용했습니다.</li><li>자물쇠 조작키를 알려주는 UI를 만들었습니다.</li></ul></div>
+    </div>
+    <div class="two">
+      <figure><button type="button"><img src="img/ms-puzzle-1.jpg" alt="별 모양 퍼즐과 숫자 힌트" loading="lazy"></button><figcaption>별 퍼즐: 번호 힌트 순서대로 연결</figcaption></figure>
+      <figure><button type="button"><img src="img/ms-puzzle-2.jpg" alt="성배 단서와 단어 자물쇠" loading="lazy"></button><figcaption>성배 단서와 단어 자물쇠, 조작키 안내 UI</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="sec" id="ms-ui">
+    <h3>UI / UX <span class="en">Effects · Level · Screens</span></h3>
+    <div class="sub">
+      <h4>나이아가라 VFX</h4>
+      <div class="split">
+        <figure><button type="button"><img src="img/ms-fx.jpg" alt="퍼즐 해결 전후 이펙트 비교" loading="lazy"></button><figcaption>퍼즐 해결 전 → 후 이펙트, 포탈 생성</figcaption></figure>
+        <ul class="prose">
+          <li>기존 나이아가라 이펙트를 기반으로 수정·커스터마이징했습니다.</li>
+          <li>상호작용 시 이펙트로 신비로운 느낌을 줍니다.</li>
+          <li>나이아가라에 머티리얼을 입혀 판타지 요소를 강조했습니다.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sub">
+      <h4>인게임 레벨</h4>
+      <div class="split">
+        <figure><button type="button"><img src="img/ms-level.jpg" alt="비밀의 방 내부" loading="lazy"></button><figcaption>비밀의 방: 서랍, 검, 상자, 전등으로 비밀스러운 분위기 연출</figcaption></figure>
+        <ul class="prose">
+          <li>마법학교 특유의 옛스러움과 은은한 주황빛 조명으로 신비로운 느낌을 냈습니다.</li>
+          <li>오브젝트와 조명을 배치했습니다.</li>
+          <li>플레이어가 물건을 다른 액터 위에 올렸을 때 자연스럽게 놓이도록 스태틱 메시 콜리전을 수정했습니다.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sub">
+      <h4>화면 구성</h4>
+      <p class="prose">인트로, 메인, 인게임, 엔딩 등 각 화면을 위젯으로 만들었습니다. 엔딩 화면에는 남은 시간을 타이머로 보여줍니다.</p>
+      <div class="gallery">
+        <figure><button type="button"><img src="img/ms-intro.jpg" alt="인트로 화면" loading="lazy"></button><figcaption>인트로</figcaption></figure>
+        <figure><button type="button"><img src="img/ms-loading.jpg" alt="로딩 화면" loading="lazy"></button><figcaption>로딩</figcaption></figure>
+        <figure><button type="button"><img src="img/ms-options.jpg" alt="옵션 화면" loading="lazy"></button><figcaption>옵션: 화면 모드, 해상도, 그래픽, VSync, 음량</figcaption></figure>
+        <figure><button type="button"><img src="img/ms-pause.jpg" alt="일시정지 화면" loading="lazy"></button><figcaption>일시정지</figcaption></figure>
+        <figure><button type="button"><img src="img/ms-end.jpg" alt="엔딩 화면" loading="lazy"></button><figcaption>엔딩: 테마와 남은 시간</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</article>
+
+<nav class="pagenav bottom" aria-label="페이지 이동">
+  <a href="index.html">← 메인으로</a>
+  <a href="fantasy-action.html">← 이전 프로젝트: Fantasy Action</a>
+</nav>
+</main>
+</div>
+
+<dialog id="lb" aria-label="이미지 크게 보기">
+  <form method="dialog"><button type="submit">닫기</button></form>
+  <img id="lb-img" alt="">
+  <p id="lb-cap"></p>
+</dialog>
+
+<script src="js/lightbox.js"></script>
+</body>
+</html>
