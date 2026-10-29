@@ -170,3 +170,9 @@ dialog form button{font:inherit;background:var(--panel-2);color:var(--fg);border
 .pagenav a:hover{color:var(--fg);border-color:var(--accent)}
 .pagenav + .project{padding-top:32px}
 .pagenav.bottom{margin-top:72px}
+
+/* ---------- 상세 페이지 상단의 큰 시연 영상 ---------- */
+.video-lg{border-radius:12px}
+.video-lg .play{font-size:1rem;gap:14px}
+.video-lg .play i{width:92px;height:92px;box-shadow:0 0 0 10px color-mix(in srgb,var(--accent) 25%,transparent)}
+@media (max-width:640px){.video-lg .play{font-size:.85rem}.video-lg .play i{width:68px;height:68px}}
