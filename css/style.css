@@ -279,3 +279,60 @@ dialog form button{font:inherit;background:var(--panel-2);color:var(--fg);border
 .outliner a:not(.top)::before{content:counter(toc,decimal-leading-zero);font-family:var(--f-mono);font-size:.72rem;color:var(--dim);min-width:1.6em;padding-top:.2em}
 .outliner a.is-active{color:var(--fg);background:var(--panel-2);border-left-color:var(--accent)}
 .outliner a.is-active::before{color:var(--accent)}
+
+/* ---------- FallenEra (PROJECT 03) ---------- */
+:root{--fe:#8fcf7a}
+.p-fe{--accent:var(--fe)}
+.outliner a.top.fe{border-left-color:var(--fe)}
+/* 영상이 아직 없을 때의 자리 */
+.video-empty{aspect-ratio:16/9;display:block;background:repeating-linear-gradient(135deg,var(--panel) 0 18px,var(--panel-2) 18px 36px)}
+.video-empty .play{color:var(--muted)}
+.video-empty .play i{background:var(--line);box-shadow:none}
+/* 규모 숫자 */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.stats div{display:grid;gap:2px}
+.stats b{font-family:var(--f-display);font-size:1.5rem;color:var(--fg);font-variant-numeric:tabular-nums}
+.stats span{color:var(--muted);font-size:.86rem}
+@media (max-width:640px){.stats{grid-template-columns:minmax(0,1fr)}}
+/* 코드 블록 */
+.code{margin:0;background:#0c0e13;border:1px solid var(--line);border-radius:8px;padding:16px 18px;overflow-x:auto;font-family:var(--f-mono);font-size:.8rem;line-height:1.65;color:#d7dbe4;min-width:0;tab-size:4}
+.code code{font:inherit;background:none;border:0;padding:0;white-space:pre;color:inherit}
+.code .c{color:#6f7890}
+.code .m{color:var(--accent)}
+.box .code{margin-top:4px}
+/* 지지 거리 다이어그램 */
+.support{display:grid;gap:12px;border:1px solid var(--line);border-radius:8px;padding:18px;background:var(--panel)}
+.sp-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.sp-row>i{font-style:normal;color:var(--dim)}
+.sp{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--panel-2);border-radius:6px;padding:6px 12px 6px 6px;font-size:.9rem}
+.sp b{min-width:2.2em;text-align:center;font-family:var(--f-mono);font-size:.8rem;background:color-mix(in srgb,var(--accent) 18%,transparent);color:var(--accent);border-radius:4px;padding:2px 6px;font-variant-numeric:tabular-nums}
+.sp small{color:var(--dim);font-size:.75rem}
+.sp.anchor{border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
+.sp.gone{text-decoration:line-through;color:var(--dim)}
+.sp.gone b,.sp.lost b{background:rgba(224,96,96,.16);color:#e88a8a}
+.sp.lost{border-style:dashed;color:var(--muted)}
+.sp-note{flex-basis:100%;color:var(--muted);font-size:.86rem}
+/* 표 */
+.tbl-wrap{overflow-x:auto}
+.tbl{width:100%;border-collapse:collapse;font-size:.92rem;min-width:420px}
+.tbl th,.tbl td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line)}
+.tbl th{color:var(--muted);font-weight:500;font-size:.82rem}
+.tbl td.num{font-variant-numeric:tabular-nums;font-family:var(--f-mono)}
+/* 세로 흐름 */
+.flow.flow-col{grid-template-columns:minmax(0,1fr);align-content:start}
+/* 메인 카드: 스크린샷이 없는 프로젝트의 썸네일 */
+:root{--pin-bool:#e86b6b}
+.proj-thumb{aspect-ratio:16/10;border-radius:6px;display:grid;place-content:center;justify-items:center;gap:4px;text-align:center;
+  background-color:var(--bp-ground);background-image:linear-gradient(color-mix(in srgb,var(--accent) 22%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--accent) 22%,transparent) 1px,transparent 1px);background-size:32px 32px;border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line))}
+.proj-thumb span{font-family:var(--f-display);font-weight:700;font-size:1.6rem;color:var(--fg);letter-spacing:.04em}
+.proj-thumb small{font-family:var(--f-mono);font-size:.72rem;color:var(--accent);letter-spacing:.08em;text-transform:uppercase}
+.pagenav a:first-child{margin-right:auto}
+.stack{display:grid;gap:20px;min-width:0}
+.fn.p-fe .nh small b{color:var(--accent);font-weight:600}
+/* 메인 프로젝트 목록: 개발 중 / 완성작 */
+.r-list{gap:32px}
+.r-group{display:grid;gap:14px}
+.r-sub{margin:0;display:flex;align-items:center;gap:10px;font-family:var(--f-body);font-size:.92rem;font-weight:700;color:var(--muted)}
+.r-sub::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--dim);flex:none}
+.r-sub.live{color:var(--fg)}
+.r-sub.live::before{background:var(--fe);box-shadow:0 0 0 4px color-mix(in srgb,var(--fe) 22%,transparent)}

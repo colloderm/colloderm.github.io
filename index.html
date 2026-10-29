@@ -44,6 +44,7 @@
           <div class="row r"><span class="k">Then 1</span><i class="pin exec" id="s1"></i></div>
           <div class="row r"><span class="k">Then 2</span><i class="pin exec" id="s2"></i></div>
           <div class="row r"><span class="k">Then 3</span><i class="pin exec" id="s3"></i></div>
+          <div class="row r"><span class="k">Then 4</span><i class="pin exec" id="s4"></i></div>
         </div>
       </div>
 
@@ -78,6 +79,13 @@
               <div class="row"><i class="pin data p-obj"></i><span class="k">Systems</span><span class="val">PhysicsHandle · Inventory · Niagara</span></div>
             </div>
           </div>
+          <div class="node fn p-fe">
+            <div class="nh"><span class="t"><b aria-hidden="true">ƒ</b>Server Place Piece</span><small>Building · Multiplayer · <b>FallenEra</b></small></div>
+            <div class="nb">
+              <div class="row"><i class="pin exec" id="n4"></i></div>
+              <div class="row"><i class="pin data p-obj"></i><span class="k">Systems</span><span class="val">Socket Snap · Structural Support · Replication</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -103,7 +111,9 @@
       <div class="tag-group" style="--c:var(--pin-vector)"><span class="tg-label">AI</span>
         <ul class="hashtags"><li><b>#</b>BehaviorTree</li><li><b>#</b>EQS</li><li><b>#</b>AIPerception</li></ul></div>
       <div class="tag-group" style="--c:var(--pin-rotator)"><span class="tg-label">연출 · UI</span>
-        <ul class="hashtags"><li><b>#</b>Sequencer</li><li><b>#</b>Niagara</li><li><b>#</b>UMG</li></ul></div>
+        <ul class="hashtags"><li><b>#</b>Sequencer</li><li><b>#</b>Niagara</li><li><b>#</b>UMG</li><li><b>#</b>MVVM</li></ul></div>
+      <div class="tag-group" style="--c:var(--pin-bool)"><span class="tg-label">Network</span>
+        <ul class="hashtags"><li><b>#</b>Multiplayer</li><li><b>#</b>Replication</li><li><b>#</b>ServerRPC</li></ul></div>
     </div>
   </section>
 
@@ -111,45 +121,71 @@
     <h2 class="r-label">프로젝트</h2>
     <div class="r-list">
 
-      <a class="proj-row p-fa" href="fantasy-action.html">
-        <img src="img/fa-ui.jpg" alt="Fantasy Action 보스전 장면">
-        <div class="proj-body">
-          <span class="no">PROJECT 01 · 개인 프로젝트</span>
-          <h3>Fantasy Action</h3>
-          <p>보스와 몬스터가 함께 싸우는 군집형 AI 전투의 액션 RPG</p>
-          <dl class="proj-meta">
-            <div><dt>장르</dt><dd>Action RPG</dd></div>
-            <div><dt>역할</dt><dd>클라이언트 개발 전체</dd></div>
-            <div><dt>개발</dt><dd>C++ / Blueprint</dd></div>
-          </dl>
-          <ul>
-            <li>GAS 기반 전투와 컴포넌트로 나눈 캐릭터 구조</li>
-            <li>Behavior Tree · EQS · AI Perception 기반 적 AI</li>
-            <li>시퀀서와 카메라 셰이크로 만든 보스 등장 연출</li>
-          </ul>
-          <span class="more">자세히 보기 →</span>
-        </div>
-      </a>
+      <div class="r-group">
+        <h3 class="r-sub live">개발 중</h3>
+        <a class="proj-row p-fe" href="fallen-era.html">
+          <div class="proj-thumb" aria-hidden="true"><span>FallenEra</span><small>Building &amp; Base System</small></div>
+          <div class="proj-body">
+            <span class="no">4인 팀 프로젝트</span>
+            <h3>FallenEra</h3>
+            <p>집을 짓고 방어시설로 기지를 지키는 멀티플레이 생존 크래프팅 게임</p>
+            <dl class="proj-meta">
+              <div><dt>장르</dt><dd>1인칭 생존 크래프팅</dd></div>
+              <div><dt>역할</dt><dd>건설 · 기지 · 상호작용</dd></div>
+              <div><dt>개발</dt><dd>C++ · 멀티플레이</dd></div>
+            </dl>
+            <ul>
+              <li>소켓 스냅 모듈러 건설과 서버 배치 검증</li>
+              <li>다익스트라 기반 지지 거리 계산과 연쇄 붕괴</li>
+              <li>함정 · 탑승형 발리스타 등 방어시설 (GAS 연동)</li>
+            </ul>
+            <span class="more">자세히 보기 →</span>
+          </div>
+        </a>
+      </div>
 
-      <a class="proj-row p-ms" href="magic-school.html">
-        <img src="img/ms-level.jpg" alt="Magic School 비밀의 방 내부">
-        <div class="proj-body">
-          <span class="no">PROJECT 02 · 2인 팀 (팀장)</span>
-          <h3>Magic School</h3>
-          <p>단서를 모아 마법학교를 탈출하는 1인칭 방탈출 퍼즐 게임</p>
-          <dl class="proj-meta">
-            <div><dt>장르</dt><dd>1인칭 방탈출 퍼즐</dd></div>
-            <div><dt>역할</dt><dd>기획 · 시스템 개발</dd></div>
-            <div><dt>개발</dt><dd>Blueprint</dd></div>
-          </dl>
-          <ul>
-            <li>Physics Handle 기반 잡기 · 놓기 · 회전 인터랙션</li>
-            <li>아이템 추가 · 버리기 · 이동 인벤토리 시스템</li>
-            <li>나이아가라 이펙트와 타이머 UI</li>
-          </ul>
-          <span class="more">자세히 보기 →</span>
-        </div>
-      </a>
+      <div class="r-group">
+        <h3 class="r-sub">완성작</h3>
+        <a class="proj-row p-fa" href="fantasy-action.html">
+          <img src="img/fa-ui.jpg" alt="Fantasy Action 보스전 장면">
+          <div class="proj-body">
+            <span class="no">개인 프로젝트</span>
+            <h3>Fantasy Action</h3>
+            <p>보스와 몬스터가 함께 싸우는 군집형 AI 전투의 액션 RPG</p>
+            <dl class="proj-meta">
+              <div><dt>장르</dt><dd>Action RPG</dd></div>
+              <div><dt>역할</dt><dd>클라이언트 개발 전체</dd></div>
+              <div><dt>개발</dt><dd>C++ / Blueprint</dd></div>
+            </dl>
+            <ul>
+              <li>GAS 기반 전투와 컴포넌트로 나눈 캐릭터 구조</li>
+              <li>Behavior Tree · EQS · AI Perception 기반 적 AI</li>
+              <li>시퀀서와 카메라 셰이크로 만든 보스 등장 연출</li>
+            </ul>
+            <span class="more">자세히 보기 →</span>
+          </div>
+        </a>
+
+        <a class="proj-row p-ms" href="magic-school.html">
+          <img src="img/ms-level.jpg" alt="Magic School 비밀의 방 내부">
+          <div class="proj-body">
+            <span class="no">2인 팀 (팀장)</span>
+            <h3>Magic School</h3>
+            <p>단서를 모아 마법학교를 탈출하는 1인칭 방탈출 퍼즐 게임</p>
+            <dl class="proj-meta">
+              <div><dt>장르</dt><dd>1인칭 방탈출 퍼즐</dd></div>
+              <div><dt>역할</dt><dd>기획 · 시스템 개발</dd></div>
+              <div><dt>개발</dt><dd>Blueprint</dd></div>
+            </dl>
+            <ul>
+              <li>Physics Handle 기반 잡기 · 놓기 · 회전 인터랙션</li>
+              <li>아이템 추가 · 버리기 · 이동 인벤토리 시스템</li>
+              <li>나이아가라 이펙트와 타이머 UI</li>
+            </ul>
+            <span class="more">자세히 보기 →</span>
+          </div>
+        </a>
+      </div>
 
     </div>
   </section>
