@@ -444,3 +444,7 @@ dialog form button{font:inherit;background:var(--panel-2);color:var(--fg);border
 @media (prefers-reduced-motion:reduce){.cnode{transition:none}}
 /* 기술 스택 새 분야 색 (블루프린트 핀 색) */
 :root{--pin-struct2:#5b8def;--pin-int:#2fd6a8}
+/* 소개: 개발 철학 / 언리얼 엔진 작업 두 묶음 */
+.about-body{display:grid;gap:22px;min-width:0}
+.about-block{display:grid;gap:6px}
+.about-k{font-family:var(--f-display);font-size:.78rem;font-weight:600;letter-spacing:.1em;color:var(--accent)}
