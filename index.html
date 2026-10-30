@@ -99,6 +99,86 @@
     <p>언리얼 엔진 5로 <strong>액션 RPG</strong>와 <strong>1인칭 방탈출 게임</strong>을 만든 클라이언트 프로그래머입니다.<br class="br-wide"> <strong>전투 시스템, 적 AI, 카메라 연출, 인벤토리·인터랙션 시스템</strong>을 직접 구현했습니다.</p>
   </section>
 
+  <section class="r-sec ai">
+    <h2 class="r-label">AI 활용</h2>
+    <div class="ai-body">
+      <p class="ai-lead">Claude Code를 <strong>설계 검토와 원인 분석 파트너</strong>로 씁니다. 코드는 직접 작성하고 빌드와 멀티플레이 검증도 직접 해서, 최종 로직에 대한 책임은 개발자인 제가 집니다.</p>
+      <ol class="ai-flow" aria-label="AI 활용 순서: 설계 검토, 근거 분석, 직접 구현, PIE와 로그 검증, 규칙 기록 후 다시 설계 검토">
+        <li><span>01</span>설계 검토</li>
+        <li><span>02</span>근거 분석</li>
+        <li><span>03</span>직접 구현</li>
+        <li><span>04</span>PIE · 로그 검증</li>
+        <li><span>05</span>규칙 기록</li>
+      </ol>
+      <div class="ai-rules">
+        <div><b>코드는 직접 작성</b>
+          <svg class="ill" viewBox="0 0 240 110" role="img" aria-label="AI는 넣을 파일과 위치, 설계 이유까지 제시하고, 코드는 개발자가 직접 작성합니다. 저장소 파일은 AI가 수정하지 않도록 규칙으로 정해 두었습니다.">
+            <line class="s" x1="46" y1="38" x2="46" y2="28"/><circle class="s" cx="46" cy="24" r="4"/>
+            <rect class="s" x="24" y="38" width="44" height="34" rx="9"/>
+            <circle class="fa" cx="38" cy="54" r="3.5"/><circle class="fa" cx="54" cy="54" r="3.5"/>
+            <line class="s" x1="39" y1="64" x2="53" y2="64"/>
+            <text x="46" y="92" text-anchor="middle">AI</text>
+            <rect class="fp" x="70" y="10" width="62" height="26" rx="8"/><circle class="fp" cx="70" cy="40" r="3"/><circle class="fp" cx="64" cy="45" r="2"/>
+            <text class="ta mono" x="101" y="27" text-anchor="middle">{ } 제안</text>
+            <line class="a" x1="78" y1="64" x2="132" y2="64" marker-end="url(#ai-arr)"/>
+            <rect class="fp" x="142" y="44" width="40" height="28" rx="3"/>
+            <line class="a" x1="149" y1="53" x2="172" y2="53"/><line class="a" x1="149" y1="60" x2="166" y2="60"/><line class="s" x1="149" y1="66" x2="160" y2="66"/>
+            <line class="s" x1="136" y1="76" x2="188" y2="76"/>
+            <circle class="s" cx="206" cy="40" r="10"/>
+            <path class="s" d="M188,76 Q190,56 206,56 Q222,56 224,76"/>
+            <text x="200" y="92" text-anchor="middle">직접 작성</text>
+          </svg></div>
+        <div><b>추측보다 근거</b>
+          <svg class="ill" viewBox="0 0 240 110" role="img" aria-label="구현 전에 GC와 Authority 같은 설계 문제를 먼저 검토하고, 버그는 추측하지 않고 로그와 언리얼 엔진 소스를 확인해 원인을 찾습니다.">
+            <text class="big" x="42" y="68" text-anchor="middle">?</text>
+            <line class="x" x1="24" y1="30" x2="60" y2="74"/><line class="x" x1="60" y1="30" x2="24" y2="74"/>
+            <text x="42" y="92" text-anchor="middle">추측</text>
+            <line class="s" x1="74" y1="52" x2="104" y2="52" marker-end="url(#ai-arr-m)"/>
+            <rect class="fp" x="114" y="18" width="48" height="58" rx="4"/>
+            <line class="s" x1="122" y1="30" x2="152" y2="30"/><line class="s" x1="122" y1="38" x2="148" y2="38"/><line class="a" x1="122" y1="46" x2="154" y2="46"/><line class="s" x1="122" y1="54" x2="144" y2="54"/>
+            <text x="138" y="92" text-anchor="middle">로그</text>
+            <rect class="fp" x="176" y="18" width="48" height="58" rx="4"/>
+            <text class="ta mono" x="200" y="52" text-anchor="middle">&lt;/&gt;</text>
+            <text x="200" y="92" text-anchor="middle">엔진 소스</text>
+            <circle class="a lens" cx="156" cy="56" r="13"/><line class="a thick" x1="165" y1="66" x2="176" y2="78"/>
+          </svg></div>
+        <div><b>검증은 직접</b>
+          <svg class="ill" viewBox="0 0 240 110" role="img" aria-label="빌드와 PIE는 개발자가 직접 실행하고, 호스트와 클라이언트 양쪽 화면에서 조작, 기대 결과, 기대 로그 표로 기능 완료를 판단합니다.">
+            <rect class="fp" x="14" y="22" width="58" height="40" rx="4"/><rect class="fa" x="34" y="36" width="18" height="16" rx="2"/>
+            <line class="s" x1="43" y1="62" x2="43" y2="70"/><line class="s" x1="33" y1="70" x2="53" y2="70"/>
+            <text x="43" y="88" text-anchor="middle">호스트</text>
+            <path class="s" d="M76,38 H90 M86,34 L90,38 L86,42 M90,48 H76 M80,44 L76,48 L80,52"/>
+            <rect class="fp" x="94" y="22" width="58" height="40" rx="4"/><rect class="fa" x="114" y="36" width="18" height="16" rx="2"/>
+            <line class="s" x1="123" y1="62" x2="123" y2="70"/><line class="s" x1="113" y1="70" x2="133" y2="70"/>
+            <text x="123" y="88" text-anchor="middle">클라</text>
+            <rect class="fp" x="166" y="20" width="12" height="12" rx="2"/><path class="a" d="M168.5,26 L171.5,29 L176,23"/><text x="184" y="30">조작</text>
+            <rect class="fp" x="166" y="42" width="12" height="12" rx="2"/><path class="a" d="M168.5,48 L171.5,51 L176,45"/><text x="184" y="52">기대 결과</text>
+            <rect class="fp" x="166" y="64" width="12" height="12" rx="2"/><path class="a" d="M168.5,70 L171.5,73 L176,67"/><text x="184" y="74">기대 로그</text>
+          </svg></div>
+        <div><b>경험을 문서로</b>
+          <svg class="ill" viewBox="0 0 240 110" role="img" aria-label="팀 합의 사항과 겪은 시행착오 47건을 프로젝트 규칙 문서 CLAUDE.md에 기록해 다음 작업에 반영합니다.">
+            <ellipse class="s" cx="38" cy="50" rx="11" ry="15"/><line class="s" x1="38" y1="35" x2="38" y2="65"/>
+            <path class="s" d="M27,44 L18,40 M27,52 L17,52 M27,60 L18,64 M49,44 L58,40 M49,52 L59,52 M49,60 L58,64 M33,36 L29,28 M43,36 L47,28"/>
+            <text x="38" y="88" text-anchor="middle">시행착오</text>
+            <line class="s" x1="66" y1="50" x2="92" y2="50" marker-end="url(#ai-arr-m)"/>
+            <path class="fp" d="M102,18 H142 L154,30 V78 H102 Z"/><path class="s" d="M142,18 V30 H154"/>
+            <line class="s" x1="110" y1="40" x2="144" y2="40"/><line class="s" x1="110" y1="48" x2="140" y2="48"/><line class="s" x1="110" y1="56" x2="144" y2="56"/><line class="s" x1="110" y1="64" x2="134" y2="64"/>
+            <circle class="fa" cx="102" cy="20" r="12"/><text class="badge" x="102" y="24" text-anchor="middle">47</text>
+            <text class="mono" x="128" y="94" text-anchor="middle">CLAUDE.md</text>
+            <line class="a" x1="164" y1="50" x2="186" y2="50" marker-end="url(#ai-arr)"/>
+            <rect class="fp" x="192" y="34" width="40" height="32" rx="6"/><path class="a" d="M204,50 L210,56 L221,44"/>
+            <text x="212" y="88" text-anchor="middle">다음 작업</text>
+          </svg></div>
+      </div>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+          <marker id="ai-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ah-a" d="M0,0 L10,5 L0,10 z"/></marker>
+          <marker id="ai-arr-m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ah-m" d="M0,0 L10,5 L0,10 z"/></marker>
+        </defs>
+      </svg>
+    </div>
+  </section>
+
   <section class="r-sec">
     <h2 class="r-label">기술 스택</h2>
     <div class="tagset">
