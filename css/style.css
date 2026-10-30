@@ -338,3 +338,30 @@ dialog form button{font:inherit;background:var(--panel-2);color:var(--fg);border
 .r-sub.live::before{background:var(--fe);box-shadow:0 0 0 4px color-mix(in srgb,var(--fe) 22%,transparent)}
 /* 상세 페이지 본문: 줄 끝까지 쓰고, 한국어는 단어(어절) 단위로 줄바꿈. 긴 영문 식별자만 넘칠 때 끊음 */
 .project{word-break:keep-all;overflow-wrap:break-word}
+/* ---------- 다이어그램 (인라인 SVG) ---------- */
+.dg-fig{gap:10px}
+.dg-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.dg-scroll svg{display:block;width:100%;min-width:760px;height:auto}
+.dg{color:var(--fg)}
+.dg text{fill:currentColor;font-family:var(--f-body);font-size:12px}
+.dg .nm{font-family:var(--f-mono);font-size:12.5px;font-weight:600}
+.dg .nm-key{fill:var(--accent);font-size:14px}
+.dg .muted{fill:var(--muted)}
+.dg .sub,.dg .lab{fill:var(--muted);font-size:11px}
+.dg .sub-key,.dg .lab-rpc{fill:var(--accent)}
+.dg .row{font-size:12px}
+.dg .mono{font-family:var(--f-mono)}
+.dg .lane{fill:var(--dim);font-family:var(--f-display);font-size:12px;font-weight:600;letter-spacing:.08em}
+.dg .box{fill:var(--panel-2);stroke:var(--line)}
+.dg .box-key{fill:var(--panel-2);stroke:var(--accent);stroke-width:1.5}
+.dg .box-team{fill:none;stroke:var(--dim);stroke-dasharray:5 4}
+.dg .box-base{fill:none;stroke:var(--line)}
+.dg .div{stroke:var(--line)}
+.dg .bound{stroke:var(--line);stroke-dasharray:6 6}
+.dg .ln{stroke:var(--muted);stroke-width:1.3;fill:none}
+.dg .ln-if{stroke-dasharray:5 4}
+.dg .ln-rpc{stroke:var(--accent);stroke-width:1.8;fill:none}
+.dg .ah{fill:var(--muted)}
+.dg .ah-rpc{fill:var(--accent)}
+.dg .tri{fill:var(--panel);stroke:var(--muted);stroke-width:1.2}
+.dg .mask{fill:var(--panel)}
