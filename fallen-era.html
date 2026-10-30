@@ -275,7 +275,7 @@
 
   <section class="sec" id="fe-place">
     <h3>소켓 스냅 &amp; 배치 검증 <span class="en">Placement</span></h3>
-    <div class="split">
+    <div class="stack">
       <div class="sub" style="padding-top:0">
         <ul class="prose">
           <li>피스마다 데이터 에셋에 <b>소켓</b>(종류 태그 · 허용할 상대 종류 · 위치)을 둡니다. 커서가 소켓 반경 150cm 안에 들어오면 그 자리에 붙습니다.</li>
@@ -303,8 +303,7 @@ struct FFEBuildSocket
 <span class="c">// FEBuildingComponent.h — 서버 배치 요청</span>
 <span class="c">/** Location 은 정수 cm 로 양자화, YawStep 은 회전 단계 */</span>
 <span class="m">UFUNCTION</span>(Server, Reliable, WithValidation)
-void ServerPlacePiece(FPrimaryAssetId InPieceId,
-    FVector_NetQuantize Location, uint8 YawStep);</code></pre>
+void ServerPlacePiece(FPrimaryAssetId InPieceId, FVector_NetQuantize Location, uint8 YawStep);</code></pre>
     </div>
   </section>
 
@@ -344,8 +343,7 @@ while (Frontier.Num() &gt; 0)
         uint8* NeighborDistance = OutDistance.Find(Neighbor);
         if (NeighborDistance == nullptr) continue;
 
-        const int32 Candidate = FMath::Min&lt;int32&gt;(
-            CurrentDistance + Neighbor-&gt;GetSupportCost(), Unreachable);
+        const int32 Candidate = FMath::Min&lt;int32&gt;(CurrentDistance + Neighbor-&gt;GetSupportCost(), Unreachable);
         if (Candidate &lt; *NeighborDistance)
         {
             *NeighborDistance = static_cast&lt;uint8&gt;(Candidate);
@@ -418,7 +416,7 @@ while (Frontier.Num() &gt; 0)
     </div>
     <div class="sub">
       <h4>탑승형 발리스타 <code>AFEBuildBallista</code></h4>
-      <div class="split">
+      <div class="stack">
         <ul class="prose">
           <li>E로 탑승하면 서버가 발리스타의 <b>Owner를 탑승자로</b> 바꿉니다. 그래서 그 플레이어만 발사 · 조준 RPC를 보낼 수 있습니다.</li>
           <li>조준은 내 화면에서는 즉시 반영하고, 다른 플레이어에게는 <code>int8</code> 각도로 초당 10회 이하만 보냅니다. 패킷을 잃어도 0.5초마다 다시 보내 맞춰집니다.</li>
@@ -427,18 +425,15 @@ while (Frontier.Num() &gt; 0)
           <li>탑승 중 사망 · 파괴 · 철거 시 자동으로 내리고 입력과 카메라를 원래대로 돌립니다.</li>
         </ul>
         <pre class="code"><code><span class="c">// FEBuildBallista.h</span>
-<span class="c">/** [Server RPC] 발사. 조준은 정밀값(float) —
- *  복제용 int8 은 1° 단위라 멀리서 빗나간다 */</span>
+<span class="c">/** [Server RPC] 발사. 조준은 정밀값(float, 발리스타 기준 상대 각도) — 리플리케이트용 int8 은 1° 단위라 멀리서 빗나간다 */</span>
 <span class="m">UFUNCTION</span>(Server, Reliable, WithValidation)
 void ServerFire(float Yaw, float Pitch);
 
-<span class="c">/** [Server RPC] 조준. 다른 플레이어에게 보이는
- *  용도라 Unreliable, 바뀌면 10Hz 이하 */</span>
+<span class="c">/** [Server RPC] 조준(상대 각도, 도). 다른 플레이어에게 보이는 용도라 Unreliable, 바뀌면 10Hz 이하 + 그대로여도 0.5초마다 재전송 */</span>
 <span class="m">UFUNCTION</span>(Server, Unreliable, WithValidation)
 void ServerSetAim(int8 Yaw, int8 Pitch);
 
-<span class="c">/** [Client RPC] 서버만 아는 실패 사유를
- *  조작자 화면에. Owner = 조작자 */</span>
+<span class="c">/** [Client RPC] 서버만 아는 발사 실패 사유를 조작자 화면에. Owner = 조작자라 그 플레이어에게만 간다 */</span>
 <span class="m">UFUNCTION</span>(Client, Reliable)
 void ClientShowNotice(const FText&amp; Text);</code></pre>
       </div>
@@ -490,19 +485,15 @@ class IFEInteractable
         </ul></div>
       <div class="box"><h5>요청 폭주 방지</h5>
         <p>수리 · 업그레이드 · 발사 · 조준 요청에 같은 간격 제한 함수를 씁니다. 네트워크 지터로 조금 일찍 온 요청은 받아 주되, 평균 간격은 지키도록 다음 허용 시각을 누적합니다.</p>
-        <pre class="code"><code><span class="c">// FEBuildingTypes.h</span>
-inline bool ConsumeRequestSlot(
-    double&amp; NextAllowedTime, double Now,
-    double Interval)
+        <p class="muted">아래 함수 하나를 네 요청이 공유하고, 자동화 테스트 <code>FallenEra.Building.RequestRateLimit</code>로 검증합니다.</p></div>
+    </div>
+    <pre class="code"><code><span class="c">// FEBuildingTypes.h — 요청 간격 제한 (수리 · 업그레이드 · 발사 · 조준 공용)</span>
+inline bool ConsumeRequestSlot(double&amp; NextAllowedTime, double Now, double Interval)
 {
-    if (Now &lt; NextAllowedTime - Interval * 0.5)
-        return false;
-    NextAllowedTime = FMath::Max(
-        NextAllowedTime, Now) + Interval;
+    if (Now &lt; NextAllowedTime - Interval * 0.5) return false;
+    NextAllowedTime = FMath::Max(NextAllowedTime, Now) + Interval;
     return true;
 }</code></pre>
-        <p class="muted">자동화 테스트 <code>FallenEra.Building.RequestRateLimit</code>로 검증합니다.</p></div>
-    </div>
     <figure><button type="button"><img src="img/fe-autotest.png" alt="언리얼 에디터 Message Log의 Automation Testing Log에 FallenEra.Building.RequestRateLimit 테스트가 Success로 표시된 화면" loading="lazy"></button><figcaption>에디터 자동화 테스트 결과: 요청 간격 제한 테스트 <code>FallenEra.Building.RequestRateLimit</code> Success</figcaption></figure>
   </section>
 

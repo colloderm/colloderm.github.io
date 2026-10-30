@@ -197,8 +197,7 @@ const FVector TraceStart = bMuzzleBlocked ? BodyOrigin : MuzzleLoc;
 <span class="c">// 2) 샷건은 1회 발사에 여러 발이 각자 스프레드 콘 안으로 퍼진다</span>
 for (int32 PelletIndex = 0; PelletIndex &lt; Pellets; ++PelletIndex)
 {
-    const FVector ShotDirection = (SpreadRadians &gt; 0.f)
-        ? FMath::VRandCone(AimDir, SpreadRadians) : AimDir;
+    const FVector ShotDirection = (SpreadRadians &gt; 0.f) ? FMath::VRandCone(AimDir, SpreadRadians) : AimDir;
     ...
 }</code></pre>
     </div>
@@ -262,17 +261,15 @@ if (CurrentFireMode == EOBWeaponFireMode::Single)
 }
 
 <span class="c">// 점사 / 연사: RPM 간격으로 반복</span>
-World-&gt;GetTimerManager().SetTimer(FireTimerHandle, this,
-    &amp;UOBGameplayAbility_RangedWeapon::FireLoop,
-    GetFireInterval(), true);
+World-&gt;GetTimerManager().SetTimer(
+    FireTimerHandle, this, &amp;UOBGameplayAbility_RangedWeapon::FireLoop, GetFireInterval(), true);
 
 <span class="c">// 연사: 입력을 뗄 때까지 (커스텀 ASC 파이프라인)</span>
 if (CurrentFireMode == EOBWeaponFireMode::FullAuto)
 {
     UAbilityTask_WaitInputRelease* WaitRelease =
         UAbilityTask_WaitInputRelease::WaitInputRelease(this, false);
-    WaitRelease-&gt;OnRelease.AddDynamic(
-        this, &amp;UOBGameplayAbility_RangedWeapon::OnFireInputReleased);
+    WaitRelease-&gt;OnRelease.AddDynamic(this, &amp;UOBGameplayAbility_RangedWeapon::OnFireInputReleased);
     WaitRelease-&gt;ReadyForActivation();
 }</code></pre>
       <div>
@@ -342,29 +339,25 @@ for (AActor* M : Avail)
       <li><b>매칭</b><br><span class="muted">탐사 맵 선택 후 서버 접속</span></li>
       <li><b>탐사 서버</b><br><span class="muted">같은 파티 코드 = 같은 팀</span></li>
     </ol>
-    <div class="two">
+    <div class="stack">
       <pre class="code"><code><span class="c">// OBMatchmakingSubsystem.cpp (일부)</span>
-<span class="c">// 서버 주소가 있으면 데디 서버 접속,</span>
-<span class="c">// 비어 있으면 로컬 단독 플레이 (솔로 반복 테스트)</span>
+<span class="c">// TestServerAddress 있음 → 데디 접속 / 비어있음 → 로컬 단독 플레이(솔로 반복 테스트)</span>
 if (!SelectedMap-&gt;TestServerAddress.IsEmpty())
 {
     FString Address = SelectedMap-&gt;TestServerAddress;
     if (!PartyCode.IsEmpty())
     {
-        Address += FString::Printf(
-            TEXT("?party=%s"), *PartyCode);
+        Address += FString::Printf(TEXT("?party=%s"), *PartyCode);
     }
     PC-&gt;ClientTravel(Address, TRAVEL_Absolute);
 }</code></pre>
       <pre class="code"><code><span class="c">// OBExpeditionGameMode.cpp</span>
-uint8 AOBExpeditionGameMode::ResolveTeamForCode(
-    const FString&amp; PartyCode)
+uint8 AOBExpeditionGameMode::ResolveTeamForCode(const FString&amp; PartyCode)
 {
     ...
     if (!EffectiveCode.IsEmpty())
     {
-        if (uint8* Existing =
-                PartyTeams.Find(EffectiveCode))
+        if (uint8* Existing = PartyTeams.Find(EffectiveCode))
             return *Existing;     <span class="c">// 같은 코드 → 같은 팀</span>
         const uint8 NewTeam = NextTeamId++;
         PartyTeams.Add(EffectiveCode, NewTeam);
