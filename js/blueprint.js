@@ -1,6 +1,6 @@
 (()=>{
   const graph=document.getElementById('graph'), svg=document.getElementById('wires');
-  const links=[['ev-o','dev-i'],['dev-o','seq-i'],['s0','n0'],['s1','n1'],['s2','n2'],['s3','n3'],['s4','n4']];
+  const links=[['ev-o','dev-i'],['dev-o','seq-i'],['s0','n0'],['s1','n1'],['s2','n2'],['s3','n3']];
   function center(id,g){const r=document.getElementById(id).getBoundingClientRect();return {x:r.left-g.left+r.width/2,y:r.top-g.top+r.height/2};}
   function draw(){
     if(getComputedStyle(svg).display==='none') return;

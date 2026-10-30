@@ -44,48 +44,28 @@
           <div class="row r"><span class="k">Then 1</span><i class="pin exec" id="s1"></i></div>
           <div class="row r"><span class="k">Then 2</span><i class="pin exec" id="s2"></i></div>
           <div class="row r"><span class="k">Then 3</span><i class="pin exec" id="s3"></i></div>
-          <div class="row r"><span class="k">Then 4</span><i class="pin exec" id="s4"></i></div>
         </div>
       </div>
 
       <div class="comment">
-        <div class="comment-h">Core Systems<small>직접 구현한 핵심 시스템</small></div>
+        <div class="comment-h">Projects<small>프로젝트별 대표 시스템</small></div>
         <div class="comment-b">
-          <div class="node fn p-fa">
-            <div class="nh"><span class="t"><b aria-hidden="true">ƒ</b>Activate Ability</span><small>Combat · <b>Fantasy Action</b></small></div>
-            <div class="nb">
-              <div class="row"><i class="pin exec" id="n0"></i></div>
-              <div class="row"><i class="pin data p-obj"></i><span class="k">Systems</span><span class="val">Gameplay Ability System · Motion Warping</span></div>
-            </div>
-          </div>
-          <div class="node fn p-fa">
-            <div class="nh"><span class="t"><b aria-hidden="true">ƒ</b>Run Behavior Tree</span><small>Enemy AI · <b>Fantasy Action</b></small></div>
-            <div class="nb">
-              <div class="row"><i class="pin exec" id="n1"></i></div>
-              <div class="row"><i class="pin data p-obj"></i><span class="k">Systems</span><span class="val">Behavior Tree · EQS · AI Perception</span></div>
-            </div>
-          </div>
-          <div class="node fn p-fa">
-            <div class="nh"><span class="t"><b aria-hidden="true">ƒ</b>Play Level Sequence</span><small>Cinematic · <b>Fantasy Action</b></small></div>
-            <div class="nb">
-              <div class="row"><i class="pin exec" id="n2"></i></div>
-              <div class="row"><i class="pin data p-obj"></i><span class="k">Systems</span><span class="val">Sequencer · CineCamera · CameraShake</span></div>
-            </div>
-          </div>
-          <div class="node fn p-ms">
-            <div class="nh"><span class="t"><b aria-hidden="true">ƒ</b>Grab Component</span><small>Interaction · <b>Magic School</b></small></div>
-            <div class="nb">
-              <div class="row"><i class="pin exec" id="n3"></i></div>
-              <div class="row"><i class="pin data p-obj"></i><span class="k">Systems</span><span class="val">PhysicsHandle · Inventory · Niagara</span></div>
-            </div>
-          </div>
-          <div class="node fn p-fe">
-            <div class="nh"><span class="t"><b aria-hidden="true">ƒ</b>Server Place Piece</span><small>Building · Multiplayer · <b>FallenEra</b></small></div>
-            <div class="nb">
-              <div class="row"><i class="pin exec" id="n4"></i></div>
-              <div class="row"><i class="pin data p-obj"></i><span class="k">Systems</span><span class="val">Socket Snap · Structural Support · Replication</span></div>
-            </div>
-          </div>
+          <div class="node cnode p-fe">
+            <i class="pin exec" id="n0"></i>
+            <span class="cn-body"><span class="cn-t"><span class="cn-ico" aria-hidden="true"></span><b>FallenEra</b><span class="cn-st live">4인 팀 · 개발 중</span></span><span class="cn-s">Socket Snap · Structural Support · Replication</span></span>
+                      </div>
+          <div class="node cnode p-ob">
+            <i class="pin exec" id="n1"></i>
+            <span class="cn-body"><span class="cn-t"><span class="cn-ico" aria-hidden="true"></span><b>OutBreak</b><span class="cn-st">3인 팀</span></span><span class="cn-s">GAS Weapon · Extraction Loop · Steam Online</span></span>
+                      </div>
+          <div class="node cnode p-fa">
+            <i class="pin exec" id="n2"></i>
+            <span class="cn-body"><span class="cn-t"><span class="cn-ico" aria-hidden="true"></span><b>Fantasy Action</b><span class="cn-st">개인</span></span><span class="cn-s">GAS Combat · Behavior Tree · EQS · Sequencer</span></span>
+                      </div>
+          <div class="node cnode p-ms">
+            <i class="pin exec" id="n3"></i>
+            <span class="cn-body"><span class="cn-t"><span class="cn-ico" aria-hidden="true"></span><b>Magic School</b><span class="cn-st">2인 팀</span></span><span class="cn-s">PhysicsHandle · Inventory · Niagara</span></span>
+                      </div>
         </div>
       </div>
     </div>
@@ -187,13 +167,17 @@
       <div class="tag-group" style="--c:var(--pin-object)"><span class="tg-label">Engine</span>
         <ul class="hashtags"><li><b>#</b>UnrealEngine5</li></ul></div>
       <div class="tag-group" style="--c:var(--pin-float)"><span class="tg-label">Gameplay</span>
-        <ul class="hashtags"><li><b>#</b>GameplayAbilitySystem</li><li><b>#</b>MotionWarping</li><li><b>#</b>LinkedAnimLayer</li></ul></div>
+        <ul class="hashtags"><li><b>#</b>GAS</li><li><b>#</b>MotionWarping</li><li><b>#</b>LinkedAnimLayer</li><li><b>#</b>GameplayCue</li></ul></div>
       <div class="tag-group" style="--c:var(--pin-vector)"><span class="tg-label">AI</span>
         <ul class="hashtags"><li><b>#</b>BehaviorTree</li><li><b>#</b>EQS</li><li><b>#</b>AIPerception</li></ul></div>
       <div class="tag-group" style="--c:var(--pin-rotator)"><span class="tg-label">연출 · UI</span>
         <ul class="hashtags"><li><b>#</b>Sequencer</li><li><b>#</b>Niagara</li><li><b>#</b>UMG</li><li><b>#</b>MVVM</li></ul></div>
       <div class="tag-group" style="--c:var(--pin-bool)"><span class="tg-label">Network</span>
         <ul class="hashtags"><li><b>#</b>Multiplayer</li><li><b>#</b>Replication</li><li><b>#</b>ServerRPC</li><li><b>#</b>Steam</li><li><b>#</b>DedicatedServer</li></ul></div>
+      <div class="tag-group" style="--c:var(--pin-struct2)"><span class="tg-label">Architecture</span>
+        <ul class="hashtags"><li><b>#</b>GameplayTags</li><li><b>#</b>DataAsset</li><li><b>#</b>AssetManager</li><li><b>#</b>Subsystem</li><li><b>#</b>Interface</li></ul></div>
+      <div class="tag-group" style="--c:var(--pin-int)"><span class="tg-label">Tools · 협업</span>
+        <ul class="hashtags"><li><b>#</b>Git</li><li><b>#</b>GitHub</li><li><b>#</b>Rider</li><li><b>#</b>ClaudeCode</li><li><b>#</b>AutomationTest</li></ul></div>
     </div>
   </section>
 
