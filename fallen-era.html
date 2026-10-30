@@ -22,8 +22,8 @@
   <a href="#fe-material">청사진 · 재질 · 수리</a>
   <a href="#fe-base">가구 &amp; 방어시설</a>
   <a href="#fe-interact">상호작용</a>
-  <a href="#fe-network">멀티플레이 &amp; 협업</a>
-  <a href="#fe-workflow">개발 방식</a>
+  <a href="#fe-network">멀티플레이 설계</a>
+  <a href="#fe-workflow">협업 &amp; 개발 방식</a>
 </nav>
 <main>
 <nav class="pagenav" aria-label="페이지 이동">
@@ -478,7 +478,7 @@ class IFEInteractable
   </section>
 
   <section class="sec" id="fe-network">
-    <h3>멀티플레이 &amp; 협업 <span class="en">Network &amp; Teamwork</span></h3>
+    <h3>멀티플레이 설계 <span class="en">Network Design</span></h3>
     <div class="two">
       <div class="box"><h5>서버 권한 원칙</h5>
         <ul>
@@ -490,14 +490,28 @@ class IFEInteractable
         <p>수리 · 업그레이드 · 발사 · 조준 요청에 같은 간격 제한 함수를 씁니다. 네트워크 지터로 조금 일찍 온 요청은 받아 주되, 평균 간격은 지키도록 다음 허용 시각을 누적합니다.</p>
         <pre class="code"><code><span class="c">// FEBuildingTypes.h</span>
 inline bool ConsumeRequestSlot(
-    double&amp; NextAllowedTime, double Now, double Interval)
+    double&amp; NextAllowedTime, double Now,
+    double Interval)
 {
-    if (Now &lt; NextAllowedTime - Interval * 0.5) return false;
-    NextAllowedTime = FMath::Max(NextAllowedTime, Now) + Interval;
+    if (Now &lt; NextAllowedTime - Interval * 0.5)
+        return false;
+    NextAllowedTime = FMath::Max(
+        NextAllowedTime, Now) + Interval;
     return true;
 }</code></pre>
         <p class="muted">자동화 테스트 <code>FallenEra.Building.RequestRateLimit</code>로 검증합니다.</p></div>
     </div>
+  </section>
+
+  <section class="sec" id="fe-workflow">
+    <h3>협업 &amp; 개발 방식 <span class="en">Teamwork &amp; Workflow</span></h3>
+    <p class="prose">기능을 바로 구현하기보다, <b>작업 내용과 완료 조건을 GitHub Issue에 먼저 정리해 팀원들과 공유</b>합니다. 모든 코드 작업은 Issue에서 출발해 기능 단위 브랜치로 나누고, 구현 후에는 반드시 2인 PIE에서 멀티플레이 동작을 검증한 뒤 PR을 올립니다. 지금도 이 흐름으로 개발하고 있습니다.</p>
+    <ol class="flow wf" aria-label="개발 순환: Issue 정의, 기능 구현, PIE 멀티플레이 테스트, Pull Request와 Review를 거쳐 다시 Issue 정의로">
+      <li><b>Issue 정의</b></li>
+      <li><b>기능 구현</b></li>
+      <li><b>PIE 멀티플레이 테스트</b></li>
+      <li><b>Pull Request &amp; Review</b></li>
+    </ol>
     <div class="two">
       <div class="box"><h5>팀원 시스템과의 경계</h5>
         <ul>
@@ -511,17 +525,6 @@ inline bool ConsumeRequestSlot(
           <li>리뷰 후속으로 건설 컴포넌트에서 HUD를 분리하고, 발리스타가 탑승을 스스로 처리하도록 구조를 정리했습니다.</li>
         </ul></div>
     </div>
-  </section>
-
-  <section class="sec" id="fe-workflow">
-    <h3>개발 방식 <span class="en">Development Workflow</span></h3>
-    <p class="prose">기능을 바로 구현하기보다, <b>작업 내용과 완료 조건을 GitHub Issue에 먼저 정리해 팀원들과 공유</b>합니다. 모든 코드 작업은 Issue에서 출발해 기능 단위 브랜치로 나누고, 구현 후에는 반드시 2인 PIE에서 멀티플레이 동작을 검증한 뒤 PR을 올립니다. 지금도 이 흐름으로 개발하고 있습니다.</p>
-    <ol class="flow wf" aria-label="개발 순환: Issue 정의, 기능 구현, PIE 멀티플레이 테스트, Pull Request와 Review를 거쳐 다시 Issue 정의로">
-      <li><b>Issue 정의</b></li>
-      <li><b>기능 구현</b></li>
-      <li><b>PIE 멀티플레이 테스트</b></li>
-      <li><b>Pull Request &amp; Review</b></li>
-    </ol>
     <figure><button type="button"><img src="img/fe-issues.png" alt="FallenEra GitHub 저장소의 완료된 Issue 목록. 방어시설, 계단·모양 피스, 재질 선택, 구조물 피해·수리, 소켓 스냅, 청사진 재료 투입 등 건설 기능 이슈 8건" loading="lazy"></button><figcaption>Issue 페이지: 스프린트마다 <code>[FEAT]</code> 이슈를 열고, 구현 · 검증 · 병합이 끝나면 닫습니다. 사진은 직접 담당해 완료한 건설 기능 이슈 8건입니다.</figcaption></figure>
     <figure><button type="button"><img src="img/fe-prs.png" alt="FallenEra GitHub 저장소의 Pull Request 목록. 현재 리뷰 중인 건설 컴포넌트 분리 PR #34 등 열린 PR 2건, 닫힌 PR 11건" loading="lazy"></button><figcaption>PR 페이지: 지금 리뷰를 기다리는 PR #34(건설 컴포넌트 분리)는 이전 PR 리뷰에서 나온 구조 개선 의견을 반영한 작업입니다. 팀원 아이디는 가렸습니다.</figcaption></figure>
   </section>
