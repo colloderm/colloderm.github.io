@@ -40,9 +40,10 @@
 
   <section class="sec" id="fe-video">
     <h3>시연 영상 <span class="en">Gameplay Video</span></h3>
-    <div class="video video-lg video-empty" role="img" aria-label="시연 영상 준비 중">
-      <span class="play"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><path d="M8 5v14l11-7z" fill="#111319"/></svg></i>시연 영상 준비 중</span>
-    </div>
+    <figure class="demo">
+      <video class="demo-video" src="media/fe-demo.mp4" poster="media/fe-demo-poster.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="토대 위에 벽과 천장 청사진을 소켓에 맞춰 배치하는 시연 영상"></video>
+      <figcaption>토대 위에 벽 · 천장 청사진(파란색)을 소켓에 맞춰 배치하는 장면입니다. 고스트가 초록이면 배치할 수 있고, 빨강이면 배치할 수 없는 자리입니다.</figcaption>
+    </figure>
   </section>
 
   <section class="sec" id="fe-overview">
@@ -271,6 +272,13 @@
         <ul><li>메시 · 필요 재료 · 최대 체력 · 소켓 목록</li><li>업그레이드 대상(나무 → 돌 → 철 사슬)</li><li>에셋은 모두 소프트 참조 + Asset Manager 비동기 로드</li></ul>
       </div>
     </div>
+    <div class="sub">
+      <h4>데이터 에셋 예시 <code>DA_Piece_Wall_Wood</code></h4>
+      <div class="two">
+        <figure><button type="button"><img src="img/fe-da-1.png" alt="나무 벽 데이터 에셋의 Building 카테고리: 표시 이름, 메뉴 순서, 카테고리 태그, 메시, 완성 머티리얼" loading="lazy"></button><figcaption>표시 이름 · 메뉴 순서 · 카테고리 태그 · 메시 · 완성 머티리얼</figcaption></figure>
+        <figure><button type="button"><img src="img/fe-da-2.png" alt="나무 벽 데이터 에셋의 Cost, Durability, Upgrade 카테고리: 필요 재료 나무 6, 최대 체력 300, 업그레이드 대상 돌 벽" loading="lazy"></button><figcaption>필요 재료(나무 6) · 최대 체력 300 · 파괴 이펙트 · 업그레이드 대상(돌 벽)</figcaption></figure>
+      </div>
+    </div>
   </section>
 
   <section class="sec" id="fe-place">
@@ -385,6 +393,7 @@ while (Frontier.Num() &gt; 0)
           <li>수리 비용은 깎인 체력 비율 × 재료 × 0.5입니다.</li>
         </ul></div>
     </div>
+    <figure><button type="button"><img src="img/fe-materials.png" alt="나무, 돌, 철 재질의 벽과 바닥, 문틀과 창문 벽이 나란히 서 있는 게임 화면" loading="lazy"></button><figcaption>같은 메시를 쓰는 나무 · 돌 · 철 구조물입니다. 재질 차이는 데이터 에셋과 머티리얼에만 있습니다.</figcaption></figure>
     <div class="tbl-wrap">
       <table class="tbl">
         <thead><tr><th>재질</th><th>최대 체력</th><th>필요 재료</th><th>업그레이드</th></tr></thead>
@@ -474,6 +483,7 @@ class IFEInteractable
         <li><b>클라이언트 · InteractLocal</b><br><span class="muted">패널 열기 등 요청한 플레이어 화면에서만 처리</span></li>
       </ol>
     </div>
+    <figure class="fig-md"><button type="button"><img src="img/fe-build-menu.png" alt="화면 오른쪽에 건설, 가구, 방어 탭이 있는 빌드 메뉴와 바닥에 놓인 초록색 배치 고스트" loading="lazy"></button><figcaption>Tab으로 여는 빌드 메뉴(건설 · 가구 · 방어 탭)와 초록색 배치 고스트입니다. 메뉴 항목은 MVVM 뷰모델이 데이터 에셋 목록에서 만들어 줍니다.</figcaption></figure>
     <p class="prose muted">빌드 모드 중에는 회전 키와 상호작용 키(E)가 겹치는 문제가 있어서, 빌드 모드에 로컬 게임플레이 태그 <code>State.Building</code>을 붙이고 상호작용 컴포넌트가 이 태그가 있을 때 동작하지 않도록 막았습니다.</p>
   </section>
 
@@ -501,6 +511,7 @@ inline bool ConsumeRequestSlot(
 }</code></pre>
         <p class="muted">자동화 테스트 <code>FallenEra.Building.RequestRateLimit</code>로 검증합니다.</p></div>
     </div>
+    <figure><button type="button"><img src="img/fe-autotest.png" alt="언리얼 에디터 Message Log의 Automation Testing Log에 FallenEra.Building.RequestRateLimit 테스트가 Success로 표시된 화면" loading="lazy"></button><figcaption>에디터 자동화 테스트 결과: 요청 간격 제한 테스트 <code>FallenEra.Building.RequestRateLimit</code> Success</figcaption></figure>
   </section>
 
   <section class="sec" id="fe-workflow">
@@ -548,5 +559,6 @@ inline bool ConsumeRequestSlot(
 
 <script src="js/lightbox.js"></script>
 <script src="js/outliner.js"></script>
+<script>try{if(matchMedia("(prefers-reduced-motion: reduce)").matches)document.querySelectorAll("video[autoplay]").forEach(function(v){v.removeAttribute("autoplay");v.pause();});}catch(e){}</script>
 </body>
 </html>

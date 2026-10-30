@@ -412,3 +412,8 @@ dialog form button{font:inherit;background:var(--panel-2);color:var(--fg);border
 .ill .mask{stroke:var(--panel-2);stroke-width:2.5}
 .ah-a{fill:var(--accent)}
 .ah-m{fill:var(--muted)}
+
+/* ---------- FallenEra: 시연 영상 · 스크린샷 ---------- */
+.demo{gap:10px}
+.demo-video{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:#0b0c10}
+.fig-md{width:100%;max-width:760px;margin-inline:auto}
