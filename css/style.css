@@ -365,3 +365,17 @@ dialog form button{font:inherit;background:var(--panel-2);color:var(--fg);border
 .dg .ah-rpc{fill:var(--accent)}
 .dg .tri{fill:var(--panel);stroke:var(--muted);stroke-width:1.2}
 .dg .mask{fill:var(--panel)}
+
+/* 개발 방식: 2x2 시계 방향 순환 (1 → 2 ↓ 3 ← 4 ↑ 1) */
+.flow.wf{position:relative;grid-template-columns:repeat(2,minmax(0,1fr));gap:44px;width:100%;max-width:720px;margin-inline:auto}
+.flow.wf li{position:relative;display:flex;align-items:center;gap:10px;padding:16px 18px;min-height:64px}
+.flow.wf li::before{display:inline;margin:0}
+.flow.wf li:nth-child(3){grid-column:2;grid-row:2}
+.flow.wf li:nth-child(4){grid-column:1;grid-row:2}
+.flow.wf li::after{position:absolute;color:var(--accent);font-size:1.15rem;line-height:1}
+.flow.wf li:nth-child(1)::after{content:"→";right:-22px;top:50%;transform:translate(50%,-50%)}
+.flow.wf li:nth-child(2)::after{content:"↓";bottom:-22px;left:50%;transform:translate(-50%,50%)}
+.flow.wf li:nth-child(3)::after{content:"←";left:-22px;top:50%;transform:translate(-50%,-50%)}
+.flow.wf li:nth-child(4)::after{content:"↑";top:-22px;left:50%;transform:translate(-50%,-50%)}
+.flow.wf::after{content:"↻";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:var(--dim);font-size:1.5rem;line-height:1}
+@media (max-width:520px){.flow.wf{gap:36px}.flow.wf li{flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;padding:14px}.flow.wf li:nth-child(1)::after{right:-18px}.flow.wf li:nth-child(2)::after{bottom:-18px}.flow.wf li:nth-child(3)::after{left:-18px}.flow.wf li:nth-child(4)::after{top:-18px}}
