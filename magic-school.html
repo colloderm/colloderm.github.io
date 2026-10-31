@@ -6,14 +6,14 @@
 <title>Magic School | 김진호 포트폴리오</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="shell">
 <nav class="outliner p-ms" aria-label="목차">
-  <div class="hd">Magic School</div>
-  <a class="top ms" href="#ms">프로젝트 상단</a>
+  <div class="hd">Outliner</div>
+  <a class="top ms" href="#ms">Magic School</a>
   <a href="#ms-video">시연 영상</a>
   <a href="#ms-overview">프로젝트 개요</a>
   <a href="#ms-class">캐릭터 구조</a>
@@ -24,27 +24,30 @@
 </nav>
 <main>
 <nav class="pagenav" aria-label="페이지 이동">
-  <a href="index.html">← 메인으로</a>
-  <a href="fantasy-action.html">← 이전 프로젝트: Fantasy Action</a>
+  <a href="index.html">메인으로</a>
+  <a href="fantasy-action.html"><span>이전</span>Fantasy Action</a>
 </nav>
 
 <article class="project p-ms" id="ms">
   <div class="phead">
-    <span class="no">완성작 · 2인 팀 프로젝트</span>
     <h2>Magic School</h2>
-    <div class="meta"><span><b>장르</b>1인칭 방탈출 퍼즐</span><span><b>팀</b>YUJINS STUDIO · 김진호(팀장), 이유정</span><span><b>기간</b>1개월</span><span><b>엔진</b>Unreal Engine 5 · Blueprint</span></div>
+    <p class="state">완성작, 2인 팀 프로젝트</p>
+    <dl class="d-props"><div><dt>장르</dt><dd>1인칭 방탈출 퍼즐</dd></div><div><dt>팀</dt><dd>YUJINS STUDIO, 김진호(팀장), 이유정</dd></div><div><dt>기간</dt><dd>1개월</dd></div><div><dt>엔진</dt><dd>Unreal Engine 5, Blueprint</dd></div></dl>
   </div>
 
-  <section class="sec" id="ms-video">
-    <h3>시연 영상 <span class="en">Gameplay Video</span></h3>
+  <details class="sec" id="ms-video" open>
+    <summary><h3>시연 영상</h3></summary>
+    <div class="d-body">
     <a class="video video-lg" href="https://www.youtube.com/watch?v=fnKinP_DIwg" target="_blank" rel="noopener">
       <img src="img/ms-intro.jpg" alt="Magic School 인트로 화면">
       <span class="play"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><path d="M8 5v14l11-7z" fill="#111319"/></svg></i>YouTube에서 시연 영상 보기 ↗</span>
     </a>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="ms-overview">
-    <h3>프로젝트 개요 <span class="en">Overview</span></h3>
+  <details class="sec" id="ms-overview" open>
+    <summary><h3>프로젝트 개요</h3></summary>
+    <div class="d-body">
     <div class="kw">
       <div><b>Room Escape</b><span>실세계와 판타지 요소가 결합된 방탈출</span></div>
       <div><b>1인칭 시점</b><span>1인칭 캐릭터로 현실적인 몰입감 제공</span></div>
@@ -52,7 +55,7 @@
     </div>
     <div class="two">
       <div class="role me">
-        <h5>김진호 <small>ME · 팀장</small></h5>
+        <h5>김진호 <small>팀장</small></h5>
         <dl>
           <div><dt>콘텐츠 기획</dt><dd>기믹, 스토리, 단서 기획 및 제작</dd></div>
           <div><dt>캐릭터 컴포넌트</dt><dd>Grab / Release / Rotate 시스템, Interaction 시스템 구현</dd></div>
@@ -74,20 +77,24 @@
       <h4>아웃게임 &amp; 인게임 사이클</h4>
       <figure><button type="button"><img src="img/ms-cycle.jpg" alt="Magic School 아웃게임과 인게임 순서도" loading="lazy"></button><figcaption>메인 메뉴 → L_GameMap → 첫 번째 방 → 두 번째 방 → 포탈 → 세 번째 방 → Clear</figcaption></figure>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="ms-class">
-    <h3>캐릭터 구조 <span class="en">Character</span></h3>
+  <details class="sec" id="ms-class" open>
+    <summary><h3>캐릭터 구조</h3></summary>
+    <div class="d-body">
     <div class="chain"><span class="base">ACharacter</span><i>→</i><span>MagicSchoolCharacter</span><i>◇</i><span class="base">CharacterMovement</span><span class="base">PhysicsHandle</span><span>BPC_Interaction</span><span>BPC_Inventory</span></div>
     <p class="prose">이동은 <code>CharacterMovement</code>, 물체 잡기는 <code>PhysicsHandle</code>에 맡기고, 상호작용과 인벤토리는 직접 만든 액터 컴포넌트 <code>BPC_Interaction</code>, <code>BPC_Inventory</code>로 분리했습니다.</p>
     <div class="two">
       <figure><button type="button"><img src="img/ms-class.jpg" alt="MagicSchoolCharacter 클래스 다이어그램" loading="lazy"></button><figcaption>캐릭터 클래스 구조</figcaption></figure>
       <figure><button type="button"><img src="img/ms-comp.jpg" alt="BP_FirstPersonCharacter 컴포넌트 목록" loading="lazy"></button><figcaption>BP_FirstPersonCharacter 컴포넌트 구성</figcaption></figure>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="ms-interact">
-    <h3>인터랙션 <span class="en">BPC_Interaction</span></h3>
+  <details class="sec" id="ms-interact" open>
+    <summary><h3>인터랙션</h3></summary>
+    <div class="d-body">
     <div class="sub">
       <h4>Grabbing System <code>잡기 / 놓기</code></h4>
       <ul class="prose">
@@ -106,10 +113,12 @@
       </ul>
       <figure><button type="button"><img src="img/ms-rotate.jpg" alt="Object Rotate System 블루프린트" loading="lazy"></button><figcaption>PhysicsHandle의 Target Rotation에 입력값을 더해 Set Target Rotation</figcaption></figure>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="ms-inventory">
-    <h3>인벤토리 <span class="en">BPC_Inventory</span></h3>
+  <details class="sec" id="ms-inventory" open>
+    <summary><h3>인벤토리</h3></summary>
+    <div class="d-body">
     <div class="sub">
       <h4>AddItem</h4>
       <div class="split">
@@ -144,10 +153,12 @@
         </ul>
       </div>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="ms-gimmick">
-    <h3>퍼즐 &amp; 기믹 <span class="en">Puzzle</span></h3>
+  <details class="sec" id="ms-gimmick" open>
+    <summary><h3>퍼즐 &amp; 기믹</h3></summary>
+    <div class="d-body">
     <div class="two">
       <div class="box"><h5>게임 기믹</h5><ul><li>액터별 상호작용이나 주변 사물로 다양한 힌트를 제공합니다.</li><li>모은 힌트로 퍼즐을 풀어 탈출하도록 설계했습니다.</li></ul></div>
       <div class="box"><h5>자물쇠 기믹</h5><ul><li>실제 방탈출 같은 자물쇠를 위해 에셋을 구매했습니다.</li><li>플레이어와 상호작용하도록 로직을 수정해 적용했습니다.</li><li>자물쇠 조작키를 알려주는 UI를 만들었습니다.</li></ul></div>
@@ -156,10 +167,12 @@
       <figure><button type="button"><img src="img/ms-puzzle-1.jpg" alt="별 모양 퍼즐과 숫자 힌트" loading="lazy"></button><figcaption>별 퍼즐: 번호 힌트 순서대로 연결</figcaption></figure>
       <figure><button type="button"><img src="img/ms-puzzle-2.jpg" alt="성배 단서와 단어 자물쇠" loading="lazy"></button><figcaption>성배 단서와 단어 자물쇠, 조작키 안내 UI</figcaption></figure>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="ms-ui">
-    <h3>UI / UX <span class="en">Effects · Level · Screens</span></h3>
+  <details class="sec" id="ms-ui" open>
+    <summary><h3>UI / UX</h3></summary>
+    <div class="d-body">
     <div class="sub">
       <h4>나이아가라 VFX</h4>
       <div class="split">
@@ -193,14 +206,15 @@
         <figure><button type="button"><img src="img/ms-end.jpg" alt="엔딩 화면" loading="lazy"></button><figcaption>엔딩: 테마와 남은 시간</figcaption></figure>
       </div>
     </div>
-  </section>
+  </div>
+  </details>
 </article>
 
 <nav class="pagenav bottom" aria-label="페이지 이동">
-  <a href="index.html">← 메인으로</a>
-  <a href="fantasy-action.html">← 이전 프로젝트: Fantasy Action</a>
+  <a href="index.html">메인으로</a>
+  <a href="fantasy-action.html"><span>이전</span>Fantasy Action</a>
 </nav>
-<footer class="site-foot"><span>김진호 · Client Programmer</span><small class="copyright">&copy; 2026 Kim JinHo. All rights reserved.</small><span>Unreal Engine 5 Portfolio</span></footer>
+<footer class="site-foot"><span>Client Programmer 김진호</span><small class="copyright">&copy; 2026 Kim JinHo. All rights reserved.</small><span>Unreal Engine 5 Portfolio</span></footer>
 </main>
 </div>
 

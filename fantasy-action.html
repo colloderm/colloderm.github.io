@@ -6,14 +6,14 @@
 <title>Fantasy Action | 김진호 포트폴리오</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="shell">
 <nav class="outliner p-fa" aria-label="목차">
-  <div class="hd">Fantasy Action</div>
-  <a class="top fa" href="#fa">프로젝트 상단</a>
+  <div class="hd">Outliner</div>
+  <a class="top fa" href="#fa">Fantasy Action</a>
   <a href="#fa-video">시연 영상</a>
   <a href="#fa-overview">프로젝트 개요</a>
   <a href="#fa-class">캐릭터 클래스</a>
@@ -25,28 +25,31 @@
 </nav>
 <main>
 <nav class="pagenav" aria-label="페이지 이동">
-  <a href="index.html">← 메인으로</a>
-  <a href="outbreak.html">← 이전 프로젝트: OutBreak</a>
-  <a href="magic-school.html">다음 프로젝트: Magic School →</a>
+  <a href="index.html">메인으로</a>
+  <a href="outbreak.html"><span>이전</span>OutBreak</a>
+  <a href="magic-school.html"><span>다음</span>Magic School</a>
 </nav>
 
 <article class="project p-fa" id="fa">
   <div class="phead">
-    <span class="no">완성작 · 개인 프로젝트</span>
     <h2>Fantasy Action</h2>
-    <div class="meta"><span><b>장르</b>Action RPG</span><span><b>역할</b>클라이언트 개발 (개인)</span><span><b>기간</b>3개월</span><span><b>엔진</b>Unreal Engine 5 · C++ / Blueprint</span></div>
+    <p class="state">완성작, 개인 프로젝트</p>
+    <dl class="d-props"><div><dt>장르</dt><dd>Action RPG</dd></div><div><dt>역할</dt><dd>클라이언트 개발 (개인)</dd></div><div><dt>기간</dt><dd>3개월</dd></div><div><dt>엔진</dt><dd>Unreal Engine 5, C++ / Blueprint</dd></div></dl>
   </div>
 
-  <section class="sec" id="fa-video">
-    <h3>시연 영상 <span class="en">Gameplay Video</span></h3>
+  <details class="sec" id="fa-video" open>
+    <summary><h3>시연 영상</h3></summary>
+    <div class="d-body">
     <a class="video video-lg" href="https://youtu.be/z0cfGGMXII0" target="_blank" rel="noopener">
       <img src="img/fa-video.jpg" alt="Fantasy Action 던전 입구">
       <span class="play"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><path d="M8 5v14l11-7z" fill="#111319"/></svg></i>YouTube에서 시연 영상 보기 ↗</span>
     </a>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="fa-overview">
-    <h3>프로젝트 개요 <span class="en">Overview</span></h3>
+  <details class="sec" id="fa-overview" open>
+    <summary><h3>프로젝트 개요</h3></summary>
+    <div class="d-body">
     <div class="two">
       <div class="box"><h5>AI 전투</h5>
         <ul><li>보스와 몬스터가 서로 상호작용하며 함께 싸우는 군집형 AI 전투</li><li>던전을 탐험해 모든 적을 섬멸하고 아이템을 얻는 쟁취감</li></ul></div>
@@ -63,10 +66,12 @@
       </ol>
       <figure><button type="button"><img src="img/fa-cycle.jpg" alt="아웃게임과 인게임 사이클 순서도" loading="lazy"></button><figcaption>아웃게임 &amp; 인게임 순서도</figcaption></figure>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="fa-class">
-    <h3>캐릭터 클래스 구조 <span class="en">Character Class</span></h3>
+  <details class="sec" id="fa-class" open>
+    <summary><h3>캐릭터 클래스 구조</h3></summary>
+    <div class="d-body">
     <div class="chain"><span class="base">ACharacter</span><i>→</i><span>JBaseCharacter</span><i>→</i><span>JPlayerCharacter</span><i>/</i><span>JEnemyCharacter</span></div>
     <p class="prose">플레이어와 적이 공유하는 전투·UI·스탯 처리는 <code>JBaseCharacter</code>에 모으고, 각자에게만 필요한 기능은 파생 클래스에서 구현했습니다.</p>
     <div class="two">
@@ -75,10 +80,12 @@
       <div class="box"><h5>차이점</h5>
         <ul><li><b>Player</b>: 카메라 컴포넌트, LockOn 시스템</li><li><b>Enemy</b>: 무기 공격 외에 좌/우 맨손(UnArmed) 공격 콜리전 추가, 아군/적군 구분 처리</li></ul></div>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="fa-comp">
-    <h3>캐릭터 컴포넌트 구조 <span class="en">Components</span></h3>
+  <details class="sec" id="fa-comp" open>
+    <summary><h3>캐릭터 컴포넌트 구조</h3></summary>
+    <div class="d-body">
     <p class="prose"><code>JBaseCharacter</code>는 <code>IAbilitySystemInterface</code>, <code>IPawnCombatInterface</code>, <code>IPawnUIInterface</code>를 구현하고, 역할별로 나눈 네 개의 컴포넌트에 기능을 맡깁니다.</p>
     <div class="comps">
       <div class="comp">
@@ -115,10 +122,12 @@
       <figure><button type="button"><img src="img/fa-editor.jpg" alt="BP_PlayerCharacter 컴포넌트 목록과 MotionWarping 노티파이가 있는 몽타주" loading="lazy"></button><figcaption>BP_PlayerCharacter 컴포넌트 구성과 몽타주의 MotionWarping 노티파이</figcaption></figure>
       <figure><button type="button"><img src="img/fa-build.jpg" alt="Build.cs의 PublicDependencyModuleNames에 MotionWarping 추가" loading="lazy"></button><figcaption>Build.cs 모듈 의존성 (MotionWarping, Niagara, NavigationSystem 등)</figcaption></figure>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="fa-anim">
-    <h3>애니메이션 구조 <span class="en">Linked Anim Layers</span></h3>
+  <details class="sec" id="fa-anim" open>
+    <summary><h3>애니메이션 구조</h3></summary>
+    <div class="d-body">
     <div class="split">
       <figure><button type="button"><img src="img/fa-anim.jpg" alt="애니메이션 클래스 다이어그램" loading="lazy"></button><figcaption>AnimInstance 계층과 Linked Anim Layer 구조</figcaption></figure>
       <div class="box">
@@ -131,10 +140,12 @@
         </ul>
       </div>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="fa-ai">
-    <h3>AI &amp; EQS <span class="en">Enemy AI</span></h3>
+  <details class="sec" id="fa-ai" open>
+    <summary><h3>AI &amp; EQS</h3></summary>
+    <div class="d-body">
     <div class="sub">
       <h4>AI Perception</h4>
       <p class="prose">AI 컨트롤러(<code>AIC_Guardian</code>)에 AI Perception 컴포넌트를 추가해 몬스터가 시야 센서(<code>AISense_Sight</code>, 시야 반경 1500cm)로 플레이어를 감지합니다.</p>
@@ -165,10 +176,12 @@
           </ul></div>
       </div>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="fa-cine">
-    <h3>시네마틱 &amp; 카메라 연출 <span class="en">Sequencer</span></h3>
+  <details class="sec" id="fa-cine" open>
+    <summary><h3>시네마틱 &amp; 카메라 연출</h3></summary>
+    <div class="d-body">
     <ul class="prose">
       <li><code>CineCameraActor</code>로 영화 같은 화면 구도를 만들었습니다.</li>
       <li>Crane 없이 Transform 트랙만으로 시작점부터 종료 지점까지 카메라 위치를 조정했습니다.</li>
@@ -179,10 +192,12 @@
       <figure><button type="button"><img src="img/fa-cine-1.jpg" alt="시퀀서 타임라인과 CineCameraActor" loading="lazy"></button><figcaption>시퀀서: 카메라 컷, Transform, 카메라 셰이크 트랙</figcaption></figure>
       <figure><button type="button"><img src="img/fa-cine-2.jpg" alt="보스 등장 컷신 블루프린트" loading="lazy"></button><figcaption>보스 등장 컷신 재생 블루프린트</figcaption></figure>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="fa-ui">
-    <h3>UI <span class="en">HUD</span></h3>
+  <details class="sec" id="fa-ui" open>
+    <summary><h3>UI</h3></summary>
+    <div class="d-body">
     <div class="split">
       <figure><button type="button"><img src="img/fa-ui.jpg" alt="플레이어 HUD와 보스 체력바가 표시된 게임 화면" loading="lazy"></button><figcaption>① 플레이어 HUD (좌하단) ② 보스 체력바 (상단)</figcaption></figure>
       <div class="two" style="grid-template-columns:minmax(0,1fr)">
@@ -194,15 +209,16 @@
           <p class="muted">HP에 연결해 적과 보스의 체력 게이지를 표시합니다.</p></div>
       </div>
     </div>
-  </section>
+  </div>
+  </details>
 </article>
 
 <nav class="pagenav bottom" aria-label="페이지 이동">
-  <a href="index.html">← 메인으로</a>
-  <a href="outbreak.html">← 이전 프로젝트: OutBreak</a>
-  <a href="magic-school.html">다음 프로젝트: Magic School →</a>
+  <a href="index.html">메인으로</a>
+  <a href="outbreak.html"><span>이전</span>OutBreak</a>
+  <a href="magic-school.html"><span>다음</span>Magic School</a>
 </nav>
-<footer class="site-foot"><span>김진호 · Client Programmer</span><small class="copyright">&copy; 2026 Kim JinHo. All rights reserved.</small><span>Unreal Engine 5 Portfolio</span></footer>
+<footer class="site-foot"><span>Client Programmer 김진호</span><small class="copyright">&copy; 2026 Kim JinHo. All rights reserved.</small><span>Unreal Engine 5 Portfolio</span></footer>
 </main>
 </div>
 

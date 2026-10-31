@@ -6,20 +6,20 @@
 <title>FallenEra | 김진호 포트폴리오</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="shell">
 <nav class="outliner p-fe" aria-label="목차">
-  <div class="hd">FallenEra</div>
-  <a class="top fe" href="#fe">프로젝트 상단</a>
+  <div class="hd">Outliner</div>
+  <a class="top fe" href="#fe">FallenEra</a>
   <a href="#fe-video">시연 영상</a>
   <a href="#fe-overview">프로젝트 개요</a>
   <a href="#fe-class">클래스 구조</a>
   <a href="#fe-place">소켓 스냅 &amp; 배치</a>
   <a href="#fe-support">구조 안정성 &amp; 붕괴</a>
-  <a href="#fe-material">청사진 · 재질 · 수리</a>
+  <a href="#fe-material">청사진, 재질, 수리</a>
   <a href="#fe-base">가구 &amp; 방어시설</a>
   <a href="#fe-interact">상호작용</a>
   <a href="#fe-network">멀티플레이 설계</a>
@@ -27,27 +27,30 @@
 </nav>
 <main>
 <nav class="pagenav" aria-label="페이지 이동">
-  <a href="index.html">← 메인으로</a>
-  <a href="outbreak.html">다음 프로젝트: OutBreak →</a>
+  <a href="index.html">메인으로</a>
+  <a href="outbreak.html"><span>다음</span>OutBreak</a>
 </nav>
 
 <article class="project p-fe" id="fe">
   <div class="phead">
-    <span class="no">개발 중 · 4인 팀 프로젝트</span>
     <h2>FallenEra</h2>
-    <div class="meta"><span><b>장르</b>1인칭 생존 크래프팅 (멀티플레이)</span><span><b>팀</b>4인 · 건설 / 기지 / 상호작용 담당</span><span><b>기간</b>2개월째 개발 중</span><span><b>엔진</b>Unreal Engine 5 · C++</span></div>
+    <p class="state">개발 중, 4인 팀 프로젝트</p>
+    <dl class="d-props"><div><dt>장르</dt><dd>1인칭 생존 크래프팅 (멀티플레이)</dd></div><div><dt>팀</dt><dd>4인 중 건설 / 기지 / 상호작용 담당</dd></div><div><dt>기간</dt><dd>2개월째 개발 중</dd></div><div><dt>엔진</dt><dd>Unreal Engine 5, C++</dd></div></dl>
   </div>
 
-  <section class="sec" id="fe-video">
-    <h3>시연 영상 <span class="en">Gameplay Video</span></h3>
+  <details class="sec" id="fe-video" open>
+    <summary><h3>시연 영상</h3></summary>
+    <div class="d-body">
     <figure class="demo">
       <video class="demo-video" src="media/fe-demo.mp4" poster="media/fe-demo-poster.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="토대 위에 벽과 천장 청사진을 소켓에 맞춰 배치하는 시연 영상"></video>
       <figcaption>토대 위에 벽 · 천장 청사진(파란색)을 소켓에 맞춰 배치하는 장면입니다. 고스트가 초록이면 배치할 수 있고, 빨강이면 배치할 수 없는 자리입니다.</figcaption>
     </figure>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="fe-overview">
-    <h3>프로젝트 개요 <span class="en">Overview</span></h3>
+  <details class="sec" id="fe-overview" open>
+    <summary><h3>프로젝트 개요</h3></summary>
+    <div class="d-body">
     <p class="prose">4인 팀이 만드는 멀티플레이 생존 크래프팅 게임입니다. 저는 <b>건설 · 기지 · 상호작용</b>을 맡아, 플레이어가 재료를 모아 집을 짓고 방어시설로 기지를 지키는 시스템 전체를 C++로 구현하고 있습니다.</p>
     <div class="kw">
       <div><b>모듈러 건설</b><span>400cm 모듈 소켓 스냅, 구조물 10종 × 나무·돌·철</span></div>
@@ -56,7 +59,7 @@
     </div>
     <div class="two">
       <div class="role me">
-        <h5>김진호 <small>ME · 건설 / 기지 / 상호작용</small></h5>
+        <h5>김진호 <small>건설 / 기지 / 상호작용</small></h5>
         <dl>
           <div><dt>건설 시스템</dt><dd>빌드 모드, 고스트 미리보기, 소켓 스냅, 서버 배치 검증, 철거</dd></div>
           <div><dt>구조 · 내구도</dt><dd>지지 거리, 연쇄 붕괴, 구조물 피해 · 수리 · 업그레이드</dd></div>
@@ -65,7 +68,7 @@
         </dl>
       </div>
       <div class="role">
-        <h5>팀원 3명 <small>TEAM</small></h5>
+        <h5>팀원 3명</h5>
         <dl>
           <div><dt>전투 · 프레임워크</dt><dd>GAS, PlayerState, 무기 · 전투 · 적 AI</dd></div>
           <div><dt>월드</dt><dd>복셀 지형, 세션, 세이브, 몬스터 스폰</dd></div>
@@ -75,7 +78,7 @@
     </div>
     <div class="sub">
       <h4>스프린트별 진행</h4>
-      <ol class="flow">
+      <ol class="flow nocount">
         <li><b>S1 · 빌드 모드</b><br><span class="muted">고스트, 회전, 서버 배치, GAS 입력</span></li>
         <li><b>S2 · 청사진</b><br><span class="muted">재료 투입, 철거 · 환불</span></li>
         <li><b>S3 · 소켓 스냅</b><br><span class="muted">DataAsset 소켓, 토대 · 벽</span></li>
@@ -87,10 +90,12 @@
         <li><b>S9 · 방어시설</b><br><span class="muted">스파이크 · 철조망 · 발리스타</span></li>
       </ol>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="fe-class">
-    <h3>클래스 구조 <span class="en">Architecture</span></h3>
+  <details class="sec" id="fe-class" open>
+    <summary><h3>클래스 구조</h3></summary>
+    <div class="d-body">
     <p class="prose">모든 건설물은 <code>AFEBuildPiece</code> 하나를 부모로 두고, 상호작용 · 피해 · 팀 판정을 인터페이스로 받습니다. 피스의 메시 · 비용 · 소켓 · 내구도는 코드가 아니라 <code>UFEBuildPieceDefinition</code> 데이터 에셋에 있어서, 새 피스는 대부분 에셋만 추가하면 됩니다.</p>
     <figure class="dg-fig">
       <div class="dg-scroll">
@@ -271,10 +276,12 @@
         <figure><button type="button"><img src="img/fe-da-2.png" alt="나무 벽 데이터 에셋의 Cost, Durability, Upgrade 카테고리: 필요 재료 나무 6, 최대 체력 300, 업그레이드 대상 돌 벽" loading="lazy"></button><figcaption>필요 재료(나무 6) · 최대 체력 300 · 파괴 이펙트 · 업그레이드 대상(돌 벽)</figcaption></figure>
       </div>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="fe-place">
-    <h3>소켓 스냅 &amp; 배치 검증 <span class="en">Placement</span></h3>
+  <details class="sec" id="fe-place" open>
+    <summary><h3>소켓 스냅 &amp; 배치 검증</h3></summary>
+    <div class="d-body">
     <div class="stack">
       <div class="sub" style="padding-top:0">
         <ul class="prose">
@@ -285,7 +292,7 @@
           <li>같은 자리 겹침, 공중 배치, 플레이어 · 적이 서 있는 자리, 토대 밖으로 뻗는 천장을 막습니다.</li>
         </ul>
       </div>
-      <pre class="code"><code><span class="c">// FEBuildingTypes.h — 소켓 하나</span>
+      <div class="d-code"><div class="ftab"><span>FEBuildingTypes.h + FEBuildingComponent.h</span></div><pre class="code"><code><span class="c">// FEBuildingTypes.h — 소켓 하나</span>
 <span class="m">USTRUCT</span>(BlueprintType)
 struct FFEBuildSocket
 {
@@ -303,12 +310,14 @@ struct FFEBuildSocket
 <span class="c">// FEBuildingComponent.h — 서버 배치 요청</span>
 <span class="c">/** Location 은 정수 cm 로 양자화, YawStep 은 회전 단계 */</span>
 <span class="m">UFUNCTION</span>(Server, Reliable, WithValidation)
-void ServerPlacePiece(FPrimaryAssetId InPieceId, FVector_NetQuantize Location, uint8 YawStep);</code></pre>
+void ServerPlacePiece(FPrimaryAssetId InPieceId, FVector_NetQuantize Location, uint8 YawStep);</code></pre></div>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="fe-support">
-    <h3>구조 안정성 &amp; 연쇄 붕괴 <span class="en">Structural Support</span></h3>
+  <details class="sec" id="fe-support" open>
+    <summary><h3>구조 안정성 &amp; 연쇄 붕괴</h3></summary>
+    <div class="d-body">
     <p class="prose">땅에 닿은 피스(anchor)에서 멀어질수록 <b>지지 거리</b>가 커지고, 재질마다 정해진 한계를 넘으면 지을 수 없습니다. 받침이 부서지면 거리를 다시 계산해, 땅까지 이어지지 않는 피스를 순서대로 무너뜨립니다.</p>
     <div class="support" aria-label="지지 거리 예시">
       <div class="sp-row">
@@ -326,7 +335,7 @@ void ServerPlacePiece(FPrimaryAssetId InPieceId, FVector_NetQuantize Location, u
       </div>
     </div>
     <div class="stack">
-      <pre class="code"><code><span class="c">// FEBuildingSubsystem.cpp — 지지 거리 재계산 (일부)</span>
+      <div class="d-code"><div class="ftab"><span>FEBuildingSubsystem.cpp</span></div><pre class="code"><code><span class="c">// FEBuildingSubsystem.cpp — 지지 거리 재계산 (일부)</span>
 <span class="c">// 정수 비용 다익스트라. anchor(땅에 닿은 피스)가 출발점.</span>
 while (Frontier.Num() &gt; 0)
 {
@@ -350,7 +359,7 @@ while (Frontier.Num() &gt; 0)
             Frontier.AddUnique(Neighbor);
         }
     }
-}</code></pre>
+}</code></pre></div>
       <div class="two">
         <div class="box"><h5>설계</h5>
           <ul>
@@ -365,10 +374,12 @@ while (Frontier.Num() &gt; 0)
           </ul></div>
       </div>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="fe-material">
-    <h3>청사진 · 재질 · 수리 <span class="en">Blueprint &amp; Durability</span></h3>
+  <details class="sec" id="fe-material" open>
+    <summary><h3>청사진, 재질, 수리</h3></summary>
+    <div class="d-body">
     <div class="two">
       <div class="box"><h5>청사진과 재료 투입</h5>
         <ul>
@@ -395,10 +406,12 @@ while (Frontier.Num() &gt; 0)
       </table>
     </div>
     <p class="prose muted">구조물 10종(토대 · 벽 · 창문 벽 · 문틀 · 기둥 · 천장 · 계단 · 난간 · 지붕 · 삼각 벽)이 재질별로 같은 메시를 쓰고, 차이는 데이터 에셋에만 있습니다. 손상 정도는 Custom Primitive Data로 머티리얼에 넘겨 색으로 표시합니다.</p>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="fe-base">
-    <h3>가구 &amp; 방어시설 <span class="en">Base &amp; Defense</span></h3>
+  <details class="sec" id="fe-base" open>
+    <summary><h3>가구 &amp; 방어시설</h3></summary>
+    <div class="d-body">
     <div class="sub">
       <h4>가구 5종</h4>
       <div class="comps">
@@ -424,7 +437,7 @@ while (Frontier.Num() &gt; 0)
           <li>장전 완료 시각을 복제해, 탑승자가 바뀌어도 모든 화면이 같은 장전 상태를 봅니다.</li>
           <li>탑승 중 사망 · 파괴 · 철거 시 자동으로 내리고 입력과 카메라를 원래대로 돌립니다.</li>
         </ul>
-        <pre class="code"><code><span class="c">// FEBuildBallista.h</span>
+        <div class="d-code"><div class="ftab"><span>FEBuildBallista.h</span></div><pre class="code"><code><span class="c">// FEBuildBallista.h</span>
 <span class="c">/** [Server RPC] 발사. 조준은 정밀값(float, 발리스타 기준 상대 각도) — 리플리케이트용 int8 은 1° 단위라 멀리서 빗나간다 */</span>
 <span class="m">UFUNCTION</span>(Server, Reliable, WithValidation)
 void ServerFire(float Yaw, float Pitch);
@@ -435,16 +448,18 @@ void ServerSetAim(int8 Yaw, int8 Pitch);
 
 <span class="c">/** [Client RPC] 서버만 아는 발사 실패 사유를 조작자 화면에. Owner = 조작자라 그 플레이어에게만 간다 */</span>
 <span class="m">UFUNCTION</span>(Client, Reliable)
-void ClientShowNotice(const FText&amp; Text);</code></pre>
+void ClientShowNotice(const FText&amp; Text);</code></pre></div>
       </div>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="fe-interact">
-    <h3>상호작용 <span class="en">Interaction</span></h3>
+  <details class="sec" id="fe-interact" open>
+    <summary><h3>상호작용</h3></summary>
+    <div class="d-body">
     <p class="prose">문 열기, 청사진 재료 투입, 보관함 열기, 발리스타 탑승, 아이템 줍기가 모두 <code>IFEInteractable</code> 인터페이스 하나로 동작합니다. C++과 블루프린트 양쪽에서 구현할 수 있게 <code>BlueprintNativeEvent</code>로 만들었습니다.</p>
     <div class="split">
-      <pre class="code"><code><span class="c">// FEInteractable.h</span>
+      <div class="d-code"><div class="ftab"><span>FEInteractable.h</span></div><pre class="code"><code><span class="c">// FEInteractable.h</span>
 class IFEInteractable
 {
     <span class="c">/** 클라/서버 공용. 대상 필터와 프롬프트 표시 */</span>
@@ -462,7 +477,7 @@ class IFEInteractable
     <span class="c">/** [Client Only] 서버 성공 후 UI 열기 · 로컬 연출 */</span>
     <span class="m">UFUNCTION</span>(BlueprintNativeEvent, BlueprintCallable)
     void InteractLocal(AActor* InstigatorActor);
-};</code></pre>
+};</code></pre></div>
       <ol class="flow flow-col">
         <li><b>클라이언트 · 대상 찾기</b><br><span class="muted">조준한 액터의 CanInteract, 프롬프트 문구를 MVVM으로 표시</span></li>
         <li><b>서버 · 재검증</b><br><span class="muted">UFEInteractionComponent가 거리와 CanInteract를 다시 확인</span></li>
@@ -472,10 +487,12 @@ class IFEInteractable
     </div>
     <figure class="fig-md"><button type="button"><img src="img/fe-build-menu.png" alt="화면 오른쪽에 건설, 가구, 방어 탭이 있는 빌드 메뉴와 바닥에 놓인 초록색 배치 고스트" loading="lazy"></button><figcaption>Tab으로 여는 빌드 메뉴(건설 · 가구 · 방어 탭)와 초록색 배치 고스트입니다. 메뉴 항목은 MVVM 뷰모델이 데이터 에셋 목록에서 만들어 줍니다.</figcaption></figure>
     <p class="prose muted">빌드 모드 중에는 회전 키와 상호작용 키(E)가 겹치는 문제가 있어서, 빌드 모드에 로컬 게임플레이 태그 <code>State.Building</code>을 붙이고 상호작용 컴포넌트가 이 태그가 있을 때 동작하지 않도록 막았습니다.</p>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="fe-network">
-    <h3>멀티플레이 설계 <span class="en">Network Design</span></h3>
+  <details class="sec" id="fe-network" open>
+    <summary><h3>멀티플레이 설계</h3></summary>
+    <div class="d-body">
     <div class="two">
       <div class="box"><h5>서버 권한 원칙</h5>
         <ul>
@@ -487,18 +504,20 @@ class IFEInteractable
         <p>수리 · 업그레이드 · 발사 · 조준 요청에 같은 간격 제한 함수를 씁니다. 네트워크 지터로 조금 일찍 온 요청은 받아 주되, 평균 간격은 지키도록 다음 허용 시각을 누적합니다.</p>
         <p class="muted">아래 함수 하나를 네 요청이 공유하고, 자동화 테스트 <code>FallenEra.Building.RequestRateLimit</code>로 검증합니다.</p></div>
     </div>
-    <pre class="code"><code><span class="c">// FEBuildingTypes.h — 요청 간격 제한 (수리 · 업그레이드 · 발사 · 조준 공용)</span>
+    <div class="d-code"><div class="ftab"><span>FEBuildingTypes.h</span></div><pre class="code"><code><span class="c">// FEBuildingTypes.h — 요청 간격 제한 (수리 · 업그레이드 · 발사 · 조준 공용)</span>
 inline bool ConsumeRequestSlot(double&amp; NextAllowedTime, double Now, double Interval)
 {
     if (Now &lt; NextAllowedTime - Interval * 0.5) return false;
     NextAllowedTime = FMath::Max(NextAllowedTime, Now) + Interval;
     return true;
-}</code></pre>
+}</code></pre></div>
     <figure><button type="button"><img src="img/fe-autotest.png" alt="언리얼 에디터 Message Log의 Automation Testing Log에 FallenEra.Building.RequestRateLimit 테스트가 Success로 표시된 화면" loading="lazy"></button><figcaption>에디터 자동화 테스트 결과: 요청 간격 제한 테스트 <code>FallenEra.Building.RequestRateLimit</code> Success</figcaption></figure>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="fe-workflow">
-    <h3>협업 &amp; 개발 방식 <span class="en">Teamwork &amp; Workflow</span></h3>
+  <details class="sec" id="fe-workflow" open>
+    <summary><h3>협업 &amp; 개발 방식</h3></summary>
+    <div class="d-body">
     <p class="prose">기능을 바로 구현하기보다, <b>작업 내용과 완료 조건을 GitHub Issue에 먼저 정리해 팀원들과 공유</b>합니다. 모든 코드 작업은 Issue에서 출발해 기능 단위 브랜치로 나누고, 구현 후에는 반드시 2인 PIE에서 멀티플레이 동작을 검증한 뒤 PR을 올립니다. 지금도 이 흐름으로 개발하고 있습니다.</p>
     <ol class="flow wf" aria-label="개발 순환: Issue 정의, 기능 구현, PIE 멀티플레이 테스트, Pull Request와 Review를 거쳐 다시 Issue 정의로">
       <li><b>Issue 정의</b></li>
@@ -524,14 +543,15 @@ inline bool ConsumeRequestSlot(double&amp; NextAllowedTime, double Now, double I
     </div>
     <figure><button type="button"><img src="img/fe-issues.png" alt="FallenEra GitHub 저장소의 완료된 Issue 목록. 방어시설, 계단·모양 피스, 재질 선택, 구조물 피해·수리, 소켓 스냅, 청사진 재료 투입 등 건설 기능 이슈 8건" loading="lazy"></button><figcaption>Issue 페이지: 스프린트마다 <code>[FEAT]</code> 이슈를 열고, 구현 · 검증 · 병합이 끝나면 닫습니다. 사진은 직접 담당해 완료한 건설 기능 이슈 8건입니다.</figcaption></figure>
     <figure><button type="button"><img src="img/fe-prs.png" alt="FallenEra GitHub 저장소의 Pull Request 목록. 현재 리뷰 중인 건설 컴포넌트 분리 PR #34 등 열린 PR 2건, 닫힌 PR 11건" loading="lazy"></button><figcaption>PR 페이지: 지금 리뷰를 기다리는 PR #34(건설 컴포넌트 분리)는 이전 PR 리뷰에서 나온 구조 개선 의견을 반영한 작업입니다. 팀원 아이디는 가렸습니다.</figcaption></figure>
-  </section>
+  </div>
+  </details>
 </article>
 
 <nav class="pagenav bottom" aria-label="페이지 이동">
-  <a href="index.html">← 메인으로</a>
-  <a href="outbreak.html">다음 프로젝트: OutBreak →</a>
+  <a href="index.html">메인으로</a>
+  <a href="outbreak.html"><span>다음</span>OutBreak</a>
 </nav>
-<footer class="site-foot"><span>김진호 · Client Programmer</span><small class="copyright">&copy; 2026 Kim JinHo. All rights reserved.</small><span>Unreal Engine 5 Portfolio</span></footer>
+<footer class="site-foot"><span>Client Programmer 김진호</span><small class="copyright">&copy; 2026 Kim JinHo. All rights reserved.</small><span>Unreal Engine 5 Portfolio</span></footer>
 </main>
 </div>
 

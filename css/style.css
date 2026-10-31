@@ -451,3 +451,164 @@ dialog form button{font:inherit;background:var(--panel-2);color:var(--fg);border
 .site-foot>span:last-child{text-align:right}
 .copyright{color:var(--dim);font-size:.75rem;letter-spacing:.02em;text-align:center}
 @media (max-width:640px){.site-foot{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center}.site-foot>span:last-child{text-align:center}.copyright{order:3}}
+
+/* =====================================================================
+   UE5 에디터 패널 리스킨
+   히어로의 블루프린트 그래프만 눈에 띄게 두고, 나머지는 UE5 에디터의
+   Outliner / Details / Content Browser 패널 모양으로 조용하게 통일한다.
+   ===================================================================== */
+@font-face{font-family:"Pretendard Variable";font-weight:45 920;font-style:normal;font-display:swap;src:url(../fonts/PretendardVariable.woff2) format("woff2-variations")}
+:root{
+  /* UE5 Slate 기본 다크 테마의 무채색 단계 */
+  --ue-window:#151515; --ue-panel:#242424; --ue-header:#2f2f2f; --ue-input:#0f0f0f;
+  --ue-line:#383838; --ue-text:#c8c8c8; --ue-bright:#f2f2f2; --ue-dim:#8a8a8a; --ue-select:#0070e0;
+  --bg:var(--ue-window); --panel:var(--ue-panel); --panel-2:var(--ue-header); --line:var(--ue-line);
+  --fg:var(--ue-bright); --muted:var(--ue-text); --dim:var(--ue-dim);
+  --bp-ground:#191919; --bp-node:#101010;
+  --f-display:"Pretendard Variable",Pretendard,"Noto Sans KR",system-ui,sans-serif;
+  --f-body:"Pretendard Variable",Pretendard,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+}
+body{word-break:keep-all;overflow-wrap:break-word}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--ue-select);outline-offset:3px;border-radius:2px}
+code{border-radius:2px;background:var(--ue-input)}
+.bp-graph::after{display:none}
+
+/* ---------- 메인 ---------- */
+.u-page{max-width:1200px;margin:0 auto;padding:56px 0 0}
+.u-sec{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px 48px;padding:48px 0;border-top:1px solid var(--ue-line)}
+.u-sec:first-child{border-top:0;padding-top:0}
+.u-sec>h2{font-size:1rem;font-weight:600;color:var(--ue-bright);margin:0;line-height:1.5}
+@media (max-width:860px){.u-sec{grid-template-columns:minmax(0,1fr);padding:36px 0}}
+.u-about{display:grid;gap:28px}
+.u-about h3{font-size:.875rem;font-weight:600;color:var(--ue-dim);margin:0 0 6px}
+.u-about p{margin:0;font-size:1.0625rem;line-height:1.85;color:var(--ue-bright)}
+/* AI 활용: 둥근 카드 대신 도킹된 패널 */
+.u-sec.ai .ai-rules>div{border-radius:0;background:var(--ue-panel);border:1px solid var(--ue-line);padding:0}
+.u-sec.ai .ai-rules>div>b{display:block;background:var(--ue-header);border-bottom:1px solid var(--ue-line);padding:7px 14px;font-size:.9375rem;font-weight:600;color:var(--ue-bright)}
+.u-sec.ai .ai-rules .ill{padding:10px 14px 14px}
+.u-sec.ai .ai-flow li{border-radius:2px;background:var(--ue-header);border-color:var(--ue-line)}
+.u-sec.ai .ai-lead strong{font-weight:inherit;color:inherit}
+/* 기술 스택: Details 패널 속성 행 */
+.u-props{margin:0;border:1px solid var(--ue-line);background:var(--ue-panel)}
+.u-props>div{display:grid;grid-template-columns:150px minmax(0,1fr);align-items:baseline;border-top:1px solid var(--ue-line)}
+.u-props>div:first-child{border-top:0}
+.u-props dt{display:flex;align-items:center;gap:10px;padding:10px 14px;font-size:.875rem;color:var(--ue-text);border-right:1px solid var(--ue-line);align-self:stretch}
+.u-props dt::before{content:"";width:9px;height:9px;border-radius:50%;border:2px solid var(--c);flex:none}
+.u-props dd{margin:0;padding:10px 14px;display:flex;flex-wrap:wrap;gap:4px 16px;font-size:.9375rem;color:var(--ue-bright)}
+.u-props dd span::before{content:"#";color:var(--c);margin-right:1px}
+@media (max-width:560px){.u-props>div{grid-template-columns:minmax(0,1fr)}.u-props dt{border-right:0;padding-bottom:0}}
+/* 프로젝트: Content Browser 에셋 타일 (하단 색 띠 = 프로젝트 색) */
+.u-group+.u-group{margin-top:36px}
+.u-group>h3{font-size:.875rem;font-weight:600;color:var(--ue-dim);margin:0 0 14px}
+.u-proj{display:grid;grid-template-columns:260px minmax(0,1fr);gap:28px;padding:20px 0;text-decoration:none;color:inherit;border-top:1px solid var(--ue-line)}
+.u-group>h3+.u-proj{border-top:0;padding-top:0}
+.u-asset{background:var(--ue-input);border:1px solid var(--ue-line);border-radius:4px;overflow:hidden;align-self:start;transition:border-color .15s}
+.u-asset img,.u-asset .ph{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+.u-asset .ph{background:repeating-linear-gradient(0deg,transparent 0 23px,#2a2a2a 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,#2a2a2a 23px 24px),#1b1b1b}
+.u-asset .bar{height:4px;background:var(--pc)}
+.u-asset .lbl{padding:6px 10px 8px;font-size:.8125rem;color:var(--ue-bright);display:flex;justify-content:space-between;gap:8px}
+.u-asset .lbl small{color:var(--ue-dim);font-size:.75rem}
+.u-proj:hover .u-asset,.u-proj:focus-visible .u-asset{border-color:var(--ue-select)}
+.u-proj:focus-visible{outline:2px solid var(--ue-select);outline-offset:4px}
+.u-proj h4{font-size:1.625rem;font-weight:700;color:var(--ue-bright);margin:0;line-height:1.3}
+.u-proj .one{margin:6px 0 12px;font-size:1.0625rem;color:var(--ue-text)}
+.u-proj ul{margin:0;padding-left:1.1em;color:var(--ue-bright)}
+.u-proj li::marker{color:var(--pc)}
+.u-proj li+li{margin-top:2px}
+.u-proj .go{display:inline-block;margin-top:12px;font-size:.9375rem;color:var(--pc);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.p-fe{--pc:var(--fe)}.p-ob{--pc:var(--ob)}.p-fa{--pc:var(--fa)}.p-ms{--pc:var(--ms)}
+@media (max-width:760px){.u-proj{grid-template-columns:minmax(0,1fr);gap:14px}}
+.u-page+.site-foot{max-width:1200px;margin:48px auto 0;padding:24px 0 40px;border-top:1px solid var(--ue-line)}
+
+/* ---------- 상세: Outliner 패널 (번호 대신 트리, 현재 위치는 선택 색) ---------- */
+.outliner{border-radius:0;padding:0;background:var(--ue-panel);font-size:.875rem}
+.outliner .hd{font-family:var(--f-body);letter-spacing:0;text-transform:none;font-size:.875rem;font-weight:600;color:var(--ue-bright);background:var(--ue-header);padding:7px 12px;margin:0;border-bottom:1px solid var(--ue-line)}
+.outliner a.top{display:flex;align-items:center;gap:8px;margin:0;padding:7px 12px;border-left:0;color:var(--ue-bright)}
+.outliner a.top::before{content:"";width:10px;height:10px;border-radius:2px;background:var(--accent);flex:none}
+.outliner a:not(.top){display:block;position:relative;padding:4px 12px 4px 30px;border-left:0;color:var(--ue-text)}
+.outliner a:not(.top)::before{content:"";position:absolute;left:17px;top:0;bottom:0;min-width:0;padding:0;border-left:1px solid #4a4a4a}
+.outliner a:not(.top):last-child::before{bottom:50%}
+.outliner a:not(.top)::after{content:"";position:absolute;left:17px;top:50%;width:8px;border-top:1px solid #4a4a4a}
+.outliner a:last-child{margin-bottom:6px}
+.outliner a:hover{background:#2c2c2c;color:var(--ue-bright)}
+.outliner a.is-active{background:var(--ue-select);color:#fff;border-left:0}
+.outliner a:focus-visible{outline-offset:-2px}
+
+/* ---------- 상세: 이동 버튼 / 상단 ---------- */
+.pagenav a{border-radius:4px;background:var(--ue-header);color:var(--ue-bright);padding:6px 14px}
+.pagenav a:hover{border-color:var(--ue-select)}
+.pagenav a span{color:var(--ue-dim);margin-right:6px}
+.phead{gap:4px;padding-bottom:0;border-bottom:0}
+.phead h2{font-size:clamp(2.25rem,5vw,3rem);font-weight:800;letter-spacing:-.01em;line-height:1.2}
+.phead .state{display:inline-flex;align-items:center;gap:8px;font-size:.9375rem;color:var(--ue-text);margin:0 0 16px}
+.phead .state::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.d-props{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--ue-line);background:var(--ue-panel);margin:0}
+.d-props>div{display:grid;grid-template-columns:72px minmax(0,1fr);border-top:1px solid var(--ue-line)}
+.d-props>div:nth-child(-n+2){border-top:0}
+.d-props>div:nth-child(2n){border-left:1px solid var(--ue-line)}
+.d-props dt{padding:9px 12px;color:var(--ue-dim);font-size:.875rem;border-right:1px solid var(--ue-line)}
+.d-props dd{margin:0;padding:9px 12px;color:var(--ue-bright);font-size:.9375rem}
+@media (max-width:640px){.d-props{grid-template-columns:minmax(0,1fr)}.d-props>div:nth-child(2){border-top:1px solid var(--ue-line)}.d-props>div:nth-child(2n){border-left:0}}
+
+/* ---------- 상세: 섹션 = Details 패널 카테고리 (접기/펴기 가능) ---------- */
+.project .sec{display:block;padding:0;margin-top:28px;border-top:0}
+.phead + .sec{margin-top:40px}
+.sec>summary{list-style:none;display:flex;align-items:center;gap:10px;cursor:pointer;background:var(--ue-header);border:1px solid var(--ue-line);padding:10px 16px;border-radius:2px}
+.sec>summary::-webkit-details-marker{display:none}
+.sec>summary::before{content:"";flex:none;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--ue-text);transition:transform .15s}
+.sec:not([open])>summary::before{transform:rotate(-90deg)}
+.sec>summary:hover{background:#363636}
+.sec>summary h3{font-size:1.25rem;font-weight:700;color:var(--ue-bright);margin:0;line-height:1.4;display:block}
+.sec>summary h3::before{content:none}
+.d-body{display:grid;gap:20px;padding:24px 0 16px;min-width:0}
+.d-body>.sub{border-top:1px dashed var(--ue-line);padding-top:24px;margin-top:4px}
+.d-body>.sub:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose{color:var(--ue-bright)}
+.prose b,.d-body li b{color:#fff;font-weight:600}
+@media (prefers-reduced-motion:reduce){.sec>summary::before{transition:none}}
+
+/* 핵심 기능: 박스 대신 속성 행 */
+.kw{display:block;border:1px solid var(--ue-line);background:var(--ue-panel)}
+.kw div{display:grid;grid-template-columns:150px minmax(0,1fr);border-top:1px solid var(--ue-line);background:none;padding:0;border-radius:0}
+.kw div:first-child{border-top:0}
+.kw b{font-family:var(--f-body);font-size:1rem;letter-spacing:0;margin:0;padding:10px 14px;border-right:1px solid var(--ue-line);color:var(--ue-bright)}
+.kw span{padding:10px 14px;color:var(--ue-text);font-size:.9375rem}
+@media (max-width:560px){.kw div{grid-template-columns:minmax(0,1fr)}.kw b{border-right:0;padding-bottom:0}}
+
+/* 역할: 카드 대신 왼쪽 선 목록 */
+.role{border:0;background:none;padding:0;border-radius:0}
+.role h5{font-size:1rem;color:var(--ue-bright)}
+.role.me h5::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.role h5 small{font-family:var(--f-body);letter-spacing:0;font-size:.875rem;font-weight:400;color:var(--ue-dim);border:0;padding:0;border-radius:0}
+.role dl{border-left:2px solid var(--ue-line);padding-left:14px}
+.role.me dl{border-left-color:var(--accent)}
+.role dd{color:var(--ue-text)}
+
+/* 박스 · 컴포넌트: 도킹된 패널 (제목은 헤더 줄) */
+.box,.comp,.support{border-radius:0;background:var(--ue-panel);padding:16px 18px}
+.box>h5:first-child,.comp>h5:first-child{margin:-16px -18px 2px;padding:8px 18px;background:var(--ue-header);border-bottom:1px solid var(--ue-line);font-family:var(--f-body);font-size:.9375rem;font-weight:600;letter-spacing:0;text-transform:none;color:var(--ue-bright)}
+.comp>h5:first-child{font-family:var(--f-mono);font-size:.875rem;color:var(--accent)}
+.comp .lbl{font-family:var(--f-body);letter-spacing:0;text-transform:none;font-size:.8125rem;color:var(--ue-dim)}
+
+/* 순서 흐름 · 상태 칩 · 그림 */
+.flow li{border-radius:2px;background:var(--ue-panel)}
+.flow li::before{font-family:var(--f-mono);letter-spacing:0;color:var(--ue-dim);font-size:.75rem}
+.flow.nocount li::before{content:none}
+.flow-states{border-radius:0;background:var(--ue-panel)}
+.flow-states .st{border-radius:2px}
+.chain span{border-radius:2px}
+figure button,.dg-scroll,.demo-video,.video,.video-lg{border-radius:0}
+.demo-video{background:#000}
+.video .play{font-family:var(--f-body);letter-spacing:0;text-transform:none}
+.tbl th{color:var(--ue-dim)}
+
+/* 코드: 에디터 파일 탭 + 본문 */
+.d-code{border:1px solid var(--ue-line);background:var(--ue-input);min-width:0}
+.d-code .ftab{display:flex;background:var(--ue-panel);border-bottom:1px solid var(--ue-line);font-family:var(--f-mono);font-size:.8125rem;overflow-x:auto}
+.d-code .ftab span{padding:6px 14px;color:var(--ue-bright);background:var(--ue-input);border-right:1px solid var(--ue-line);box-shadow:inset 0 2px 0 var(--accent);white-space:nowrap}
+.code{border-radius:0;background:var(--ue-input)}
+.d-code .code{border:0}
+.code .c{color:#6a9955}
+
+/* 공통 footer */
+.site-foot{font-size:.8125rem;color:var(--ue-dim)}

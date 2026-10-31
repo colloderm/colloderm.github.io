@@ -6,47 +6,50 @@
 <title>OutBreak | 김진호 포트폴리오</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="shell">
 <nav class="outliner p-ob" aria-label="목차">
-  <div class="hd">OutBreak</div>
-  <a class="top ob" href="#ob">프로젝트 상단</a>
+  <div class="hd">Outliner</div>
+  <a class="top ob" href="#ob">OutBreak</a>
   <a href="#ob-video">시연 영상</a>
   <a href="#ob-overview">프로젝트 개요</a>
   <a href="#ob-class">클래스 구조</a>
-  <a href="#ob-weapon">무기 · 사격</a>
+  <a href="#ob-weapon">무기, 사격</a>
   <a href="#ob-gas">GAS 어빌리티</a>
-  <a href="#ob-loop">게임 루프 · 탈출</a>
+  <a href="#ob-loop">게임 루프, 탈출</a>
   <a href="#ob-online">온라인</a>
-  <a href="#ob-ui">로비 · UI</a>
+  <a href="#ob-ui">로비, UI</a>
 </nav>
 <main>
 <nav class="pagenav" aria-label="페이지 이동">
-  <a href="index.html">← 메인으로</a>
-  <a href="fallen-era.html">← 이전 프로젝트: FallenEra</a>
-  <a href="fantasy-action.html">다음 프로젝트: Fantasy Action →</a>
+  <a href="index.html">메인으로</a>
+  <a href="fallen-era.html"><span>이전</span>FallenEra</a>
+  <a href="fantasy-action.html"><span>다음</span>Fantasy Action</a>
 </nav>
 
 <article class="project p-ob" id="ob">
   <div class="phead">
-    <span class="no">완성작 · 3인 팀 프로젝트</span>
     <h2>OutBreak</h2>
-    <div class="meta"><span><b>장르</b>3인칭 익스트랙션 생존 슈팅 (PvPvE)</span><span><b>팀</b>3인 · 플레이어 · 게임 시스템 · 온라인 담당</span><span><b>기간</b>2개월</span><span><b>엔진</b>Unreal Engine 5 · C++ · GAS · Steam</span></div>
+    <p class="state">완성작, 3인 팀 프로젝트</p>
+    <dl class="d-props"><div><dt>장르</dt><dd>3인칭 익스트랙션 생존 슈팅 (PvPvE)</dd></div><div><dt>팀</dt><dd>3인 중 플레이어, 게임 시스템, 온라인 담당</dd></div><div><dt>기간</dt><dd>2개월</dd></div><div><dt>엔진</dt><dd>Unreal Engine 5, C++, GAS, Steam</dd></div></dl>
   </div>
 
-  <section class="sec" id="ob-video">
-    <h3>시연 영상 <span class="en">Gameplay Video</span></h3>
+  <details class="sec" id="ob-video" open>
+    <summary><h3>시연 영상</h3></summary>
+    <div class="d-body">
     <figure class="demo">
       <video class="demo-video" src="media/ob-demo.mp4" poster="media/ob-demo-poster.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="탐사 구역에 진입해 좀비와 싸우고 헬기로 탈출하는 OutBreak 플레이 영상"></video>
       <figcaption>탐사 구역 진입 → 좀비 · 교전 → 헬기 탈출까지 이어지는 플레이 장면입니다. 소리를 켜면 무기별 사격음을 들을 수 있습니다.</figcaption>
     </figure>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="ob-overview">
-    <h3>프로젝트 개요 <span class="en">Overview</span></h3>
+  <details class="sec" id="ob-overview" open>
+    <summary><h3>프로젝트 개요</h3></summary>
+    <div class="d-body">
     <p class="prose">혼자 또는 최대 3인 스쿼드로 좀비가 가득한 도시에 들어가, 다른 플레이어와 경쟁하며 장비를 모으고 제한 시간 안에 탈출하는 익스트랙션 게임입니다. 저는 <b>플레이어 · 무기 · 게임 규칙 · 온라인 · 로비 UI</b>를 맡아, 로비에서 장비를 고르고 파티를 꾸려 탐사에 들어갔다가 탈출하기까지의 흐름 전체를 C++로 구현했습니다.</p>
     <div class="kw">
       <div><b>익스트랙션</b><span>파밍 후 제한 시간 안에 탈출 지점까지 이동</span></div>
@@ -55,7 +58,7 @@
     </div>
     <div class="two">
       <div class="role me">
-        <h5>김진호 <small>ME · 플레이어 · 게임 시스템 · 온라인</small></h5>
+        <h5>김진호 <small>플레이어, 게임 시스템, 온라인</small></h5>
         <dl>
           <div><dt>플레이어 · 무기</dt><dd>이동 · 조준 · 반동, 무기 4종 + 근접, 사격 모드, 무기 슬롯 · 스왑</dd></div>
           <div><dt>GAS</dt><dd>사격 · 조준 · 재장전 · 근접 · 치료 · 수류탄 어빌리티, AbilitySet</dd></div>
@@ -64,7 +67,7 @@
         </dl>
       </div>
       <div class="role">
-        <h5>팀원 2명 <small>TEAM</small></h5>
+        <h5>팀원 2명</h5>
         <dl>
           <div><dt>AI</dt><dd>좀비 AI(StateTree · FlowField), 좀비 유도 · 부위 파괴, 플레이어 특성</dd></div>
           <div><dt>TA · 기획</dt><dd>레벨 디자인 · 라이팅, 게임 기획</dd></div>
@@ -75,10 +78,12 @@
       <h4>게임 사이클</h4>
       <figure><button type="button"><img src="img/ob-cycle.jpg" alt="게임 사이클 다이어그램: 아웃게임 탐험 준비(장비 · 소모품 · 장비 업그레이드)에서 구역 진입 후 인게임 탐색 · 교전 · 파밍, 탈출 후 다시 탐험 준비" loading="lazy"></button><figcaption>팀 발표 자료의 게임 사이클: 로비에서 탐험을 준비하고, 구역에 진입해 탐색 · 교전 · 파밍을 한 뒤 탈출해 다시 준비하는 순환입니다. 로비와 탈출 흐름이 제 담당입니다.</figcaption></figure>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="ob-class">
-    <h3>클래스 구조 <span class="en">Architecture</span></h3>
+  <details class="sec" id="ob-class" open>
+    <summary><h3>클래스 구조</h3></summary>
+    <div class="d-body">
     <p class="prose">로비 기능은 레벨이 바뀌어도 유지되는 <code>GameInstance</code> 서브시스템으로, 탐사 규칙은 서버의 <code>GameMode</code>로, 플레이어 행동은 캐릭터와 GAS 어빌리티로 나눴습니다. 무기 수치는 데이터 에셋에 있어서 무기를 추가할 때 코드를 고치지 않아도 됩니다.</p>
     <figure class="dg-fig">
       <div class="dg-scroll">
@@ -160,10 +165,12 @@
       </div>
       <figcaption>시스템 연결: 로비 서브시스템은 레벨이 바뀌어도 유지되고, 매칭이 파티 코드를 붙여 탐사 서버로 접속합니다. 서버의 게임 모드는 그 코드로 팀을 나누고, 캐릭터가 알려 주는 기절 · 사망과 탈출 지점의 신호로 세션 종료를 판정합니다.</figcaption>
     </figure>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="ob-weapon">
-    <h3>무기 · 사격 <span class="en">Weapon &amp; Shooting</span></h3>
+  <details class="sec" id="ob-weapon" open>
+    <summary><h3>무기, 사격</h3></summary>
+    <div class="d-body">
     <div class="split">
       <ul class="prose">
         <li>권총 · 소총 · 샷건 · 저격총 4종과 근접 무기를 하나의 데이터 에셋 <code>UOBWeaponData</code>로 정의합니다. 원거리 · 근접 전용 항목은 <code>EditCondition</code>으로 필요한 무기에서만 보이게 했습니다.</li>
@@ -177,7 +184,7 @@
     <div class="sub">
       <h4>서버 사격 판정 <code>PerformServerWeaponTrace</code></h4>
       <p class="prose">탄은 화면 가운데 조준점으로 날아가야 하지만, 3인칭이라 총구와 카메라 위치가 다릅니다. 그래서 카메라에서 조준점을 먼저 구하고, 총구에서 그 지점으로 쏘도록 두 번 트레이스했습니다. 벽에 붙어서 총구가 벽을 뚫고 나간 경우와 카메라가 벽에 끼어 조준점이 뒤에 잡히는 경우도 따로 처리했습니다.</p>
-      <pre class="code"><code><span class="c">// OBGameplayAbility_RangedWeapon.cpp (일부)</span>
+      <div class="d-code"><div class="ftab"><span>OBGameplayAbility_RangedWeapon.cpp</span></div><pre class="code"><code><span class="c">// OBGameplayAbility_RangedWeapon.cpp (일부)</span>
 <span class="c">// 1) 카메라에서 전방으로 트레이스해 실제 조준점을 구한다 (크로스헤어 = 화면 중앙)</span>
 FVector AimPoint = GetWorld()-&gt;LineTraceSingleByChannel(
     AimHit, CamLoc, CamEnd, OB_TraceChannel_Weapon, AimParams)
@@ -199,12 +206,14 @@ for (int32 PelletIndex = 0; PelletIndex &lt; Pellets; ++PelletIndex)
 {
     const FVector ShotDirection = (SpreadRadians &gt; 0.f) ? FMath::VRandCone(AimDir, SpreadRadians) : AimDir;
     ...
-}</code></pre>
+}</code></pre></div>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="ob-gas">
-    <h3>GAS 어빌리티 <span class="en">Gameplay Ability System</span></h3>
+  <details class="sec" id="ob-gas" open>
+    <summary><h3>GAS 어빌리티</h3></summary>
+    <div class="d-body">
     <p class="prose">플레이어 행동은 모두 GameplayAbility로 만들고, 무기를 장착할 때 그 무기의 <code>UOBAbilitySet</code>(데이터 에셋)이 필요한 어빌리티를 부여합니다. 입력은 Lyra 방식을 참고해 입력 액션을 GameplayTag에 연결하는 <code>UOBInputConfig</code>로 붙였습니다.</p>
     <figure class="dg-fig">
       <div class="dg-scroll">
@@ -248,7 +257,7 @@ for (int32 PelletIndex = 0; PelletIndex &lt; Pellets; ++PelletIndex)
       <figcaption>어빌리티 계층: 공통 처리는 <code>UOBGameplayAbility</code>에 두고, 치료와 수류탄은 수량 차감을 공유하도록 소모품 어빌리티를 상속합니다. 이름 앞의 <code>UOBGameplayAbility</code>는 생략했습니다.</figcaption>
     </figure>
     <div class="stack">
-      <pre class="code"><code><span class="c">// OBGameplayAbility_RangedWeapon.cpp — 사격 모드 (일부)</span>
+      <div class="d-code"><div class="ftab"><span>OBGameplayAbility_RangedWeapon.cpp</span></div><pre class="code"><code><span class="c">// OBGameplayAbility_RangedWeapon.cpp — 사격 모드 (일부)</span>
 <span class="c">// 첫 발 즉시</span>
 FireOneShot();
 ++ShotsFired;
@@ -271,7 +280,7 @@ if (CurrentFireMode == EOBWeaponFireMode::FullAuto)
         UAbilityTask_WaitInputRelease::WaitInputRelease(this, false);
     WaitRelease-&gt;OnRelease.AddDynamic(this, &amp;UOBGameplayAbility_RangedWeapon::OnFireInputReleased);
     WaitRelease-&gt;ReadyForActivation();
-}</code></pre>
+}</code></pre></div>
       <div>
         <div class="box"><h5>설계 포인트</h5>
           <ul>
@@ -281,10 +290,12 @@ if (CurrentFireMode == EOBWeaponFireMode::FullAuto)
           </ul></div>
       </div>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="ob-loop">
-    <h3>게임 루프 · 탈출 <span class="en">Expedition Loop</span></h3>
+  <details class="sec" id="ob-loop" open>
+    <summary><h3>게임 루프, 탈출</h3></summary>
+    <div class="d-body">
     <div class="split">
       <ul class="prose">
         <li>같은 파티는 같은 스폰 존에서 시작하고, 존 안에서는 네비메시 위의 랜덤 위치로 흩어져 스폰합니다.</li>
@@ -304,7 +315,7 @@ if (CurrentFireMode == EOBWeaponFireMode::FullAuto)
     <div class="sub">
       <h4>개인 탈출구 배정 <code>SelectPersonalMarkers</code></h4>
       <p class="prose">탈출구가 늘 같은 자리면 동선이 외워져 긴장감이 사라집니다. 그래서 스폰 지점에서 충분히 먼 후보만 고르고, 같은 팀이 이전 판에 쓴 곳은 빼고, 두 번째 탈출구는 첫 번째와 방향이 충분히 벌어진 곳 중에서 랜덤으로 골랐습니다. 조건을 만족하는 후보가 없을 때는 조건을 하나씩 풀어 항상 배정되게 했습니다.</p>
-      <pre class="code"><code><span class="c">// OBExpeditionGameMode.cpp — 개인 탈출구 2곳 선택 (일부)</span>
+      <div class="d-code"><div class="ftab"><span>OBExpeditionGameMode.cpp</span></div><pre class="code"><code><span class="c">// OBExpeditionGameMode.cpp — 개인 탈출구 2곳 선택 (일부)</span>
 <span class="c">// 1. 스폰 위치에서 충분히 먼 탈출구만 후보 (없으면 전체로 완화)</span>
 if (M &amp;&amp; FVector::Dist2D(SpawnOrigin, M-&gt;GetActorLocation()) &gt;= MinSpawnDistance)
 {
@@ -327,12 +338,14 @@ for (AActor* M : Avail)
     <span class="c">// dot &lt;= cos(임계) ⟺ 두 방향의 각도 &gt;= 임계</span>
     if (FVector::DotProduct(Dir1, Dir2) &lt;= CosThreshold)
         Divergent.Add(M);
-}</code></pre>
+}</code></pre></div>
     </div>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="ob-online">
-    <h3>온라인 <span class="en">Steam · Matchmaking · Party</span></h3>
+  <details class="sec" id="ob-online" open>
+    <summary><h3>온라인</h3></summary>
+    <div class="d-body">
     <ol class="flow">
       <li><b>메인 메뉴</b><br><span class="muted">Steam 세션 Host / Join</span></li>
       <li><b>파티 구성</b><br><span class="muted">Steam 친구 초대 · 파티 코드</span></li>
@@ -340,7 +353,7 @@ for (AActor* M : Avail)
       <li><b>탐사 서버</b><br><span class="muted">같은 파티 코드 = 같은 팀</span></li>
     </ol>
     <div class="stack">
-      <pre class="code"><code><span class="c">// OBMatchmakingSubsystem.cpp (일부)</span>
+      <div class="d-code"><div class="ftab"><span>OBMatchmakingSubsystem.cpp</span></div><pre class="code"><code><span class="c">// OBMatchmakingSubsystem.cpp (일부)</span>
 <span class="c">// TestServerAddress 있음 → 데디 접속 / 비어있음 → 로컬 단독 플레이(솔로 반복 테스트)</span>
 if (!SelectedMap-&gt;TestServerAddress.IsEmpty())
 {
@@ -350,8 +363,8 @@ if (!SelectedMap-&gt;TestServerAddress.IsEmpty())
         Address += FString::Printf(TEXT("?party=%s"), *PartyCode);
     }
     PC-&gt;ClientTravel(Address, TRAVEL_Absolute);
-}</code></pre>
-      <pre class="code"><code><span class="c">// OBExpeditionGameMode.cpp</span>
+}</code></pre></div>
+      <div class="d-code"><div class="ftab"><span>OBExpeditionGameMode.cpp</span></div><pre class="code"><code><span class="c">// OBExpeditionGameMode.cpp</span>
 uint8 AOBExpeditionGameMode::ResolveTeamForCode(const FString&amp; PartyCode)
 {
     ...
@@ -364,32 +377,35 @@ uint8 AOBExpeditionGameMode::ResolveTeamForCode(const FString&amp; PartyCode)
         return NewTeam;           <span class="c">// 새 코드 → 고유 팀</span>
     }
     return NextTeamId++;          <span class="c">// 솔로 → 고유 팀</span>
-}</code></pre>
+}</code></pre></div>
     </div>
     <ul class="prose">
       <li>친구 · 파티 · 세션 기능은 Steam 온라인 서브시스템을 명시적으로 사용하고, 초대가 안정적인 Steam 로비를 썼습니다.</li>
       <li>멀티플레이 테스트를 위해 엔진을 소스 빌드해 데디케이티드 서버를 만들고, 매칭 후 맵 이동이 안 되던 IP 접속 문제를 해결했습니다.</li>
       <li>패키징한 클라이언트에서 수류탄의 소리 · 이펙트가 나오지 않던 문제처럼, 에디터에서는 보이지 않는 네트워크 문제를 빌드 환경에서 직접 확인하며 고쳤습니다.</li>
     </ul>
-  </section>
+  </div>
+  </details>
 
-  <section class="sec" id="ob-ui">
-    <h3>로비 · UI <span class="en">Lobby &amp; HUD</span></h3>
+  <details class="sec" id="ob-ui" open>
+    <summary><h3>로비, UI</h3></summary>
+    <div class="d-body">
     <div class="comps">
       <div class="comp"><h5>로드아웃</h5><ul><li>로비에서 고른 무기를 세이브 파일로 저장해, 게임을 다시 켜도 선택이 유지됩니다.</li><li>무기 카드에는 분류 이름 대신 무기 전용 이름을 보여 줍니다.</li></ul></div>
       <div class="comp"><h5>상점 · NPC</h5><ul><li>상점 NPC와 기본 장비를 주는 NPC를 대화 위젯으로 연결했습니다.</li><li>로비와 상점 화면을 분리해 각 화면의 역할을 나눴습니다.</li></ul></div>
       <div class="comp"><h5>HUD (MVVM)</h5><ul><li>체력 · 탄약을 뷰모델로 바인딩해 무기를 바꾸거나 리스폰해도 표시가 바로 갱신됩니다.</li><li>조준 시 탄착군에 맞춘 크로스헤어, 붕대 · 수류탄 수량 표시</li></ul></div>
       <div class="comp"><h5>탐사 · 결과 화면</h5><ul><li>탐사 맵 선택, 세션 남은 시간 표시</li><li>관전 위젯, 탈출 · 사망 결과 화면</li></ul></div>
     </div>
-  </section>
+  </div>
+  </details>
 </article>
 
 <nav class="pagenav bottom" aria-label="페이지 이동">
-  <a href="index.html">← 메인으로</a>
-  <a href="fallen-era.html">← 이전 프로젝트: FallenEra</a>
-  <a href="fantasy-action.html">다음 프로젝트: Fantasy Action →</a>
+  <a href="index.html">메인으로</a>
+  <a href="fallen-era.html"><span>이전</span>FallenEra</a>
+  <a href="fantasy-action.html"><span>다음</span>Fantasy Action</a>
 </nav>
-<footer class="site-foot"><span>김진호 · Client Programmer</span><small class="copyright">&copy; 2026 Kim JinHo. All rights reserved.</small><span>Unreal Engine 5 Portfolio</span></footer>
+<footer class="site-foot"><span>Client Programmer 김진호</span><small class="copyright">&copy; 2026 Kim JinHo. All rights reserved.</small><span>Unreal Engine 5 Portfolio</span></footer>
 </main>
 </div>
 
