@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fantasy Action | 김진호 포트폴리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="css/folio.css">
+</head>
+<body class="p-fa">
+<header class="bar">
+  <a class="me" href="index.html" aria-label="김진호 포트폴리오 메인으로"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M8 20H23" stroke="#e0393e" stroke-width="2.4"/><path d="M26 20l-4.5-3v6z" fill="#e0393e"/><path d="M8 20L18.5 9.5" stroke="#2aa34f" stroke-width="2.4"/><path d="M20.6 7.4l-5.1 1.1 3.9 3.9z" fill="#2aa34f"/><path d="M8 20V5" stroke="#2f6be0" stroke-width="2.4"/><path d="M8 2l-3 4.5h6z" fill="#2f6be0"/><rect x="5.5" y="17.5" width="5" height="5" fill="#f0a500"/></svg></a>
+  <nav aria-label="프로젝트"><a href="fallen-era.html" class="p-fe">FallenEra</a><a href="outbreak.html" class="p-ob">OutBreak</a><a href="fantasy-action.html" class="p-fa" aria-current="page">Fantasy Action</a><a href="magic-school.html" class="p-ms">Magic School</a><a class="gh" href="https://github.com/colloderm" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="4" cy="3" r="1.8"/><circle cx="4" cy="13" r="1.8"/><circle cx="12" cy="5" r="1.8"/><path d="M4 4.8v6.4M12 6.8c0 3-8 2.2-8 4.4"/></svg>GitHub</a></nav>
+</header>
+<main>
+<section class="dhead">
+  <h1 class="pname">Fantasy Action</h1>
+  <p class="genre">액션 RPG, 완성</p>
+  <p class="sum">보스와 몬스터가 함께 덤비는 던전을 돌파하는 액션 RPG입니다. 기획부터 클라이언트 구현까지 혼자 진행했고, GAS 전투와 적 AI, 애니메이션 구조에 집중했습니다.</p>
+  <dl class="spec">
+    <div><dt>내 역할</dt><dd>클라이언트 전체</dd></div>
+    <div><dt>팀</dt><dd>개인 프로젝트</dd></div>
+    <div><dt>기간</dt><dd>3개월, 완성</dd></div>
+    <div><dt>엔진</dt><dd>Unreal Engine 5, C++ / Blueprint</dd></div>
+  </dl>
+</section>
+
+<figure class="dmedia">
+  <div class="dbox"><span class="dstr">시연 영상, YouTube</span>
+    <a class="ytlink" href="https://youtu.be/z0cfGGMXII0" target="_blank" rel="noopener"><img src="img/fa-video.jpg" alt="Fantasy Action 던전 입구"><span>YouTube에서 시연 영상 보기</span></a></div>
+  <figcaption>던전 탐험, 몬스터 전투, 보스 등장 컷신과 보스전까지 담은 시연 영상입니다. 새 탭에서 열립니다.</figcaption>
+</figure>
+
+<nav class="tldr" aria-label="핵심 요약">
+  <a href="#try"><b>적이 서 있을 자리를 고르는 EQS를 직접 돌려 볼 수 있습니다</b><span>세 가지 테스트를 켜고 끄며 어떤 지점이 남는지 확인합니다.</span></a>
+  <a href="#ai"><b>Perception과 Behavior Tree로 만든 적 AI</b><span>시야로 플레이어를 감지하고, 거리로 접근, 공격, 회피를 고릅니다.</span></a>
+  <a href="#anim"><b>무기마다 갈아 끼우는 애니메이션 레이어</b><span>새 무기를 추가해도 메인 애니메이션 블루프린트는 고치지 않습니다.</span></a>
+</nav>
+
+<section class="case" id="try">
+  <h2>직접 해 보기</h2>
+  <p class="demo-note">위에서 본 전투 장면입니다. 적 AI가 플레이어를 둘러쌀 자리를 찾을 때, 플레이어 주변 원 위에 12개 지점을 만들고 세 가지 테스트로 거릅니다. 원 반경은 쿼리마다 무작위입니다. 테스트를 하나씩 꺼 보고, 쿼리를 다시 실행해 보세요.</p>
+  <div class="dbox demo" id="eqs" style="margin-top:30px"><span class="dstr">EQS, 위에서 본 장면 (원본 쿼리를 단순화)</span>
+    <svg viewBox="0 0 600 340" role="img" aria-label="EQS 지점 생성과 필터 결과"><g class="layer"></g></svg>
+    <div class="tools">
+      <button type="button" class="btn go">쿼리 다시 실행</button>
+      <label><input type="checkbox" name="path" checked> PathExist: 갈 수 있는 길이 있는가</label>
+      <label><input type="checkbox" name="dot" checked> Dot 2D: AI 전방 약 63° 안인가</label>
+      <label><input type="checkbox" name="dist" checked> Distance: 플레이어와 480 이상 떨어졌는가</label>
+    </div>
+    <div class="cd-bar"><p class="cd-status" aria-live="polite"></p></div>
+  </div>
+</section>
+
+<section class="case" id="overview">
+  <h2>게임 흐름</h2>
+  <div class="two">
+    <div><h3>AI 전투</h3><ul><li>보스와 몬스터가 서로 상호작용하며 함께 싸우는 군집형 전투</li><li>던전을 탐험해 모든 적을 섬멸하고 아이템을 얻는 보상</li></ul></div>
+    <div><h3>연출</h3><ul><li>시네마틱 툴로 카메라 무빙과 카메라 셰이크를 조합</li><li>치명타와 피니시 무브 같은 결정적인 장면에 잠깐 슬로우 모션 적용</li></ul></div>
+  </div>
+  <ol class="steps">
+    <li><b>L_MainMenu</b><span>게임 실행 후 Start와 Exit 선택</span></li><li><b>L_GameMap1</b><span>던전 탐험, 몬스터와 보스 전투</span></li>
+    <li><b>다음 포탈</b><span>클리어하면 다음 맵으로 이동</span></li><li><b>L_GameMap2</b><span>마지막 전투 후 Clear</span></li>
+  </ol>
+  <figure class="fig md"><button type="button"><img src="img/fa-cycle.jpg" alt="아웃게임과 인게임 사이클 순서도" loading="lazy"></button><figcaption>아웃게임과 인게임 순서도</figcaption></figure>
+</section>
+
+
+<section class="case" id="comp">
+  <h2>캐릭터 구조</h2>
+  <div class="chain"><span class="base">ACharacter</span><i>→</i><span>JBaseCharacter</span><i>→</i><span>JPlayerCharacter</span><i>/</i><span>JEnemyCharacter</span></div>
+  <div class="comps">
+    <div><h3>AbilitySystemComponent</h3><p>어빌리티, 스탯, 이펙트, 태그를 관리하는 중심입니다.</p></div>
+    <div><h3>PawnCombatComponent</h3><p>무기 장착, 몽타주 트레이스, 피격을 처리합니다.</p></div>
+    <div><h3>PawnUIComponent</h3><p>HP, Rage, Stamina 변화를 델리게이트로 HUD에 전달합니다.</p></div>
+    <div><h3>MotionWarpingComponent</h3><p>루트 모션 공격이 타겟을 향하도록 위치를 보정합니다.</p></div>
+  </div>
+  <div class="two">
+    <figure class="fig"><button type="button"><img src="img/fa-editor.jpg" alt="BP_PlayerCharacter 컴포넌트 목록과 MotionWarping 노티파이가 있는 몽타주" loading="lazy"></button><figcaption>컴포넌트 구성과 몽타주의 MotionWarping 노티파이</figcaption></figure>
+    <figure class="fig"><button type="button"><img src="img/fa-build.jpg" alt="Build.cs에 MotionWarping 모듈 추가" loading="lazy"></button><figcaption>Build.cs 모듈 의존성 (MotionWarping, Niagara, NavigationSystem 등)</figcaption></figure>
+  </div>
+</section>
+
+<section class="case" id="anim">
+  <h2>무기마다 바뀌는 애니메이션 레이어</h2>
+  <div class="two">
+    <figure class="fig"><button type="button"><img src="img/fa-anim.jpg" alt="애니메이션 클래스 다이어그램" loading="lazy"></button><figcaption>AnimInstance 계층과 Linked Anim Layer 구조</figcaption></figure>
+    <ul>
+      <li><code>UAnimInstance</code>에서 <code>UBaseAnimInstance</code>, <code>UCharacterAnimInstance</code>, <code>UPlayerAnimInstance</code>로 이어지는 계층입니다.</li>
+      <li><code>ABP_Player</code>는 <code>UPlayerAnimInstance</code>를 부모로 하고, <code>ALI_Player</code> 인터페이스로 레이어를 연결합니다.</li>
+      <li>무기별 레이어(<code>ABP_AxeLinkedAnimLayer</code> 등)는 <code>ABP_MasterLinkedAnimLayer</code>를 상속해서, 무기를 장착하면 갈아 끼워집니다.</li>
+    </ul>
+  </div>
+</section>
+
+
+<section class="case" id="ai">
+  <h2>적 AI</h2>
+  <p>AI Perception 시야(반경 1500cm)로 플레이어를 감지하고, Behavior Tree가 거리로 접근, 공격, 회피를 고릅니다. 공격할 때는 Service가 모션 워핑 타겟을 갱신하고, 위치는 위 데모의 EQS로 고릅니다.</p>
+  <h3>AI Perception</h3>
+  <div class="two">
+    <figure class="fig"><button type="button"><img src="img/fa-perc-1.jpg" alt="AIC_Guardian 컴포넌트와 AI 시야 설정" loading="lazy"></button><figcaption>Enemy Perception 설정</figcaption></figure>
+    <figure class="fig"><button type="button"><img src="img/fa-perc-2.jpg" alt="게임 화면의 AI 시야 디버그 표시" loading="lazy"></button><figcaption>시야 감지 디버그 표시</figcaption></figure>
+  </div>
+  <h3>Behavior Tree</h3>
+  <div class="two">
+    <div class="note"><h4>Service</h4><p><code>BTService_GetDistToTarget</code>가 타겟과의 거리로 Blackboard 조건을 갱신하고, <code>BTService_UpdateMotionWarpAttackTarget</code>이 공격할 때 모션 워핑 타겟을 갱신합니다.</p></div>
+    <div class="note"><h4>Task</h4><p><code>BTTask_ActivateAbilityByTag</code>로 GAS 어빌리티를 실행합니다. 거리가 350 미만이면 <code>Enemy.Ability.Melee</code>로 공격합니다.</p></div>
+  </div>
+  <figure class="fig"><button type="button"><img src="img/fa-bt.jpg" alt="Behavior Tree 노드 구성" loading="lazy"></button><figcaption>BB_Enemy_Base 기반 Behavior Tree</figcaption></figure>
+  <h3>EQS</h3>
+  <div class="two">
+    <figure class="fig"><button type="button"><img src="img/fa-eqs.jpg" alt="EQS 쿼리 노드와 디버그 지점" loading="lazy"></button><figcaption>OnCircle 생성기와 테스트 결과 디버그</figcaption></figure>
+    <ul><li><b>PathExist</b>: 실제로 갈 수 있는 경로가 없으면 지점을 버립니다.</li><li><b>Dot 2D</b>: AI 전방 각도 안의 지점을 선호합니다 (최대 0.45, 약 63°).</li><li><b>Distance</b>: 타겟과 480 이상 떨어진 지점만 통과합니다.</li></ul>
+  </div>
+</section>
+
+<section class="case" id="cine">
+  <h2>보스 등장 컷신</h2>
+  <p><code>CineCameraActor</code>와 Transform 트랙으로 카메라를 움직이고, 보스가 포효하는 순간 카메라 셰이크를 넣었습니다. 블루프린트에서 레벨 시퀀스 플레이어를 만들어 재생합니다.</p>
+  <div class="two">
+    <figure class="fig"><button type="button"><img src="img/fa-cine-1.jpg" alt="시퀀서 타임라인과 CineCameraActor" loading="lazy"></button><figcaption>시퀀서: 카메라 컷, Transform, 카메라 셰이크 트랙</figcaption></figure>
+    <figure class="fig"><button type="button"><img src="img/fa-cine-2.jpg" alt="보스 등장 컷신 블루프린트" loading="lazy"></button><figcaption>보스 등장 컷신 재생 블루프린트</figcaption></figure>
+  </div>
+</section>
+
+<section class="case" id="ui">
+  <h2>전투 HUD</h2>
+  <div class="two">
+    <figure class="fig"><button type="button"><img src="img/fa-ui.jpg" alt="플레이어 HUD와 보스 체력바가 보이는 게임 화면" loading="lazy"></button><figcaption>플레이어 HUD(좌하단)와 보스 체력바(상단)</figcaption></figure>
+    <div><p>플레이어 UI 컴포넌트는 HP, Rage, Stamina와 무기 장착 델리게이트에, 적 UI 컴포넌트는 HP 델리게이트에 연결해 값이 바뀔 때만 HUD를 갱신합니다.</p>
+      <div class="tags" style="margin-top:12px"><code>HealthDelegate</code><code>RageDelegate</code><code>StaminaDelegate</code><code>EquipWeaponChanged</code></div></div>
+  </div>
+</section>
+
+<script src="js/eqs.js"></script>
+
+</main>
+<nav class="next" aria-label="다음 프로젝트">
+  <a class="p-ms" href="magic-school.html"><small>다음 프로젝트</small><span class="pname">Magic School</span></a>
+  <a class="home" href="index.html#projects">전체 프로젝트로 돌아가기</a>
+</nav>
+<footer class="foot"><span>김진호, Unreal Engine 5 클라이언트 프로그래머</span><span>&copy; 2026 Kim JinHo. All rights reserved.</span></footer>
+<dialog id="lb" aria-label="이미지 크게 보기">
+  <form method="dialog"><button type="submit">닫기</button></form>
+  <img id="lb-img" alt="">
+  <p id="lb-cap"></p>
+</dialog>
+<script src="js/lightbox.js"></script>
+<script>
+// 움직임 줄이기 설정이면 자동 재생 영상을 멈춘다
+if(matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('video[autoplay]').forEach(v=>{v.removeAttribute('autoplay');v.pause();});
+</script>
+</body>
+</html>

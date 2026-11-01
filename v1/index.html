@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>김진호 포트폴리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+
+<section class="bp" aria-label="블루프린트 형식 자기소개">
+  <div class="bp-frame">
+    <div class="bp-tab"><b>BP_Portfolio</b><span class="sep">›</span><span>Event Graph</span></div>
+    <div class="bp-graph" id="graph">
+      <svg class="bp-wires" id="wires" aria-hidden="true"></svg>
+
+      <div class="node ev">
+        <div class="nh"><span class="t"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 0l6 6-6 6-6-6z" fill="#fff"/></svg>Event BeginPlay</span></div>
+        <div class="nb"><div class="row r"><i class="pin exec" id="ev-o"></i></div></div>
+      </div>
+
+      <div class="node dev">
+        <div class="nh"><span class="t"><b aria-hidden="true">ƒ</b>Spawn Developer</span><small>Target is Game Industry</small></div>
+        <div class="nb">
+          <div class="row split"><i class="pin exec" id="dev-i"></i><i class="pin exec" id="dev-o"></i></div>
+          <div class="row"><i class="pin data p-str"></i><span class="k">Name</span></div>
+          <div class="row"><h1 class="name">김진호<span>KIM JINHO</span></h1></div>
+          <div class="row"><i class="pin data p-str"></i><span class="k">Role</span><span class="val">Client Programmer</span></div>
+          <div class="row"><i class="pin data p-obj"></i><span class="k">Engine</span><span class="val">Unreal Engine 5</span></div>
+          <div class="row"><i class="pin data p-text"></i><span class="k">Language</span><span class="val">C++ · Blueprint</span></div>
+        </div>
+      </div>
+
+      <div class="node seq">
+        <div class="nh"><span class="t"><svg width="13" height="12" viewBox="0 0 13 12" aria-hidden="true"><path d="M0 1h13M0 6h13M0 11h13" stroke="#fff" stroke-width="2"/></svg>Sequence</span></div>
+        <div class="nb">
+          <div class="row"><i class="pin exec" id="seq-i"></i></div>
+          <div class="row r"><span class="k">Then 0</span><i class="pin exec" id="s0"></i></div>
+          <div class="row r"><span class="k">Then 1</span><i class="pin exec" id="s1"></i></div>
+          <div class="row r"><span class="k">Then 2</span><i class="pin exec" id="s2"></i></div>
+          <div class="row r"><span class="k">Then 3</span><i class="pin exec" id="s3"></i></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="comment-h">Projects<small>프로젝트별 대표 시스템</small></div>
+        <div class="comment-b">
+          <div class="node cnode p-fe">
+            <i class="pin exec" id="n0"></i>
+            <span class="cn-body"><span class="cn-t"><span class="cn-ico" aria-hidden="true"></span><b>FallenEra</b><span class="cn-st live">4인 팀 · 개발 중</span></span><span class="cn-s">Socket Snap · Structural Support · Replication</span></span>
+                      </div>
+          <div class="node cnode p-ob">
+            <i class="pin exec" id="n1"></i>
+            <span class="cn-body"><span class="cn-t"><span class="cn-ico" aria-hidden="true"></span><b>OutBreak</b><span class="cn-st">3인 팀</span></span><span class="cn-s">GAS Weapon · Extraction Loop · Steam Online</span></span>
+                      </div>
+          <div class="node cnode p-fa">
+            <i class="pin exec" id="n2"></i>
+            <span class="cn-body"><span class="cn-t"><span class="cn-ico" aria-hidden="true"></span><b>Fantasy Action</b><span class="cn-st">개인</span></span><span class="cn-s">GAS Combat · Behavior Tree · EQS · Sequencer</span></span>
+                      </div>
+          <div class="node cnode p-ms">
+            <i class="pin exec" id="n3"></i>
+            <span class="cn-body"><span class="cn-t"><span class="cn-ico" aria-hidden="true"></span><b>Magic School</b><span class="cn-st">2인 팀</span></span><span class="cn-s">PhysicsHandle · Inventory · Niagara</span></span>
+                      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="u-page">
+  <section class="u-sec">
+    <h2>소개</h2>
+    <div class="u-about">
+      <div><h3>개발 철학</h3><p>보이지 않는 시스템이 단단해야 플레이가 즐거워진다고 믿는 개발자입니다.<br class="br-wide"> 만들기 전에 구조를 먼저 설계하고, 끝내기 전에 테스트와 로그로 확인합니다.<br class="br-wide"> 팀이 함께 쓰기 좋은 코드를 목표로, 겪은 시행착오는 기록해서 공유합니다.</p></div>
+      <div><h3>언리얼 엔진 작업</h3><p>언리얼 엔진 5로 액션 RPG, 방탈출, 익스트랙션 슈팅, 생존 크래프팅을 만들었습니다.<br class="br-wide"> 개인 프로젝트부터 4인 팀 협업까지, 싱글플레이와 멀티플레이를 모두 개발했습니다.<br class="br-wide"> 전투, AI, 건설, 네트워크, UI까지 게임을 이루는 시스템을 폭넓게 직접 구현합니다.</p></div>
+    </div>
+  </section>
+  <section class="u-sec ai">
+    <h2>AI 활용</h2>
+    <div class="ai-body">
+      <p class="ai-lead">Claude Code를 <strong>설계 검토와 원인 분석 파트너</strong>로 씁니다. 코드는 직접 작성하고 빌드와 멀티플레이 검증도 직접 해서, 최종 로직에 대한 책임은 개발자인 제가 집니다.</p>
+      <ol class="ai-flow" aria-label="AI 활용 순서: 설계 검토, 근거 분석, 직접 구현, PIE와 로그 검증, 규칙 기록 후 다시 설계 검토">
+        <li><span>01</span>설계 검토</li>
+        <li><span>02</span>근거 분석</li>
+        <li><span>03</span>직접 구현</li>
+        <li><span>04</span>PIE · 로그 검증</li>
+        <li><span>05</span>규칙 기록</li>
+      </ol>
+      <div class="ai-rules">
+        <div><b>코드는 직접 작성</b>
+          <svg class="ill" viewBox="0 0 240 110" role="img" aria-label="AI는 넣을 파일과 위치, 설계 이유까지 제시하고, 코드는 개발자가 직접 작성합니다. 저장소 파일은 AI가 수정하지 않도록 규칙으로 정해 두었습니다.">
+            <line class="s" x1="46" y1="38" x2="46" y2="28"/><circle class="s" cx="46" cy="24" r="4"/>
+            <rect class="s" x="24" y="38" width="44" height="34" rx="9"/>
+            <circle class="fa" cx="38" cy="54" r="3.5"/><circle class="fa" cx="54" cy="54" r="3.5"/>
+            <line class="s" x1="39" y1="64" x2="53" y2="64"/>
+            <text x="46" y="92" text-anchor="middle">AI</text>
+            <rect class="fp" x="70" y="10" width="62" height="26" rx="8"/><circle class="fp" cx="70" cy="40" r="3"/><circle class="fp" cx="64" cy="45" r="2"/>
+            <text class="ta mono" x="101" y="27" text-anchor="middle">{ } 제안</text>
+            <line class="a" x1="78" y1="64" x2="132" y2="64" marker-end="url(#ai-arr)"/>
+            <rect class="fp" x="142" y="44" width="40" height="28" rx="3"/>
+            <line class="a" x1="149" y1="53" x2="172" y2="53"/><line class="a" x1="149" y1="60" x2="166" y2="60"/><line class="s" x1="149" y1="66" x2="160" y2="66"/>
+            <line class="s" x1="136" y1="76" x2="188" y2="76"/>
+            <circle class="s" cx="206" cy="40" r="10"/>
+            <path class="s" d="M188,76 Q190,56 206,56 Q222,56 224,76"/>
+            <text x="200" y="92" text-anchor="middle">직접 작성</text>
+          </svg></div>
+        <div><b>추측보다 근거</b>
+          <svg class="ill" viewBox="0 0 240 110" role="img" aria-label="구현 전에 GC와 Authority 같은 설계 문제를 먼저 검토하고, 버그는 추측하지 않고 로그와 언리얼 엔진 소스를 확인해 원인을 찾습니다.">
+            <text class="big" x="42" y="68" text-anchor="middle">?</text>
+            <line class="x" x1="24" y1="30" x2="60" y2="74"/><line class="x" x1="60" y1="30" x2="24" y2="74"/>
+            <text x="42" y="92" text-anchor="middle">추측</text>
+            <line class="s" x1="74" y1="52" x2="104" y2="52" marker-end="url(#ai-arr-m)"/>
+            <rect class="fp" x="114" y="18" width="48" height="58" rx="4"/>
+            <line class="s" x1="122" y1="30" x2="152" y2="30"/><line class="s" x1="122" y1="38" x2="148" y2="38"/><line class="a" x1="122" y1="46" x2="154" y2="46"/><line class="s" x1="122" y1="54" x2="144" y2="54"/>
+            <text x="138" y="92" text-anchor="middle">로그</text>
+            <rect class="fp" x="176" y="18" width="48" height="58" rx="4"/>
+            <text class="ta mono" x="200" y="52" text-anchor="middle">&lt;/&gt;</text>
+            <text x="200" y="92" text-anchor="middle">엔진 소스</text>
+            <circle class="a lens" cx="156" cy="56" r="13"/><line class="a thick" x1="165" y1="66" x2="176" y2="78"/>
+          </svg></div>
+        <div><b>검증은 직접</b>
+          <svg class="ill" viewBox="0 0 240 110" role="img" aria-label="빌드와 PIE는 개발자가 직접 실행하고, 호스트와 클라이언트 양쪽 화면에서 조작, 기대 결과, 기대 로그 표로 기능 완료를 판단합니다.">
+            <rect class="fp" x="14" y="22" width="58" height="40" rx="4"/><rect class="fa" x="34" y="36" width="18" height="16" rx="2"/>
+            <line class="s" x1="43" y1="62" x2="43" y2="70"/><line class="s" x1="33" y1="70" x2="53" y2="70"/>
+            <text x="43" y="88" text-anchor="middle">호스트</text>
+            <path class="s" d="M76,38 H90 M86,34 L90,38 L86,42 M90,48 H76 M80,44 L76,48 L80,52"/>
+            <rect class="fp" x="94" y="22" width="58" height="40" rx="4"/><rect class="fa" x="114" y="36" width="18" height="16" rx="2"/>
+            <line class="s" x1="123" y1="62" x2="123" y2="70"/><line class="s" x1="113" y1="70" x2="133" y2="70"/>
+            <text x="123" y="88" text-anchor="middle">클라</text>
+            <rect class="fp" x="166" y="20" width="12" height="12" rx="2"/><path class="a" d="M168.5,26 L171.5,29 L176,23"/><text x="184" y="30">조작</text>
+            <rect class="fp" x="166" y="42" width="12" height="12" rx="2"/><path class="a" d="M168.5,48 L171.5,51 L176,45"/><text x="184" y="52">기대 결과</text>
+            <rect class="fp" x="166" y="64" width="12" height="12" rx="2"/><path class="a" d="M168.5,70 L171.5,73 L176,67"/><text x="184" y="74">기대 로그</text>
+          </svg></div>
+        <div><b>경험을 문서로</b>
+          <svg class="ill" viewBox="0 0 240 110" role="img" aria-label="팀 합의 사항과 겪은 시행착오 47건을 프로젝트 규칙 문서 CLAUDE.md에 기록해 다음 작업에 반영합니다.">
+            <ellipse class="s" cx="38" cy="50" rx="11" ry="15"/><line class="s" x1="38" y1="35" x2="38" y2="65"/>
+            <path class="s" d="M27,44 L18,40 M27,52 L17,52 M27,60 L18,64 M49,44 L58,40 M49,52 L59,52 M49,60 L58,64 M33,36 L29,28 M43,36 L47,28"/>
+            <text x="38" y="88" text-anchor="middle">시행착오</text>
+            <line class="s" x1="66" y1="50" x2="92" y2="50" marker-end="url(#ai-arr-m)"/>
+            <path class="fp" d="M102,18 H142 L154,30 V78 H102 Z"/><path class="s" d="M142,18 V30 H154"/>
+            <line class="s" x1="110" y1="40" x2="144" y2="40"/><line class="s" x1="110" y1="48" x2="140" y2="48"/><line class="s" x1="110" y1="56" x2="144" y2="56"/><line class="s" x1="110" y1="64" x2="134" y2="64"/>
+            <circle class="fa" cx="102" cy="20" r="12"/><text class="badge" x="102" y="24" text-anchor="middle">47</text>
+            <text class="mono" x="128" y="94" text-anchor="middle">CLAUDE.md</text>
+            <line class="a" x1="164" y1="50" x2="186" y2="50" marker-end="url(#ai-arr)"/>
+            <rect class="fp" x="192" y="34" width="40" height="32" rx="6"/><path class="a" d="M204,50 L210,56 L221,44"/>
+            <text x="212" y="88" text-anchor="middle">다음 작업</text>
+          </svg></div>
+      </div>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+          <marker id="ai-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ah-a" d="M0,0 L10,5 L0,10 z"/></marker>
+          <marker id="ai-arr-m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ah-m" d="M0,0 L10,5 L0,10 z"/></marker>
+        </defs>
+      </svg>
+    </div>
+  </section>
+  <section class="u-sec">
+    <h2>기술 스택</h2>
+    <dl class="u-props"><div style="--c:var(--pin-string)"><dt>Language</dt><dd><span>C++</span><span>Blueprint</span></dd></div><div style="--c:var(--pin-object)"><dt>Engine</dt><dd><span>UnrealEngine5</span></dd></div><div style="--c:var(--pin-float)"><dt>Gameplay</dt><dd><span>GAS</span><span>MotionWarping</span><span>LinkedAnimLayer</span><span>GameplayCue</span></dd></div><div style="--c:var(--pin-vector)"><dt>AI</dt><dd><span>BehaviorTree</span><span>EQS</span><span>AIPerception</span></dd></div><div style="--c:var(--pin-rotator)"><dt>연출 / UI</dt><dd><span>Sequencer</span><span>Niagara</span><span>UMG</span><span>MVVM</span></dd></div><div style="--c:var(--pin-bool)"><dt>Network</dt><dd><span>Multiplayer</span><span>Replication</span><span>ServerRPC</span><span>Steam</span><span>DedicatedServer</span></dd></div><div style="--c:var(--pin-struct2)"><dt>Architecture</dt><dd><span>GameplayTags</span><span>DataAsset</span><span>AssetManager</span><span>Subsystem</span><span>Interface</span></dd></div><div style="--c:var(--pin-int)"><dt>Tools / 협업</dt><dd><span>Git</span><span>GitHub</span><span>Rider</span><span>ClaudeCode</span><span>AutomationTest</span></dd></div></dl>
+  </section>
+  <section class="u-sec">
+    <h2>프로젝트</h2>
+    <div>
+      <div class="u-group"><h3>개발 중</h3>
+      <a class="u-proj p-fe" href="fallen-era.html">
+  <div class="u-asset"><span class="ph"></span><div class="bar"></div><div class="lbl">FallenEra<small>4인 팀</small></div></div>
+  <div><h4>FallenEra</h4><p class="one">집을 짓고 방어시설로 기지를 지키는 멀티플레이 생존 크래프팅 게임</p><ul><li>소켓 스냅 모듈러 건설과 서버 배치 검증</li><li>다익스트라 기반 지지 거리 계산과 연쇄 붕괴</li><li>함정, 탑승형 발리스타 등 방어시설 (GAS 연동)</li></ul><span class="go">FallenEra 상세 보기</span></div>
+</a>
+      </div>
+      <div class="u-group"><h3>완성작</h3>
+      <a class="u-proj p-ob" href="outbreak.html">
+  <div class="u-asset"><img src="media/ob-demo-poster.jpg" alt=""><div class="bar"></div><div class="lbl">OutBreak<small>3인 팀</small></div></div>
+  <div><h4>OutBreak</h4><p class="one">좀비가 가득한 도시에서 파밍하고 탈출하는 3인칭 익스트랙션 생존 슈팅 게임</p><ul><li>GAS 기반 무기 4종, 사격 모드, 서버 사격 판정</li><li>탐사 세션, 개인 탈출구 배정, 기절과 부활, 관전</li><li>Steam 파티, 매칭, 데디케이티드 서버 접속</li></ul><span class="go">OutBreak 상세 보기</span></div>
+</a>
+      <a class="u-proj p-fa" href="fantasy-action.html">
+  <div class="u-asset"><img src="img/fa-ui.jpg" alt=""><div class="bar"></div><div class="lbl">Fantasy Action<small>개인</small></div></div>
+  <div><h4>Fantasy Action</h4><p class="one">보스와 몬스터가 함께 싸우는 군집형 AI 전투의 액션 RPG</p><ul><li>GAS 기반 전투와 컴포넌트로 나눈 캐릭터 구조</li><li>Behavior Tree, EQS, AI Perception 기반 적 AI</li><li>시퀀서와 카메라 셰이크로 만든 보스 등장 연출</li></ul><span class="go">Fantasy Action 상세 보기</span></div>
+</a>
+      <a class="u-proj p-ms" href="magic-school.html">
+  <div class="u-asset"><img src="img/ms-level.jpg" alt=""><div class="bar"></div><div class="lbl">Magic School<small>2인 팀, 팀장</small></div></div>
+  <div><h4>Magic School</h4><p class="one">단서를 모아 마법학교를 탈출하는 1인칭 방탈출 퍼즐 게임</p><ul><li>Physics Handle 기반 잡기, 놓기, 회전 인터랙션</li><li>아이템 추가, 버리기, 이동 인벤토리 시스템</li><li>나이아가라 이펙트와 타이머 UI</li></ul><span class="go">Magic School 상세 보기</span></div>
+</a>
+      </div>
+    </div>
+  </section>
+</div>
+<footer class="site-foot"><span>Client Programmer 김진호</span><small class="copyright">&copy; 2026 Kim JinHo. All rights reserved.</small><span>Unreal Engine 5 Portfolio</span></footer>
+<script src="js/blueprint.js"></script>
+</body>
+</html>

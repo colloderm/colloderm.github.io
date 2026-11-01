@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>김진호 포트폴리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="css/folio.css">
+<link rel="stylesheet" href="css/egraph.css">
+</head>
+<body>
+<header class="bar">
+  <a class="me" href="index.html" aria-label="김진호 포트폴리오 메인으로"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M8 20H23" stroke="#e0393e" stroke-width="2.4"/><path d="M26 20l-4.5-3v6z" fill="#e0393e"/><path d="M8 20L18.5 9.5" stroke="#2aa34f" stroke-width="2.4"/><path d="M20.6 7.4l-5.1 1.1 3.9 3.9z" fill="#2aa34f"/><path d="M8 20V5" stroke="#2f6be0" stroke-width="2.4"/><path d="M8 2l-3 4.5h6z" fill="#2f6be0"/><rect x="5.5" y="17.5" width="5" height="5" fill="#f0a500"/></svg></a>
+  <nav aria-label="메인 메뉴"><a href="#projects">프로젝트</a><a href="#skills">기술별로 보기</a><a href="#ways">일하는 방식</a><a class="gh" href="https://github.com/colloderm" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="4" cy="3" r="1.8"/><circle cx="4" cy="13" r="1.8"/><circle cx="12" cy="5" r="1.8"/><path d="M4 4.8v6.4M12 6.8c0 3-8 2.2-8 4.4"/></svg>GitHub</a></nav>
+</header>
+
+<main>
+<section class="hero hero2" aria-label="소개">
+  <div class="hero-top">
+    <div class="dbox who">
+      <svg class="frame" aria-hidden="true"><rect pathLength="1"/></svg>
+      <h1>김진호<span class="en">Kim Jinho</span></h1>
+      <p class="role">Unreal Engine 5 클라이언트 프로그래머</p>
+      <svg class="gizmo" viewBox="0 0 76 76" aria-hidden="true">
+        <defs>
+          <marker id="gx" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#e0393e"/></marker>
+          <marker id="gy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#2aa34f"/></marker>
+          <marker id="gz" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#2f6be0"/></marker>
+        </defs>
+        <line x1="38" y1="38" x2="68" y2="38" stroke="#e0393e" stroke-width="2.5" marker-end="url(#gx)"/>
+        <line x1="38" y1="38" x2="58" y2="20" stroke="#2aa34f" stroke-width="2.5" marker-end="url(#gy)"/>
+        <line x1="38" y1="38" x2="38" y2="7" stroke="#2f6be0" stroke-width="2.5" marker-end="url(#gz)"/>
+        <rect x="35" y="35" width="6" height="6" fill="#f0a500"/>
+        <text x="72" y="42" fill="#e0393e">X</text><text x="60" y="16" fill="#2aa34f">Y</text><text x="42" y="9" fill="#2f6be0">Z</text>
+      </svg>
+    </div>
+    <div class="intro">
+      <div><h2>개발 철학</h2><p>보이지 않는 시스템이 단단해야 플레이가 즐거워진다고 믿는 개발자입니다.<br>만들기 전에 구조를 먼저 설계하고, 끝내기 전에 테스트와 로그로 확인합니다.<br>팀이 함께 쓰기 좋은 코드를 목표로, 겪은 시행착오는 기록해서 공유합니다.</p></div>
+      <div><h2>언리얼 엔진 작업</h2><p>언리얼 엔진 5로 액션 RPG, 방탈출, 익스트랙션 슈팅, 생존 크래프팅을 만들었습니다.<br>개인 프로젝트부터 4인 팀 협업까지, 싱글플레이와 멀티플레이를 모두 개발했습니다.<br>전투, AI, 건설, 네트워크, UI까지 게임을 이루는 시스템을 폭넓게 직접 구현합니다.</p></div>
+    </div>
+  </div>
+  <div class="bpw" aria-label="일하는 방식을 블루프린트 Event Graph로 표현한 그림">
+    <div class="bpw-tab"><b>BP_Portfolio</b><span aria-hidden="true">›</span>Event Graph</div>
+    <div class="bpw-scroll"><div class="bpw-canvas" id="egraph" data-links="p-ev:p-d-i p-d-o:p-i-i p-i-o:p-v-i">
+      <svg class="bpw-wires" aria-hidden="true"></svg>
+      <div class="bn ev"><span class="bn-h"><i class="dia" aria-hidden="true"></i>Event BeginPlay</span><span class="bn-b"><span class="row r"><i class="pin x" id="p-ev"></i></span></span></div>
+      <div class="bc"><div class="bc-h">Workflow<small>기능 하나를 만드는 순서</small></div><div class="bc-b">
+        <a class="bn fn" href="fallen-era.html#team"><span class="bn-h"><b aria-hidden="true">ƒ</b>설계<small>Target is Feature</small></span><span class="bn-b"><span class="row split"><i class="pin x" id="p-d-i"></i><i class="pin x" id="p-d-o"></i></span><div class="row"><i class="pin d s"></i><span class="k">Issue</span><span class="v">완료 조건부터</span></div><div class="row"><i class="pin d b"></i><span class="k">Review</span><span class="v">팀원 3명 PR 리뷰</span></div></span></a>
+        <a class="bn fn" href="#projects"><span class="bn-h"><b aria-hidden="true">ƒ</b>구현<small>Target is Unreal Engine 5</small></span><span class="bn-b"><span class="row split"><i class="pin x" id="p-i-i"></i><i class="pin x" id="p-i-o"></i></span><div class="row"><i class="pin d s"></i><span class="k">Language</span><span class="v">C++ / Blueprint</span></div><div class="row"><i class="pin d o"></i><span class="k">Framework</span><span class="v">GAS</span></div><div class="row"><i class="pin d r"></i><span class="k">Network</span><span class="v">Replication</span></div></span></a>
+        <a class="bn fn" href="fallen-era.html#network"><span class="bn-h"><b aria-hidden="true">ƒ</b>검증<small>Target is Build</small></span><span class="bn-b"><span class="row split"><i class="pin x" id="p-v-i"></i><i class="pin x" id="p-v-o"></i></span><div class="row"><i class="pin d o"></i><span class="k">Session</span><span class="v">2인 PIE</span></div><div class="row"><i class="pin d b"></i><span class="k">Test</span><span class="v">Automation Test</span></div><div class="row"><i class="pin d s"></i><span class="k">Log</span><span class="v">기대 로그 확인</span></div></span></a>
+      </div></div>
+    </div></div>
+  </div>
+</section>
+
+<section class="block" id="projects">
+  <h2>프로젝트</h2>
+  <p class="lead">팀 프로젝트 3개와 개인 프로젝트 1개입니다. 각 프로젝트에서 제가 직접 만든 부분만 적었습니다.</p>
+  <ol class="plist">
+    <li class="p-fe">
+      <div class="dbox"><span class="dstr">빌드 메뉴와 배치 고스트</span><img src="img/fe-build-menu.png" alt="FallenEra 빌드 메뉴와 초록색 배치 고스트"></div>
+      <div class="ptext">
+        <h3 class="pname"><a href="fallen-era.html">FallenEra</a></h3>
+        <p class="genre">1인칭 멀티플레이 생존 크래프팅, 개발 중</p>
+        <ul>
+          <li>소켓 스냅 모듈러 건설과 서버 재검증 배치</li>
+          <li>다익스트라로 지지 거리를 구하는 구조 안정성과 연쇄 붕괴</li>
+          <li>GAS 피해 경로를 그대로 쓰는 함정과 탑승형 발리스타</li>
+        </ul>
+        <p class="pmeta">4인 팀, 2개월째 개발 중, C++</p>
+        <a class="more" href="fallen-era.html">FallenEra 자세히 보기</a>
+      </div>
+    </li>
+    <li class="p-ob">
+      <div class="dbox"><span class="dstr">탐사 구역 교전</span><img src="media/ob-demo-poster.jpg" alt="OutBreak 야외에서 권총을 사격하는 3인칭 플레이 장면"></div>
+      <div class="ptext">
+        <h3 class="pname"><a href="outbreak.html">OutBreak</a></h3>
+        <p class="genre">3인칭 익스트랙션 생존 슈팅, 완성</p>
+        <ul>
+          <li>GAS 무기 4종과 사격 모드, 서버에서 두 번 트레이스하는 사격 판정</li>
+          <li>탐사 세션, 개인 탈출구 배정, 기절과 부활, 관전</li>
+          <li>Steam 파티와 매칭, 데디케이티드 서버 접속</li>
+        </ul>
+        <p class="pmeta">3인 팀, 2개월, C++ / GAS / Steam</p>
+        <a class="more" href="outbreak.html">OutBreak 자세히 보기</a>
+      </div>
+    </li>
+    <li class="p-fa">
+      <div class="dbox"><span class="dstr">보스전과 플레이어 HUD</span><img src="img/fa-ui.jpg" alt="Fantasy Action 보스전 장면"></div>
+      <div class="ptext">
+        <h3 class="pname"><a href="fantasy-action.html">Fantasy Action</a></h3>
+        <p class="genre">액션 RPG, 완성</p>
+        <ul>
+          <li>GAS 전투와 역할별 컴포넌트로 나눈 캐릭터 구조</li>
+          <li>Behavior Tree, EQS, AI Perception으로 만든 적 AI</li>
+          <li>무기마다 바뀌는 Linked Anim Layer와 보스 등장 컷신</li>
+        </ul>
+        <p class="pmeta">개인, 3개월, C++ / Blueprint</p>
+        <a class="more" href="fantasy-action.html">Fantasy Action 자세히 보기</a>
+      </div>
+    </li>
+    <li class="p-ms">
+      <div class="dbox"><span class="dstr">비밀의 방</span><img src="img/ms-level.jpg" alt="Magic School 비밀의 방 내부"></div>
+      <div class="ptext">
+        <h3 class="pname"><a href="magic-school.html">Magic School</a></h3>
+        <p class="genre">1인칭 방탈출 퍼즐, 완성</p>
+        <ul>
+          <li>Physics Handle로 만든 잡기, 놓기, 회전</li>
+          <li>아이템 추가, 버리기, 이동이 되는 인벤토리</li>
+          <li>나이아가라 이펙트와 남은 시간 타이머 UI</li>
+        </ul>
+        <p class="pmeta">2인 팀 (팀장), 1개월, Blueprint</p>
+        <a class="more" href="magic-school.html">Magic School 자세히 보기</a>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section class="block" id="skills">
+  <h2>기술별로 보기</h2>
+  <p class="lead">어떤 기술을 어느 프로젝트에서 썼는지 정리했습니다. 칸을 누르면 그 기술을 설명한 부분으로 바로 이동합니다.</p>
+  <div class="mx-scroll">
+    <table class="mx">
+      <thead><tr><th scope="col"><span class="vh">기술</span></th>
+        <th scope="col" class="p-fe"><span></span>FallenEra</th><th scope="col" class="p-ob"><span></span>OutBreak</th><th scope="col" class="p-fa"><span></span>Fantasy Action</th><th scope="col" class="p-ms"><span></span>Magic School</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">멀티플레이 서버 권한, 리플리케이션</th><td class="p-fe"><a href="fallen-era.html#network">서버 재검증</a></td><td class="p-ob"><a href="outbreak.html#trace">서버 사격 판정</a></td><td></td><td></td></tr>
+        <tr><th scope="row">GAS (어빌리티, 이펙트, 큐)</th><td class="p-fe"><a href="fallen-era.html#defense">함정과 발리스타</a></td><td class="p-ob"><a href="outbreak.html#gas">무기 어빌리티</a></td><td class="p-fa"><a href="fantasy-action.html#comp">전투 컴포넌트</a></td><td></td></tr>
+        <tr><th scope="row">온라인 (Steam 세션, 데디케이티드 서버)</th><td></td><td class="p-ob"><a href="outbreak.html#online">파티와 매칭</a></td><td></td><td></td></tr>
+        <tr><th scope="row">데이터 주도 설계 (DataAsset, Asset Manager)</th><td class="p-fe"><a href="fallen-era.html#build">피스 정의</a></td><td class="p-ob"><a href="outbreak.html#weapon">무기 데이터</a></td><td></td><td></td></tr>
+        <tr><th scope="row">게임 규칙과 알고리즘</th><td class="p-fe"><a href="fallen-era.html#support">지지 거리</a></td><td class="p-ob"><a href="outbreak.html#loop">탈출구 배정</a></td><td></td><td></td></tr>
+        <tr><th scope="row">적 AI (Behavior Tree, EQS, Perception)</th><td></td><td></td><td class="p-fa"><a href="fantasy-action.html#ai">BT와 EQS</a></td><td></td></tr>
+        <tr><th scope="row">애니메이션 (Linked Anim Layer, Motion Warping)</th><td></td><td></td><td class="p-fa"><a href="fantasy-action.html#anim">무기별 레이어</a></td><td></td></tr>
+        <tr><th scope="row">UI (UMG, MVVM)</th><td class="p-fe"><a href="fallen-era.html#interact">빌드 메뉴</a></td><td class="p-ob"><a href="outbreak.html#lobby">로비와 HUD</a></td><td class="p-fa"><a href="fantasy-action.html#ui">전투 HUD</a></td><td class="p-ms"><a href="magic-school.html#screens">화면 구성</a></td></tr>
+        <tr><th scope="row">연출 (Sequencer, Niagara)</th><td></td><td></td><td class="p-fa"><a href="fantasy-action.html#cine">보스 컷신</a></td><td class="p-ms"><a href="magic-school.html#fx">퍼즐 이펙트</a></td></tr>
+        <tr><th scope="row">물리 상호작용 (Physics Handle)</th><td></td><td></td><td></td><td class="p-ms"><a href="magic-school.html#char">잡기와 회전</a></td></tr>
+        <tr><th scope="row">자동화 테스트, 코드 리뷰</th><td class="p-fe"><a href="fallen-era.html#team">Issue와 PR</a></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="block" id="ways">
+  <h2>일하는 방식</h2>
+  <ul class="ways">
+    <li><h3>완료 조건부터 적습니다</h3><p>구현 전에 GitHub Issue에 작업 범위와 완료 조건을 정리합니다. 기능 단위 브랜치로 나누고, 팀원 리뷰를 거친 PR만 병합합니다.</p></li>
+    <li><h3>직접 띄워서 확인합니다</h3><p>멀티플레이 기능은 호스트와 클라이언트 2인 PIE에서 조작, 기대 결과, 기대 로그를 맞춰 봅니다. 다시 깨지면 안 되는 규칙은 자동화 테스트로 남깁니다.</p></li>
+    <li><h3>AI는 검토에만 씁니다</h3><p>Claude Code는 설계 검토와 원인 분석에 쓰고, 코드는 직접 작성합니다. 겪은 시행착오 47건은 팀 규칙 문서(CLAUDE.md)에 적어 다음 작업에 반영합니다.</p></li>
+  </ul>
+</section>
+</main>
+
+<footer class="foot"><span>김진호, Unreal Engine 5 클라이언트 프로그래머</span><span>&copy; 2026 Kim JinHo. All rights reserved.</span></footer>
+<script src="js/egraph.js"></script>
+<script>
+// 움직임 줄이기 설정이면 자동 재생 영상을 멈춘다
+if(matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('video[autoplay]').forEach(v=>{v.removeAttribute('autoplay');v.pause();});
+</script>
+</body>
+</html>
