@@ -13,7 +13,7 @@
   --f-disp:"Archivo",system-ui,sans-serif;
   --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
   --f-code:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
-  --wrap:1120px; --measure:40rem;
+  --wrap:1120px; --measure:none;
   color-scheme:light;
 }
 .p-fe{--pc:var(--fe);--pc-ink:var(--fe-ink)}
@@ -27,7 +27,7 @@ html{scroll-behavior:smooth}
 body{margin:0;background:linear-gradient(transparent 55vh,var(--paper) 100vh) 0 0/100% 100vh no-repeat,repeating-linear-gradient(0deg,var(--rule-2) 0 1px,transparent 1px 40px) 0 0/100% 100vh no-repeat,repeating-linear-gradient(90deg,var(--rule-2) 0 1px,transparent 1px 40px) 0 0/100% 100vh no-repeat,var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.75;
   word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-h1,h2,h3,h4{margin:0;line-height:1.3;text-wrap:balance}
+h1,h2,h3,h4{margin:0;line-height:1.3}
 p{margin:0}
 a{color:inherit}
 a:focus-visible,button:focus-visible{outline:2px solid var(--z);outline-offset:3px}
@@ -125,7 +125,7 @@ img{max-width:100%}
 .dhead{max-width:var(--wrap);margin:0 auto;padding:40px 0 0}
 .dhead .pname{font-size:clamp(3rem,9vw,7.5rem);letter-spacing:-.025em}
 .dhead .genre{font-size:1.1875rem;margin-top:18px}
-.dhead .sum{margin-top:14px;font-size:1.1875rem;line-height:1.75;max-width:34em}
+.dhead .sum{margin-top:14px;font-size:1.1875rem;line-height:1.75}
 .spec{margin:32px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1.5px solid var(--ink);border-bottom:1px solid var(--rule)}
 .spec div{padding:12px 16px 14px 0}
 .spec div+div{padding-left:16px;border-left:1px solid var(--rule-2)}
